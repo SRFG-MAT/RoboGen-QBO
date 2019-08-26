@@ -1,0 +1,31 @@
+{
+  "config": {
+    "ignore_stop_words": true,
+    "max_pattern_length": 1000,
+    "max_queries": 500,
+    "unit_name": "deterministic_intent_parser"
+  },
+  "group_names_to_slot_names": {},
+  "language_code": "de",
+  "patterns": {
+    "ja": [
+      "^\\s*ja\\s*$",
+      "^\\s*mehr\\s*$",
+      "^\\s*erz\u00e4hl\\s*mehr\\s*$",
+      "^\\s*weitere\\s*funktionen\\s*$",
+      "^\\s*was\\s*kannst\\s*sonst\\s*noch\\s*$",
+      "^\\s*welche\\s*anderen\\s*funktionen\\s*hast\\s*noch\\s*$"
+    ],
+    "nein": [
+      "^\\s*nein\\s*$",
+      "^\\s*passt\\s*schon\\s*$",
+      "^\\s*nein\\s*danke\\s*$",
+      "^\\s*abschalten\\s*$"
+    ]
+  },
+  "slot_names_to_entities": {
+    "ja": {},
+    "nein": {}
+  },
+  "stop_words_whitelist": {}
+}

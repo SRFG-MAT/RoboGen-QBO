@@ -1,0 +1,272 @@
+2019-04-17 14:47:28,222 - INFO - Initialized logging
+2019-04-17 14:47:28,223 - INFO - Reading /opt/qbo/config.yml
+2019-04-17 15:02:56,292 - INFO - Initialized logging
+2019-04-17 15:02:56,295 - INFO - Reading /opt/qbo/config.yml
+2019-04-17 15:02:56,314 - INFO - Starting the webcam thread
+2019-04-17 15:04:35,501 - INFO - Initialized logging
+2019-04-17 15:04:35,502 - INFO - Reading /opt/qbo/config.yml
+2019-04-17 15:04:35,545 - INFO - Starting the webcam thread
+2019-04-18 07:55:32,963 - INFO - Initialized logging
+2019-04-18 07:55:32,966 - INFO - Reading /opt/qbo/config.yml
+2019-04-18 07:55:32,984 - INFO - Starting the webcam thread
+2019-04-18 07:57:33,245 - INFO - Initialized logging
+2019-04-18 07:57:33,246 - INFO - Reading /opt/qbo/config.yml
+2019-04-18 07:57:33,254 - INFO - Starting the webcam thread
+2019-04-18 08:12:09,930 - INFO - Initialized logging
+2019-04-18 08:12:09,941 - INFO - Reading /opt/qbo/config.yml
+2019-04-18 08:12:09,955 - INFO - Starting the webcam thread
+2019-04-18 08:12:12,068 - INFO - Starting the frames per second counter
+2019-04-18 08:12:12,070 - INFO - Setup cascade classifier frontal face detection (/opt/qbo/haarcascades/haarcascade_frontalface_alt2.xml)
+2019-04-18 08:12:12,092 - INFO - Setup cascade classifier profile face detection (/opt/qbo/haarcascades/haarcascade_profileface.xml)
+2019-04-18 08:28:45,551 - INFO - Initialized logging
+2019-04-18 08:28:45,552 - INFO - Reading /opt/qbo/config.yml
+2019-04-18 08:28:45,563 - INFO - Starting the webcam thread
+2019-04-18 08:28:47,687 - INFO - Starting the frames per second counter
+2019-04-18 08:28:47,688 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-04-18 08:28:47,904 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-04-18 08:31:54,077 - INFO - Stopping because the q key was pressed
+2019-04-18 08:31:54,078 - INFO - Elapsed time: 186.39
+2019-04-18 08:31:54,079 - INFO - Vision approx. FPS: 3.47
+2019-04-18 08:31:54,084 - INFO - Script ended
+2019-04-18 08:32:47,640 - INFO - Initialized logging
+2019-04-18 08:32:47,641 - INFO - Reading /opt/qbo/config.yml
+2019-04-18 08:32:47,650 - INFO - Starting the webcam thread
+2019-04-18 08:32:49,757 - INFO - Starting the frames per second counter
+2019-04-18 08:32:49,758 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-04-18 08:32:49,959 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-04-18 08:45:29,721 - INFO - Initialized logging
+2019-04-18 08:45:29,722 - INFO - Reading /opt/qbo/config.yml
+2019-04-18 08:45:29,731 - INFO - Starting the webcam thread
+2019-04-18 08:45:31,837 - INFO - Starting the frames per second counter
+2019-04-18 08:45:31,838 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-04-18 08:45:32,020 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-04-18 08:46:18,922 - INFO - Stopping because the q key was pressed
+2019-04-18 08:46:18,923 - INFO - Elapsed time: 47.08
+2019-04-18 08:46:18,931 - INFO - Vision approx. FPS: 7.35
+2019-04-18 08:46:18,937 - INFO - Script ended
+2019-04-18 09:26:23,613 - INFO - Initialized logging
+2019-04-18 09:26:23,616 - INFO - Reading /opt/qbo/config.yml
+2019-04-18 09:26:23,641 - INFO - Starting the webcam thread
+2019-04-18 09:26:25,780 - INFO - Starting the frames per second counter
+2019-04-18 09:26:25,781 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-04-18 09:26:25,984 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-04-18 09:53:45,493 - INFO - Initialized logging
+2019-04-18 09:53:45,495 - INFO - Reading /opt/qbo/config.yml
+2019-04-18 09:53:45,508 - INFO - Starting the webcam thread
+2019-04-18 09:53:47,640 - INFO - Starting the frames per second counter
+2019-04-18 09:53:47,641 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-04-18 09:53:47,829 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-04-24 12:10:58,022 - INFO - Initialized logging
+2019-04-24 12:10:58,024 - INFO - Reading /opt/qbo/config.yml
+2019-04-24 12:10:58,035 - INFO - Starting the webcam thread
+2019-04-24 12:11:00,164 - INFO - Starting the frames per second counter
+2019-04-24 12:11:00,165 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-04-24 12:11:00,368 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 13:29:24,888 - INFO - Initialized logging
+2019-05-23 13:29:24,891 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:29:24,915 - INFO - Starting the webcam thread
+2019-05-23 13:29:27,032 - INFO - Starting the frames per second counter
+2019-05-23 13:29:27,033 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 13:29:27,258 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 13:29:46,420 - INFO - Initialized logging
+2019-05-23 13:29:46,421 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:29:46,438 - INFO - Starting the webcam thread
+2019-05-23 13:29:48,544 - INFO - Starting the frames per second counter
+2019-05-23 13:29:48,545 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 13:29:48,725 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 13:34:44,001 - INFO - Initialized logging
+2019-05-23 13:34:44,001 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:34:44,012 - INFO - Starting the webcam thread
+2019-05-23 13:36:49,674 - INFO - Initialized logging
+2019-05-23 13:36:49,675 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:36:49,687 - INFO - Starting the webcam thread
+2019-05-23 13:37:53,664 - INFO - Initialized logging
+2019-05-23 13:37:53,690 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:37:53,701 - INFO - Starting the webcam thread
+2019-05-23 13:38:37,310 - INFO - Initialized logging
+2019-05-23 13:38:37,311 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:38:37,344 - INFO - Starting the webcam thread
+2019-05-23 13:39:05,216 - INFO - Initialized logging
+2019-05-23 13:39:05,217 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:39:05,227 - INFO - Starting the webcam thread
+2019-05-23 13:39:07,331 - INFO - Starting the frames per second counter
+2019-05-23 13:39:07,332 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 13:39:07,528 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 13:43:19,087 - INFO - Initialized logging
+2019-05-23 13:43:19,089 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:43:19,108 - INFO - Starting the webcam thread
+2019-05-23 13:43:21,211 - INFO - Starting the frames per second counter
+2019-05-23 13:43:21,212 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 13:43:21,440 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 13:43:49,842 - INFO - Initialized logging
+2019-05-23 13:43:49,843 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:43:49,855 - INFO - Starting the webcam thread
+2019-05-23 13:43:51,951 - INFO - Starting the frames per second counter
+2019-05-23 13:43:51,952 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 13:43:52,139 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 13:49:45,496 - INFO - Initialized logging
+2019-05-23 13:49:45,496 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:49:45,542 - INFO - Starting the webcam thread
+2019-05-23 13:49:47,645 - INFO - Starting the frames per second counter
+2019-05-23 13:49:47,646 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 13:49:47,861 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 13:50:16,498 - INFO - Initialized logging
+2019-05-23 13:50:16,498 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:50:16,510 - INFO - Starting the webcam thread
+2019-05-23 13:50:18,622 - INFO - Starting the frames per second counter
+2019-05-23 13:50:18,623 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 13:50:18,825 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 13:52:15,321 - INFO - Initialized logging
+2019-05-23 13:52:15,322 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:52:15,333 - INFO - Starting the webcam thread
+2019-05-23 13:52:17,441 - INFO - Starting the frames per second counter
+2019-05-23 13:52:17,442 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 13:52:17,652 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 13:53:58,292 - INFO - Initialized logging
+2019-05-23 13:53:58,293 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:53:58,315 - INFO - Starting the webcam thread
+2019-05-23 13:54:26,817 - INFO - Initialized logging
+2019-05-23 13:54:26,817 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:54:26,827 - INFO - Starting the webcam thread
+2019-05-23 13:54:41,312 - INFO - Initialized logging
+2019-05-23 13:54:41,312 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:54:41,323 - INFO - Starting the webcam thread
+2019-05-23 13:54:43,430 - INFO - Starting the frames per second counter
+2019-05-23 13:54:43,454 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 13:54:43,673 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 13:55:40,030 - INFO - Initialized logging
+2019-05-23 13:55:40,030 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:55:40,042 - INFO - Starting the webcam thread
+2019-05-23 13:55:42,145 - INFO - Starting the frames per second counter
+2019-05-23 13:55:42,146 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 13:55:42,336 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 13:55:55,721 - INFO - Initialized logging
+2019-05-23 13:55:55,721 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 13:55:55,731 - INFO - Starting the webcam thread
+2019-05-23 13:55:57,834 - INFO - Starting the frames per second counter
+2019-05-23 13:55:57,859 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 13:55:58,043 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 14:00:25,447 - INFO - Initialized logging
+2019-05-23 14:00:25,447 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 14:00:25,457 - INFO - Starting the webcam thread
+2019-05-23 14:00:36,878 - INFO - Initialized logging
+2019-05-23 14:00:36,879 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 14:00:36,897 - INFO - Starting the webcam thread
+2019-05-23 14:00:39,005 - INFO - Starting the frames per second counter
+2019-05-23 14:00:39,006 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 14:00:39,212 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 14:01:08,561 - INFO - Initialized logging
+2019-05-23 14:01:08,562 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 14:01:08,575 - INFO - Starting the webcam thread
+2019-05-23 14:01:10,675 - INFO - Starting the frames per second counter
+2019-05-23 14:01:10,676 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 14:01:10,868 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 14:01:29,885 - INFO - Initialized logging
+2019-05-23 14:01:29,885 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 14:01:29,894 - INFO - Starting the webcam thread
+2019-05-23 14:01:32,004 - INFO - Starting the frames per second counter
+2019-05-23 14:01:32,005 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 14:01:32,191 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 14:04:44,133 - INFO - Initialized logging
+2019-05-23 14:04:44,133 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 14:04:44,143 - INFO - Starting the webcam thread
+2019-05-23 14:04:48,471 - INFO - Initialized logging
+2019-05-23 14:04:48,472 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 14:04:48,500 - INFO - Starting the webcam thread
+2019-05-23 14:04:50,604 - INFO - Starting the frames per second counter
+2019-05-23 14:04:50,605 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 14:04:50,817 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 14:32:16,957 - INFO - Initialized logging
+2019-05-23 14:32:16,968 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 14:32:16,985 - INFO - Starting the webcam thread
+2019-05-23 14:32:24,386 - INFO - Initialized logging
+2019-05-23 14:32:24,387 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 14:32:24,397 - INFO - Starting the webcam thread
+2019-05-23 14:32:26,505 - INFO - Starting the frames per second counter
+2019-05-23 14:32:26,506 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 14:32:26,671 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 14:32:59,875 - INFO - Initialized logging
+2019-05-23 14:32:59,948 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 14:32:59,957 - INFO - Starting the webcam thread
+2019-05-23 14:33:02,075 - INFO - Starting the frames per second counter
+2019-05-23 14:33:02,076 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 14:33:02,266 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 14:33:13,953 - INFO - Initialized logging
+2019-05-23 14:33:13,954 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 14:33:13,963 - INFO - Starting the webcam thread
+2019-05-23 14:33:26,766 - INFO - Initialized logging
+2019-05-23 14:33:26,767 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 14:33:26,776 - INFO - Starting the webcam thread
+2019-05-23 14:33:28,895 - INFO - Starting the frames per second counter
+2019-05-23 14:33:28,896 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 14:33:29,080 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-05-23 14:37:33,551 - INFO - Initialized logging
+2019-05-23 14:37:33,552 - INFO - Reading /opt/qbo/config.yml
+2019-05-23 14:37:33,563 - INFO - Starting the webcam thread
+2019-05-23 14:37:35,661 - INFO - Starting the frames per second counter
+2019-05-23 14:37:35,662 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-05-23 14:37:35,866 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-06-06 10:03:51,864 - INFO - Initialized logging
+2019-06-06 10:03:51,868 - INFO - Reading /opt/qbo/config.yml
+2019-06-06 10:03:51,882 - INFO - Starting the webcam thread
+2019-06-06 10:03:53,909 - INFO - Starting the frames per second counter
+2019-06-06 10:03:53,910 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-06-06 10:03:54,074 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-06-06 10:03:54,272 - ERROR - Not successful grabbing a frame, skipping and try again
+2019-06-06 10:04:21,857 - INFO - Initialized logging
+2019-06-06 10:04:21,859 - INFO - Reading /opt/qbo/config.yml
+2019-06-06 10:04:21,874 - INFO - Starting the webcam thread
+2019-07-10 14:24:09,607 - INFO - Initialized logging
+2019-07-10 14:24:09,611 - INFO - Reading /opt/qbo/config.yml
+2019-07-10 14:24:09,624 - INFO - Starting the webcam thread
+2019-07-10 14:24:11,649 - INFO - Starting the frames per second counter
+2019-07-10 14:24:11,650 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-07-10 14:24:11,822 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-07-10 14:24:12,030 - ERROR - Not successful grabbing a frame, skipping and try again
+2019-07-10 14:32:55,743 - INFO - Initialized logging
+2019-07-10 14:32:55,744 - INFO - Reading /opt/qbo/config.yml
+2019-07-10 14:32:55,752 - INFO - Starting the webcam thread
+2019-07-10 14:33:47,445 - INFO - Initialized logging
+2019-07-10 14:33:47,445 - INFO - Reading /opt/qbo/config.yml
+2019-07-10 14:33:47,454 - INFO - Starting the webcam thread
+2019-07-10 14:33:49,479 - INFO - Starting the frames per second counter
+2019-07-10 14:33:49,480 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-07-10 14:33:49,637 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-07-10 14:33:49,827 - ERROR - Not successful grabbing a frame, skipping and try again
+2019-07-10 14:38:03,751 - INFO - Initialized logging
+2019-07-10 14:38:03,752 - INFO - Reading /opt/qbo/config.yml
+2019-07-10 14:38:03,760 - INFO - Starting the webcam thread
+2019-07-10 14:38:05,773 - INFO - Starting the frames per second counter
+2019-07-10 14:38:05,774 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-07-10 14:38:05,999 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-07-31 17:37:23,980 - INFO - Initialized logging
+2019-07-31 17:37:23,983 - INFO - Reading /opt/qbo/config.yml
+2019-07-31 17:37:23,998 - INFO - Starting the webcam thread
+2019-07-31 17:37:26,024 - INFO - Starting the frames per second counter
+2019-07-31 17:37:26,025 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-07-31 17:37:26,224 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-07-31 17:37:26,413 - ERROR - Not successful grabbing a frame, skipping and try again
+2019-07-31 17:46:32,782 - INFO - Initialized logging
+2019-07-31 17:46:32,783 - INFO - Reading /opt/qbo/config.yml
+2019-07-31 17:46:32,796 - INFO - Starting the webcam thread
+2019-07-31 17:46:34,823 - INFO - Starting the frames per second counter
+2019-07-31 17:46:34,824 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-07-31 17:46:34,984 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-07-31 17:46:35,177 - ERROR - Not successful grabbing a frame, skipping and try again
+2019-07-31 17:46:46,591 - INFO - Initialized logging
+2019-07-31 17:46:46,592 - INFO - Reading /opt/qbo/config.yml
+2019-07-31 17:46:46,604 - INFO - Starting the webcam thread
+2019-07-31 17:46:48,632 - INFO - Starting the frames per second counter
+2019-07-31 17:46:48,632 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-07-31 17:46:48,787 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-07-31 17:46:48,991 - ERROR - Not successful grabbing a frame, skipping and try again
+2019-07-31 17:52:00,834 - INFO - Initialized logging
+2019-07-31 17:52:00,835 - INFO - Reading /opt/qbo/config.yml
+2019-07-31 17:52:00,848 - INFO - Starting the webcam thread
+2019-08-26 10:06:19,200 - INFO - Initialized logging
+2019-08-26 10:06:19,205 - INFO - Reading /opt/qbo/config.yml
+2019-08-26 10:06:19,220 - INFO - Starting the webcam thread
+2019-08-26 10:06:21,314 - INFO - Starting the frames per second counter
+2019-08-26 10:06:21,316 - INFO - Setup cascade classifier frontal face detection (/home/pi/Documents/Python projects/haarcascade_frontalface_alt2.xml)
+2019-08-26 10:06:21,494 - INFO - Setup cascade classifier profile face detection (/home/pi/Documents/Python projects/haarcascade_profileface.xml
+2019-08-26 10:06:21,707 - ERROR - Not successful grabbing a frame, skipping and try again

@@ -1,0 +1,40 @@
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+Steps to make the Bluetooth Communication work:
+also see this: https://circuitdigest.com/microcontroller-projects/controlling-raspberry-pi-gpio-using-android-app-over-bluetooth
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Step 1)
+in Terminal: sudo bluetoothctl
+
+Step 2)
+[bluetooth]# power on
+[bluetooth]# agent on
+[bluetooth]# discoverable on
+[bluetooth]# pairable on
+[bluetooth]# scan on
+
+Step 3)
+[bluetooth]# pair <address of your phone>
+
+Step 4) 
+start BluetoothAdapter (in a second terminal)
+
+Step 5)
+socket connect with android app
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+configure packages of bluetooth on first attempt following post:
+https://www.raspberrypi.org/forums/viewtopic.php?p=919420#p919420
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Step 0) Make sure the bluetooth devices are paired correctly
+Step 1) open config file: "sudo nano /etc/systemd/system/dbus-org.bluez.service"
+Step 2) Edit file: "ExecStart=/usr/lib/bluetooth/bluetoothd -C"
+                   "ExecStartPost=/usr/bin/sdptool add SP"
+Step 3) Save file and reboot the Raspberry Pi 3
+Step 4) Wait to connect for first time: "sudo rfcomm watch hci0"
+Step 5) Connect using Terminal App (will create the required serial device folder on connection)
+
+

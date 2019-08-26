@@ -1,0 +1,110 @@
+{
+  "entities": {
+    "room": {
+      "automatically_extensible": false,
+      "data": [
+        {
+          "synonyms": [],
+          "value": "bedroom"
+        },
+        {
+          "synonyms": [
+            "main room",
+            "lounge"
+          ],
+          "value": "living room"
+        },
+        {
+          "synonyms": [
+            "yard",
+            "backyard"
+          ],
+          "value": "garden"
+        }
+      ],
+      "matching_strictness": 1.0,
+      "use_synonyms": true
+    }
+  },
+  "intents": {
+    "ja": {
+      "utterances": [
+        {
+          "data": [
+            {
+              "text": "Ja"
+            }
+          ]
+        },
+        {
+          "data": [
+            {
+              "text": "Mehr"
+            }
+          ]
+        },
+        {
+          "data": [
+            {
+              "text": "Erz\u00e4hl mir mehr"
+            }
+          ]
+        },
+        {
+          "data": [
+            {
+              "text": "Weitere Funktionen"
+            }
+          ]
+        },
+        {
+          "data": [
+            {
+              "text": "Was kannst du sonst noch"
+            }
+          ]
+        },
+        {
+          "data": [
+            {
+              "text": "Welche anderen Funktionen hast du noch?"
+            }
+          ]
+        }
+      ]
+    },
+    "nein": {
+      "utterances": [
+        {
+          "data": [
+            {
+              "text": "Nein"
+            }
+          ]
+        },
+        {
+          "data": [
+            {
+              "text": "Passt schon"
+            }
+          ]
+        },
+        {
+          "data": [
+            {
+              "text": "Nein, danke"
+            }
+          ]
+        },
+        {
+          "data": [
+            {
+              "text": "Abschalten"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "language": "de"
+}

@@ -1,0 +1,39 @@
+# ja
+---
+type: intent
+name: ja
+slots:
+  - name: room
+    entity: room
+utterances:
+  - Ja
+  - Mehr
+  - Erzähl mir mehr
+  - Weitere Funktionen
+  - Was kannst du sonst noch
+  - Welche anderen Funktionen hast du noch?
+
+# nein
+---
+type: intent
+name: nein
+slots:
+  - name: room
+    entity: room
+utterances:
+  - Nein
+  - Passt schon
+  - Nein, danke
+  - Abschalten
+
+
+
+# room entity
+---
+type: entity
+name: room
+automatically_extensible: no
+values:
+- bedroom
+- [living room, main room, lounge]
+- [garden, yard, backyard]
