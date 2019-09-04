@@ -42,7 +42,7 @@ while True:
         print ("---------------------------------------------------------")
         print ("Start Q.bo mouth.py) all output will be redirected:")
         print ("---------------------------------------------------------")
-        subprocess.call(['python', "../mouth.py"])
+        subprocess.call(['python', "../Control/mouth.py"])
         print ("---------------------------------------------------------")
         
         client_socket.send("OK1")
@@ -51,16 +51,18 @@ while True:
         print ("---------------------------------------------------------")
         print ("Start Q.bo head.py) all output will be redirected:")
         print ("---------------------------------------------------------")
-        subprocess.call(['python', "../head.py"])
+        subprocess.call(['python', "../Control/head.py"])
         print ("---------------------------------------------------------")
         
         client_socket.send("OK2")
         
     elif (ord(data) == 3):
         print ("---------------------------------------------------------")
-        print ("Start Q.bo EmotionDetectionDlib.py) all output will be redirected:")
+        print ("Start Q.bo FaceDetectionWebCamEmotionDetectionDlib.py) all output will be redirected:")
         print ("---------------------------------------------------------")
-        subprocess.call(['python', "../EmotionRecognition/EmotionDetectionDlib.py"])
+        os.chdir("../FaceDetection") # only works in its own folder
+        subprocess.call(['python', "FaceDetectionWebCam.py"])
+        os.chdir("../BlueToothAdapter") # switch back to BluetoothAdapter folder
         print ("---------------------------------------------------------")
         
         client_socket.send("OK3")
@@ -69,7 +71,7 @@ while True:
         print ("---------------------------------------------------------")
         print ("Start Q.bo EmotionSpeech.py) all output will be redirected:")
         print ("---------------------------------------------------------")
-        os.chdir("../EmotionSpeechDetection") # only works in its own folder
+        os.chdir("../EmotionSpeech") # only works in its own folder
         subprocess.call(['python', "Main_Programm.py"])
         os.chdir("../BlueToothAdapter") # switch back to BluetoothAdapter folder
         print ("---------------------------------------------------------")
