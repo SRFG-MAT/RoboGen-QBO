@@ -29,7 +29,7 @@ client_socket,address = waitForConnection(server_socket)
 while True:
     
     try:
-        data = client_socket.recv(1024)
+        data = client_socket.recv(1) # receive one char
     except bluetooth.btcommon.BluetoothError as btError:
         print('Lost accepted connection...')
         client_socket,address = waitForConnection(server_socket)
