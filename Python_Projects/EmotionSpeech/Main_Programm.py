@@ -13,7 +13,7 @@ while True:
     sentence = Various_Functions.normalize(sentence)
 
     if sentence.strip() == "aus" or sentence.strip() == "programm beenden":
-        os.system("mpg321 abschied.mp3")
+        os.system("mpg321 ./mp3/abschied.mp3")
         sys.exit(0)
 
     else:

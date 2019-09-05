@@ -8,17 +8,17 @@ import os
 
 def talkEmotionToMe(emotion):
     if emotion.lower() == 'gluecklich':
-        os.system("mpg321 gluecklich.mp3")
+        os.system("mpg321 ./mp3/gluecklich.mp3")
     elif emotion.lower() == 'wut':
-        os.system("mpg321 wut.mp3")
+        os.system("mpg321 ./mp3/wut.mp3")
     elif emotion.lower() == 'ekel':
-        os.system("mpg321 eckel.mp3")
+        os.system("mpg321 ./mp3/eckel.mp3")
     elif emotion.lower() == 'ueberrascht':
-        os.system("mpg321 ueberrascht.mp3")
+        os.system("mpg321 ./mp3/ueberrascht.mp3")
     elif emotion.lower() == 'traurig':
-        os.system("mpg321 trauer.mp3")
+        os.system("mpg321 ./mp3/trauer.mp3")
     else:
-        os.system("mpg321 angst.mp3")
+        os.system("mpg321 ./mp3/angst.mp3")
 
 def getEmotion(sentence):
     words = sentence.split()
