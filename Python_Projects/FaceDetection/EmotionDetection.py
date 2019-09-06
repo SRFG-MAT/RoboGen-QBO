@@ -4,7 +4,8 @@ import random
 import numpy as np
 
 emotions = ["neutral", "anger", "contempt", "disgust", "fear", "happy", "sadness", "surprise"] #Emotion list
-fishface = cv2.face.FisherFaceRecognizer_create() #Initialize fisher face classifier
+#fishface = cv2.face.FisherFaceRecognizer_create() #Initialize fisher face classifier
+fishface = cv2.createLBPHFaceRecognizer()
 faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
 data = {}
 

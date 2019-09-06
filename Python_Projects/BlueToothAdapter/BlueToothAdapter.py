@@ -58,10 +58,10 @@ while True:
         
     elif (ord(data) == 3):
         print ("---------------------------------------------------------")
-        print ("Start Q.bo FaceDetectionWebCamEmotionDetectionDlib.py) all output will be redirected:")
+        print ("Start Q.bo EmotionDetectionDlib.py) all output will be redirected:")
         print ("---------------------------------------------------------")
         os.chdir("../FaceDetection") # only works in its own folder
-        subprocess.call(['python', "FaceDetectionWebCam.py"])
+        subprocess.call(['python', "EmotionDetectionDlib.py"])
         os.chdir("../BlueToothAdapter") # switch back to BluetoothAdapter folder
         print ("---------------------------------------------------------")
         

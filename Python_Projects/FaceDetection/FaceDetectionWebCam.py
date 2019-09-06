@@ -2,21 +2,29 @@ import cv2
 import dlib
 import time
 
+# -------------------------------------------------------------------------------------------
 # Set up some required webcam object and change size of images
+# -------------------------------------------------------------------------------------------
 video_capture = cv2.VideoCapture(0)
 video_capture.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, 400)
 video_capture.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, 400)
 #video_capture.set(cv2.cv.CV_CAP_PROP_FRAME_COUNT, 2) # TODO: does not seem to be supported by camera
 
+# -------------------------------------------------------------------------------------------
 # Set up face detector and landmark identifier
+# -------------------------------------------------------------------------------------------
 detector = dlib.get_frontal_face_detector()                               # Face detector
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat") # Landmark identifier
 
+# -------------------------------------------------------------------------------------------
 # helpers needed to reduce frames per second
+# -------------------------------------------------------------------------------------------
 frame_rate = 10
 prev = 0
 
+# -------------------------------------------------------------------------------------------
 # run in loop and read frames until user presses q
+# -------------------------------------------------------------------------------------------
 while True:
   
     # reduce frames per second
