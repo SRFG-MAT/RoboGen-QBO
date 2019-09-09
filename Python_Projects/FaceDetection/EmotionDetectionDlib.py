@@ -34,7 +34,7 @@ vs.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, 400)
 # -------------------------------------------------------------------------------------------
 # helpers needed to reduce frames per second
 # -------------------------------------------------------------------------------------------
-frame_rate = 1
+frame_rate = 5
 prev = 0
 
 # -------------------------------------------------------------------------------------------
@@ -88,16 +88,15 @@ def get_landmarks_for_classification(image):
 # -------------------------------------------------------------------------------------------
 # keep looping endlessly to find 
 # -------------------------------------------------------------------------------------------
-while True:
-    # grab the current frame
-    ret, frame = vs.read()
+while True:  
 
     # reduce frames per second
     if (time.time() - prev) > 1./frame_rate:
         prev = time.time()
         
-        # if we are viewing a video and we did not grab a frame,
-        # then we have reached the end of the video
+        # grab the current frame
+        # if we did not get a frame, we have reached the videos end
+        ret, frame = vs.read()
         if frame is None:
             continue
 
