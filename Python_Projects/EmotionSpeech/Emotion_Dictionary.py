@@ -41,5 +41,5 @@ emo_dic = {
 
 # Es koennten noch mehrer Emotionsaenderer inkludiert werden, die z.B. eine Emotion abschwaechen, verstaerken, etc.
 emo_changers = {
-    "Negators": ["nicht", "nichts", "kein", "niemand", "ohne"]
+    "Negators": ["nicht", "nichts", "kein", "keine", "niemand", "ohne"]
 }

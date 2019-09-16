@@ -2,22 +2,28 @@
 
 import speech_recognition as sr
 
+#---------------------------------------------------------------------------------------------
+# getAudioToText - (use Google lib to get microphone input as text)
+#---------------------------------------------------------------------------------------------
 def getAudioToText():
-    r = sr.Recognizer()
+    recognizer = sr.Recognizer()
 
     while True:
         with sr.Microphone() as source:
             print("------------------------------------------------------")
             print("Sprich zu mir!")
             print("------------------------------------------------------")
-            audio = r.listen(source)
+            
+            recognizer.adjust_for_ambient_noise(source)
+            audio = recognizer.listen(source)
 
         try:
-            sentence = r.recognize_google(audio, language="de")
+            sentence = recognizer.recognize_google(audio, language="de-AT")
             print("------------------------------------------------------")
             print("Google Speech Recognition glaubt du sagst: \n" + sentence)
             print("------------------------------------------------------")
             return sentence
+        
         except sr.UnknownValueError:
             print("------------------------------------------------------")
             print("Google Speech Recognition konnte dich leider nicht verstehen")

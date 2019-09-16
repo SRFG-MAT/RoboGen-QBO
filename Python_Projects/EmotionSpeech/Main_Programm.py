@@ -2,11 +2,13 @@
 
 import sys
 #sys.path.insert(1, '../EmotionSpeech_Helpers')
-
 import Various_Functions
 import Processing_Audio
 import os
 
+#---------------------------------------------------------------------------------------------
+# MainProgram Start - (entrance point)
+#---------------------------------------------------------------------------------------------
 while True:
 
     sentence = Processing_Audio.getAudioToText()
