@@ -69,7 +69,7 @@ def checkNegation(sentence, emotion):
                 if emotion.lower() == 'gluecklich':
                     emotion = 'Traurig'
                 elif emotion.lower() == 'wut':
-                    emotion = 'Angst'
+                    emotion = 'Gluecklich'
                 elif emotion.lower() == 'ekel':
                     emotion = 'Gluecklich'
                 elif emotion.lower() == 'ueberrascht':
