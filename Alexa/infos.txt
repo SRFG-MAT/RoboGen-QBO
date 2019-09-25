@@ -1,0 +1,24 @@
+
+--------------------------------------------------------------
+Tutorial
+--------------------------------------------------------------
+https://developer.amazon.com/de/docs/alexa-voice-service/set-up-raspberry-pi.html
+
+
+--------------------------------------------------------------
+Login
+--------------------------------------------------------------
+Account: robogensrfg@gmail.com
+PW: srfg4robogen
+
+
+--------------------------------------------------------------
+Amazon Voice Service Product
+--------------------------------------------------------------
+Product Name: QBO
+Product ID: RaspberryPiAlexa
+Amazon ID: A3SE9UW43OGCM
+Client ID: amzn1.application-oa2-client.57a926ddd0494c5d8084d87e47a26054
+Client Secret: 31548c8e053fa8e334669642b31f15cf7b1ad0e75785f38eb6e52f9a0a5586b3
+
+Link: https://developer.amazon.com/alexa/console/avs/products
