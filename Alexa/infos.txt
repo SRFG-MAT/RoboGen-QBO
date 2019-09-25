@@ -4,6 +4,7 @@ Tutorial
 --------------------------------------------------------------
 https://developer.amazon.com/de/docs/alexa-voice-service/set-up-raspberry-pi.html
 
+start Alexa App with: "sudo bash startsample.sh"
 
 --------------------------------------------------------------
 Login
