@@ -3,16 +3,26 @@ import math
 import sys
 import time
 import requests
+import base64
+import pickle
+import json
 
 # -------------------------------------------------------------------------------------------
 # Set up required webcam object and variables for frame cutting and sampling
 # -------------------------------------------------------------------------------------------
 vs = cv2.VideoCapture(0)
-#vs.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, 500)
-#vs.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, 500)
+vs.set(cv2.cv.CV_CAP_PROP_FRAME_WIDTH, 100)
+vs.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, 100)
 
 frame_rate = 10
 prevTime = 0
+
+
+def im2json(im):
+    """Convert a Numpy array to JSON string"""
+    imdata = pickle.dumps(im)
+    jstr = json.dumps({"image": base64.b64encode(imdata).decode('ascii')})
+    return jstr
 
 # -------------------------------------------------------------------------------------------
 # keep looping endlessly and send camera frames to python backend service
@@ -44,7 +54,10 @@ while True:
         # connect to python backend server
         # -----------------------------
         try:
-            r = requests.post('http://0.0.0.0:5000/v1/api', verify=False, json={"name": "naren"})
+            jstr = im2json(frame)
+            
+            r = requests.post('https://power2dm.salzburgresearch.at/robogen/FaceDetection/AnalyzeFrameForEmotion', verify=False, json=jstr) #TODO: support multiple faces!!!
+            #r = requests.post('https://power2dm.salzburgresearch.at/robogen/v1/api', verify=False, json={"name": "naren"})
             headers = {'Content-type': 'application/json'}
             print(r.status_code)
             
