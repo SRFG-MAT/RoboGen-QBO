@@ -1,7 +1,6 @@
 # coding=utf-8
 
 import sys
-#sys.path.insert(1, '../EmotionSpeech_Helpers')
 import Various_Functions
 import Processing_Audio
 import os
