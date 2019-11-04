@@ -13,17 +13,17 @@ def talkEmotionToMe(emotion):
     print ("spiele: " + emotion)
     
     if emotion.lower() == 'gluecklich':
-        os.system("mpg321 ./mp3/gluecklich.mp3")
+        os.system("mpg321 ./mp3/Play_Gluecklich.mp3")
     elif emotion.lower() == 'wut':
-        os.system("mpg321 ./mp3/wut.mp3")
+        os.system("mpg321 ./mp3/Play_Wut.mp3")
     elif emotion.lower() == 'ekel':
-        os.system("mpg321 ./mp3/eckel.mp3")
+        os.system("mpg321 ./mp3/Play_Eckel.mp3")
     elif emotion.lower() == 'ueberrascht':
-        os.system("mpg321 ./mp3/ueberrascht.mp3")
+        os.system("mpg321 ./mp3/Play_Ueberrascht.mp3")
     elif emotion.lower() == 'traurig':
-        os.system("mpg321 ./mp3/trauer.mp3")
+        os.system("mpg321 ./mp3/Play_Trauer.mp3")
     elif emotion.lower() == 'angst':
-        os.system("mpg321 ./mp3/angst.mp3")
+        os.system("mpg321 ./mp3/Play_Angst.mp3")
     else:
         print("Es konnte keine MP3-Date gefunden werden, die zu der eingegebenen Emotion passt")
 
