@@ -19,7 +19,7 @@ myobj = gTTS(text=mytext, lang=language, slow=False)
  
 # Speichern als mp3
 myobj.save("./mp3/Play_Abschied.mp3")
-os.system("mpg321 ./mp3/Play_Abschied.mp3")
+os.system("mpg321 -q ./mp3/Play_Abschied.mp3")
 
 
 #import espeak
