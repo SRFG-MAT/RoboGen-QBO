@@ -2,12 +2,14 @@ import cv2
 import math
 import sys
 import time
+import thread
 import requests
 import base64
 import pickle
 import json
 import serial
 import QboCmd
+from ControlHead import * 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -58,6 +60,12 @@ def setQBOMouth(emotion):
         QBO.SetMouth(0x1b1f0e04) #love
         
 
+
+try:
+    thread.start_new_thread(controlQBOHead, ("Thread-1", vs, ser, QBO, ) )
+except Exception, e:
+    print('unable to start thread: '+ str(e))
+
 # -------------------------------------------------------------------------------------------
 # keep looping endlessly and send camera frames to python backend service
 # -------------------------------------------------------------------------------------------
@@ -69,12 +77,6 @@ while True:
     ret, frame = vs.read()
     if frame is None:
         continue
-    
-    # -----------------------------
-    # show result in video stream
-    # -----------------------------
-    #cv2.putText(frame, emotion, (30, 30), cv2.FONT_HERSHEY_COMPLEX, 1.0, (255, 255, 255)) # draw at pos 20,20
-    cv2.imshow("QBO Video", frame)
     
     # -----------------------------
     # reduce frames per second
@@ -102,12 +104,5 @@ while True:
                     
         except requests.exceptions.RequestException as e:
             print e
-              
-    # -----------------------------
-    # if the 'q' key is pressed, stop the loop
-    # -----------------------------
-    key = cv2.waitKey(1) & 0xFF
-    if key == ord("q"):
-        break
     
     
