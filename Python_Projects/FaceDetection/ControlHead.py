@@ -39,12 +39,8 @@ def controlQBOHead(threadName, vs, ser, QBO):
     #-------------------------------------------------------------------------------------------
     while True:
         
-        ret, frame = vs.read()
-        if frame is None:
-            continue
-        
-        cv2.imshow("QBO Video", frame)
-        
+        ret, frame = vs.read()   
+        cv2.imshow("Q.BO One Gesichtserkennung", frame)   
         key = cv2.waitKey(1) & 0xFF
         
         if key == ord("w"):

@@ -2,7 +2,7 @@ import cv2
 import math
 import sys
 import time
-import thread
+import threading
 import requests
 import base64
 import pickle
@@ -60,49 +60,36 @@ def setQBOMouth(emotion):
         QBO.SetMouth(0x1b1f0e04) #love
         
 
-
-try:
-    thread.start_new_thread(controlQBOHead, ("Thread-1", vs, ser, QBO, ) )
-except Exception, e:
-    print('unable to start thread: '+ str(e))
-
 # -------------------------------------------------------------------------------------------
-# keep looping endlessly and send camera frames to python backend service
+# keep looping until worker dies and send camera frames to python backend service
 # -------------------------------------------------------------------------------------------
-while True:
+worker_thread = threading.Thread(target=controlQBOHead, args=("Thread-1", vs, ser, QBO))
+worker_thread.start()
+
+while worker_thread.is_alive():
     
-    emotion = "unknown"
-    
-    # if no "current frame" available, we reached the videos end
+    emotion = ""
     ret, frame = vs.read()
-    if frame is None:
-        continue
-    
-    # -----------------------------
-    # reduce frames per second
-    # -----------------------------
-    if (time.time() - prevTime) > 1./frame_rate:
-        prevTime = time.time()
 
-        # -----------------------------
-        # connect to python backend server
-        # ----------------------------- 
-        try:     
-            r = requests.post('https://power2dm.salzburgresearch.at/robogen/FaceDetection/AnalyzeFrameForEmotion', verify=False, json=im2json(frame))
-            #r = requests.post('https://power2dm.salzburgresearch.at/robogen/v1/api', verify=False, json={"name": "naren"})
-            headers = {'Content-type': 'application/json'}
+    # send request to python backend server 
+    try:     
+        r = requests.post('https://power2dm.salzburgresearch.at/robogen/FaceDetection/AnalyzeFrameForEmotion', verify=False, json=im2json(frame))
+        headers = {'Content-type': 'application/json'}      
+            
+        if r.ok:
+            print("--------------------------")         
+            print("Erkannte Emotion: " + str(r.content))
             print("--------------------------")
-            print("Server-Antwort: " + str(r.status_code))
+            emotion = r.content
+        else:
+            print("--------------------------")
+            print("Fehler bei Server-Antwort: " + str(r.status_code))
+            print("--------------------------")
             
-            if r.ok:
-                print("Erkannte Emotion: " + str(r.content))
-                print("--------------------------")
-                emotion = r.content
-            
-            # set mouth
-            setQBOMouth(emotion)
+        # set mouth
+        setQBOMouth(emotion)
                     
-        except requests.exceptions.RequestException as e:
-            print e
+    except requests.exceptions.RequestException as e:
+        print e
     
     
