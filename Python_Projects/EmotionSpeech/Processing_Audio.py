@@ -9,20 +9,14 @@ def getAudioToText():
     recognizer = sr.Recognizer()
 
     while True:
-        with sr.Microphone() as source:
-            print("------------------------------------------------------")
-            print("Sprich zu mir!")
-            print("------------------------------------------------------")
+        
+        with sr.Microphone() as source:          
             
             recognizer.adjust_for_ambient_noise(source)
             audio = recognizer.listen(source)
 
         try:
-            sentence = recognizer.recognize_google(audio, language="de-AT")
-            print("------------------------------------------------------")
-            print("Google Speech Recognition glaubt du sagst: \n" + sentence)
-            print("------------------------------------------------------")
-            return sentence
+            return recognizer.recognize_google(audio, language="de-AT")
         
         except sr.UnknownValueError:
             print("------------------------------------------------------")

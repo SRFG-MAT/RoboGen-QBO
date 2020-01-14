@@ -8,22 +8,40 @@ import os
 #---------------------------------------------------------------------------------------------
 # MainProgram Start - (entrance point)
 #---------------------------------------------------------------------------------------------
-while True:
+allSentences = []
 
+# warte auf wake word
+while True:
     sentence = Processing_Audio.getAudioToText()
     sentence = Various_Functions.normalize(sentence)
+        
+    print("------------------------------------------------------")
+    print("Google Speech Recognition glaubt du sagst: \n" + sentence)
+    print("------------------------------------------------------")
+    
+    if sentence.strip() == "starten":
+        break
 
-    if sentence.strip() == "aus" or sentence.strip() == "programm beenden":
-        os.system("mpg321 -q ./mp3/Play_Abschied.mp3")
-        sys.exit(0)
+# sammle alle Sätze zusammen
+while True:
+    
+    print("------------------------------------------------------")
+    print("Jetzt sprechen um einen Satz aufzuzeichnen!")
+    print("------------------------------------------------------")
+    
+    sentence = Processing_Audio.getAudioToText()
+    sentence = Various_Functions.normalize(sentence)
+        
+    print("------------------------------------------------------")
+    print("Google Speech Recognition glaubt du sagst: \n" + sentence)
+    print("------------------------------------------------------")
 
+    if sentence.strip() == "beenden":
+        break
     else:
-        # Funktion für Parsen von Satz
-        emotion = Various_Functions.getEmotion(sentence)
+        allSentences.append(sentence)
+ 
+# analysiere und beantworte alle Sätze
+Various_Functions.qboResponse(allSentences)
 
-        # Funktion für Negierung
-        emotion = Various_Functions.checkNegation(sentence, emotion)
 
-        # Funktionen für Weitergabe von Emotion
-        print(emotion)
-        Various_Functions.talkEmotionToMe(emotion)

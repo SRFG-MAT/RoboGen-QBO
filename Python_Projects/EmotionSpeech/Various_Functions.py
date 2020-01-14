@@ -4,34 +4,54 @@ from Emotion_Dictionary import emo_dic
 from Emotion_Dictionary import emo_changers
 from string import punctuation
 from fuzzywuzzy import fuzz
+from gtts import gTTS 
 import os
 
 #---------------------------------------------------------------------------------------------
-# talkEmotionToMe - (output mp3 audio file)
+# qboSpeak - QBO will speak the sentence out loudly
 #---------------------------------------------------------------------------------------------
-def talkEmotionToMe(emotion):
-    print ("spiele: " + emotion)
+def qboSpeak(sentence):
     
-    if emotion.lower() == 'gluecklich':
-        os.system("mpg321 -q ./mp3/Play_Gluecklich.mp3")
-    elif emotion.lower() == 'wut':
-        os.system("mpg321 -q ./mp3/Play_Wut.mp3")
-    elif emotion.lower() == 'ekel':
-        os.system("mpg321 -q ./mp3/Play_Eckel.mp3")
-    elif emotion.lower() == 'ueberrascht':
-        os.system("mpg321 -q ./mp3/Play_Ueberrascht.mp3")
-    elif emotion.lower() == 'traurig':
-        os.system("mpg321 -q ./mp3/Play_Trauer.mp3")
-    elif emotion.lower() == 'angst':
-        os.system("mpg321 -q ./mp3/Play_Angst.mp3")
-    else:
-        print("Es konnte keine MP3-Date gefunden werden, die zu der eingegebenen Emotion passt")
+    language = 'de' # Sprache (ISO Code)
+    myobj = gTTS(text=sentence, lang=language, slow=False) # Erzeugen der Sprachausgabe
+    myobj.save("./mp3/tmp.mp3") # Speichern als mp3
+    os.system("mpg321 -q ./mp3/tmp.mp3")
 
+#---------------------------------------------------------------------------------------------
+# qboResponse - analyzes all given sentences in sentenceArray and will answer them
+#---------------------------------------------------------------------------------------------
+def qboResponse(allSentences):
+    
+    for sentence in allSentences:
+  
+        qboSpeak('Ich habe folgenden Satz gehoert: ' + sentence)
+    
+        emotion, highscore_word, highscore_value = getHighestScoreEmotion(sentence)
+        emotion = checkNegation(sentence, emotion) # Funktion für Negierung
+    
+        if emotion.lower() == 'gluecklich':
+            qboSpeak('Ich habe diesen Satz fuer dich analysiert und glaube, du bist gluecklich!')
+        elif emotion.lower() == 'wut':
+            qboSpeak('Ich habe diesen Satz fuer dich analysiert und glaube, du bist wuetend!')
+        elif emotion.lower() == 'ekel':
+            qboSpeak('Ich habe diesen Satz fuer dich analysiert und glaube, du bist angewidert!')
+        elif emotion.lower() == 'ueberrascht':
+            qboSpeak('Ich habe diesen Satz fuer dich analysiert und glaube, du bist ueberrascht worden!')
+        elif emotion.lower() == 'traurig':
+            qboSpeak('Ich habe diesen Satz fuer dich analysiert und glaube, du bist traurig!')
+        elif emotion.lower() == 'angst':
+            qboSpeak('Ich habe diesen Satz fuer dich analysiert und glaube, du bist angsterfuellt!')
+        else:
+            qboSpeak('Ich habe diesen Satz fuer dich analysiert, aber ich konnte deine Emotion leider nicht richtig zuordnen!')
+        
+        qboSpeak('Der erzielte Highscore von %s Punkten wurde hauptsaechlich durch das enthaltene Wort %s hervorgerufen!' % (highscore_value, highscore_word))    
+
+    qboSpeak("Das waren alle Saetze, die ich verstanden habe. Ich wuensche dir einen schoenen Tag!")
 
 #---------------------------------------------------------------------------------------------
 # getEmotion - (get Emotion from a sentence)
 #---------------------------------------------------------------------------------------------
-def getEmotion(sentence):
+def getHighestScoreEmotion(sentence):
     
     words = sentence.split()
     highscore = 0
@@ -46,11 +66,8 @@ def getEmotion(sentence):
                     highscore = value
                     highscore_emotion = emotion
                     highscore_word = word
-                    
-    # Folgende drei prints sind nur zur ueberpruefung da
-    print(highscore_word + "\n" + highscore_emotion + "\n" + str(highscore) + "\n")
     
-    return highscore_emotion
+    return highscore_emotion, highscore_word, str(highscore)
 
 
 #---------------------------------------------------------------------------------------------
@@ -64,7 +81,7 @@ def checkNegation(sentence, emotion):
         for neg in emo_changers["Negators"]:
             if word == neg:
                 
-                print("Negierendes Wort entdeckt für " + emotion.lower())
+                qboSpeak("Ein negierendes Wort wurde im Satzbau entdeckt!")
 
                 if emotion.lower() == 'gluecklich':
                     emotion = 'Traurig'
