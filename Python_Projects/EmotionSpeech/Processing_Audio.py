@@ -20,9 +20,9 @@ def getAudioToText():
         
         except sr.UnknownValueError:
             print("------------------------------------------------------")
-            print("Google Speech Recognition konnte dich leider nicht verstehen")
+            print("Die Sprachaufzeichnung konnte dich leider nicht verstehen")
             print("------------------------------------------------------")
         except sr.RequestError as e:
             print("------------------------------------------------------")
-            print("Konnte kein Ergebniss von Google Speech Recognition erhalten; {0}".format(e))
+            print("Konnte kein Ergebnis von Google erhalten; {0}".format(e))
             print("------------------------------------------------------")
