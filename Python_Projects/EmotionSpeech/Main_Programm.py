@@ -43,7 +43,7 @@ while True:
             break
         else:
             allSentences.append(sentence)
-            Various_Functions.qboSpeak('OK')
+            os.system("mpg321 -q ./mp3/SoundEffect_Confirm.mp3") # Bestätigungs-Sound abspielen
  
     # analysiere und beantworte alle Sätze
     Various_Functions.qboResponse(allSentences)
