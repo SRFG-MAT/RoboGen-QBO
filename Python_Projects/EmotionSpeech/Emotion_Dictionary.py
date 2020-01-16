@@ -1,4 +1,5 @@
 # Die sehr einfache Variante des Dictionaries
+#!/usr/bin/env python
 # coding=utf-8
 
 emo_dic = {

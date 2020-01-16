@@ -1,0 +1,10 @@
+Scripts fuer Autostart hinzufuegen in autostart-Datei unter:
+
+/home/pi/.config/lxsession/LXDE-pi/ 
+
+
+Derzeit eingetragen sind:
+
+lxterminal -e /usr/bin/python /home/pi/Documents/RoboGen-QBO/Python_Projects/FaceDetection/EmotionDetectionClient.py
+lxterminal -e /usr/bin/python /home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/Main_Programm.py
+

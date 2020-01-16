@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # coding=utf-8
 
 from Emotion_Dictionary import emo_dic
@@ -14,8 +15,8 @@ def qboSpeak(sentence):
     
     language = 'de' # Sprache (ISO Code)
     myobj = gTTS(text=sentence, lang=language, slow=False) # Erzeugen der Sprachausgabe
-    myobj.save("./mp3/tmp.mp3") # Speichern als mp3
-    os.system("mpg321 -q ./mp3/tmp.mp3")
+    myobj.save("/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/mp3/tmp.mp3") # Speichern als mp3
+    os.system("mpg321 -q /home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/mp3/tmp.mp3")
 
 #---------------------------------------------------------------------------------------------
 # qboResponse - analyzes all given sentences in sentenceArray and will answer them

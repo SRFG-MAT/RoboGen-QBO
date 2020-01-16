@@ -1,5 +1,6 @@
 # Dictionary wurde so gewählt, damit das Programm in Zukunft vielleicht diversere Emotionen bestimmen kann
 # Positiv und Negativ muss noch in das Wörterbuch eingebaut werden, um oft verwendete Wörter abzudecken
+#!/usr/bin/env python
 # coding=utf-8
 
 emo_dic = {

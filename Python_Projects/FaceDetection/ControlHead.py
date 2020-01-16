@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import time
 import serial #handles the serial ports
 import QboCmd #holds some commands we can use for Qbo
