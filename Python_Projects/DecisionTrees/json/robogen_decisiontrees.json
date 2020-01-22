@@ -1,4 +1,4 @@
-
+[{
 	"SLE": {
 		"id": "SLE",
 		"question": "Es scheint als hättest du in letzter Zeit schlecht geschlafen. Kann es sein, dass du dich müde fühlst?",
@@ -635,3 +635,4 @@
 			}
 		]
 	}
+}]

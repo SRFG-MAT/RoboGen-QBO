@@ -17,7 +17,13 @@ def getAudioToText():
             audio = recognizer.listen(source)
 
         try:
-            return recognizer.recognize_google(audio, language="de-AT")
+            sentence = recognizer.recognize_google(audio, language="de-AT")
+            
+            print("------------------------------------------------------")
+            print("Google Speech Recognition glaubt du sagst: \n" + sentence)
+            print("------------------------------------------------------")
+            
+            return sentence
         
         except sr.UnknownValueError:
             print("------------------------------------------------------")
