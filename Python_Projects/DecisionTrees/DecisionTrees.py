@@ -4,14 +4,15 @@ import sys
 import Processing_Audio
 import JsonParser
 
-area = ''
+area = 'UNKNOWN'
 
 #---------------------------------------------------------------------------------------------
-# MainProgram Start - (entrance point)
+# helper function to wait for wake word and tree selection
 #---------------------------------------------------------------------------------------------
-while True:
-
-    # warte auf wake word
+def startDecisionTree():
+    
+    global area # tell Python interpreter variable area is global
+    
     while True:
         sentence = Processing_Audio.getAudioToText()
         sentence = JsonParser.normalize(sentence)
@@ -36,28 +37,43 @@ while True:
                 area = 'GAM'
                 break
             else:
-                JsonParser.qboSpeak('Ich habe dich leider nicht richtig verstanden, versuchen wir es noch einmal')         
-
+                area = 'ERROR'
+                JsonParser.qboSpeak('Ich habe dich leider nicht richtig verstanden, versuchen wir es noch einmal')
     
-    # sammle alle Sätze zusammen
+#---------------------------------------------------------------------------------------------
+# helper function to handle the tree and sub-trees    
+#---------------------------------------------------------------------------------------------
+def processDecisionTree():
+    
+    global area # tell Python interpreter variable area is global
+    
     while True:
         
         JsonParser.loadDTData(area)
     
         sentence = Processing_Audio.getAudioToText()
-        sentence = JsonParser.normalize(sentence)
-        
+        sentence = JsonParser.normalize(sentence)     
 
-        if sentence.strip() == 'antwort 1':
-            area = JsonParser.goToNewArea(area, 1)
-        elif sentence.strip() == 'antwort 2':
-            area = JsonParser.goToNewArea(area, 2)
-        elif sentence.strip() == 'antwort 3':
-            area = JsonParser.goToNewArea(area, 3)
-        else:
-            break
+        if sentence.strip() == 'antwort 1': area = JsonParser.goToNewArea(area, 1)
+        elif sentence.strip() == 'antwort 2': area = JsonParser.goToNewArea(area, 2)
+        elif sentence.strip() == 'antwort 3': area = JsonParser.goToNewArea(area, 3)
+        else: break
         
         if area == 'end':
             JsonParser.qboSpeak('Dein Entscheidungsbaum ist nun zu Ende! Auf Wiedersehen!')
             break
+
+#---------------------------------------------------------------------------------------------
+# MainProgram Start - (entrance point)
+#---------------------------------------------------------------------------------------------
+while True:
+
+    # wait for wake word and tree selection
+    startDecisionTree()
+    
+    # handle tree and sub trees
+    processDecisionTree()
+    
+    
+    
 

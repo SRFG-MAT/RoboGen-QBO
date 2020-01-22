@@ -8,7 +8,6 @@ from string import punctuation
 dt_data = {}
 intervention_data = {}
 
-
 #---------------------------------------------------------------------------------------------
 # read in and speak a question from json file
 #---------------------------------------------------------------------------------------------
@@ -26,7 +25,6 @@ def loadDTData(area):
             answerStr = 'Antwort: ' + str(i)
             qboSpeak(answerStr + entry['question'])
             i = i + 1
-
 
 #---------------------------------------------------------------------------------------------
 # load intervention data and print
@@ -47,7 +45,6 @@ def loadInterventionData(codeInput):
                     print('code: ' + code)
                     qboSpeak(entry['text'])
                 
-   
 #---------------------------------------------------------------------------------------------
 # load intervention data and print
 #---------------------------------------------------------------------------------------------            
@@ -65,8 +62,6 @@ def goToNewArea(area, option):
         
         else:
             return 'end'
-    
-    
     
 #---------------------------------------------------------------------------------------------
 # qboSpeak - QBO will speak the sentence out loudly
