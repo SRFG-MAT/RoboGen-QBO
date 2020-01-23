@@ -20,11 +20,13 @@ def loadDTData(area):
         qboSpeak(dt_data[0][area]['question'])
         
         # Antwortmöglichkeiten
-        i = 1
+        i = 0
         for entry in dt_data[0][area]['options']:
-            answerStr = 'Antwort: ' + str(i)
+            answerStr = 'Antwort: ' + str(i+1)
             qboSpeak(answerStr + entry['question'])
             i = i + 1
+            
+        return i # return number of options
 
 #---------------------------------------------------------------------------------------------
 # load intervention data and print

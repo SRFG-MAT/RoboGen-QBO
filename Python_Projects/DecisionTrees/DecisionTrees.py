@@ -49,15 +49,22 @@ def processDecisionTree():
     
     while True:
         
-        JsonParser.loadDTData(area)
+        nrOfOptions = JsonParser.loadDTData(area)
     
         sentence = Processing_Audio.getAudioToText()
         sentence = JsonParser.normalize(sentence)     
 
-        if sentence.strip() == 'antwort 1': area = JsonParser.goToNewArea(area, 1)
-        elif sentence.strip() == 'antwort 2': area = JsonParser.goToNewArea(area, 2)
-        elif sentence.strip() == 'antwort 3': area = JsonParser.goToNewArea(area, 3)
-        else: break
+        if sentence.strip() == 'antwort 1' and nrOfOptions >= 1: area = JsonParser.goToNewArea(area, 1)
+        elif sentence.strip() == 'antwort 2' and nrOfOptions >= 2: area = JsonParser.goToNewArea(area, 2)
+        elif sentence.strip() == 'antwort 3' and nrOfOptions >= 3: area = JsonParser.goToNewArea(area, 3)       
+        elif sentence.strip() == 'antwort 4' and nrOfOptions >= 4: area = JsonParser.goToNewArea(area, 4)
+        elif sentence.strip() == 'antwort 5' and nrOfOptions >= 5: area = JsonParser.goToNewArea(area, 5)
+        elif sentence.strip() == 'antwort 6' and nrOfOptions >= 6: area = JsonParser.goToNewArea(area, 6)
+        elif sentence.strip() == 'antwort 7' and nrOfOptions >= 7: area = JsonParser.goToNewArea(area, 7)
+        elif sentence.strip() == 'antwort 8' and nrOfOptions >= 8: area = JsonParser.goToNewArea(area, 8)
+        elif sentence.strip() == 'antwort 9' and nrOfOptions >= 9: area = JsonParser.goToNewArea(area, 9)
+        else:
+            JsonParser.qboSpeak('Diese Antwort ist leider nicht moeglich. Bitte hoer dir die letzte Frage noch einmal genau an')
         
         if area == 'end':
             JsonParser.qboSpeak('Dein Entscheidungsbaum ist nun zu Ende! Auf Wiedersehen!')
