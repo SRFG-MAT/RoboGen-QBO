@@ -3,6 +3,7 @@
 import sys
 import Processing_Audio
 import JsonParser
+import Various_Functions
 
 area = 'UNKNOWN'
 
@@ -13,32 +14,23 @@ def startDecisionTree():
     
     global area # tell Python interpreter variable area is global
     
-    while True:
-        sentence = Processing_Audio.getAudioToText()
-        sentence = JsonParser.normalize(sentence)
-    
-        if sentence.strip() == "starte entscheidungsbaum":
-            JsonParser.qboSpeak('Hallo, mein Name ist QBO! Du hast die Entscheidungsbaeume gestartet!')
-            JsonParser.qboSpeak('Waehle nun den Entscheidungsbaum Sport, Stress, Schlaf oder Spiele, um fortzufahren.')
+    Various_Functions.qboSpeak('Hallo, mein Name ist QBO! Du hast die Entscheidungsbaeume gestartet!')
+    Various_Functions.qboSpeak('Waehle nun den Entscheidungsbaum Sport, Stress, Schlaf oder Spiele, um fortzufahren.')
             
-            sentence = Processing_Audio.getAudioToText()
-            sentence = JsonParser.normalize(sentence)
+    sentence = Processing_Audio.getAudioToText()
+    sentence = Various_Functions.normalize(sentence)
             
-            if sentence.strip() == 'sport':
-                area = 'EX'
-                break
-            elif sentence.strip() == 'stress':
-                area = 'STR'
-                break
-            elif sentence.strip() == 'schlaf':
-                area = 'SLE'
-                break
-            elif sentence.strip() == 'spiele':
-                area = 'GAM'
-                break
-            else:
-                area = 'ERROR'
-                JsonParser.qboSpeak('Ich habe dich leider nicht richtig verstanden, versuchen wir es noch einmal')
+    if sentence.strip() == 'sport':
+        area = 'EX'
+    elif sentence.strip() == 'stress':
+        area = 'STR'
+    elif sentence.strip() == 'schlaf':
+        area = 'SLE'
+    elif sentence.strip() == 'spiele':
+        area = 'GAM'
+    else:
+        area = 'ERROR'
+        Various_Functions.qboSpeak('Ich habe dich leider nicht richtig verstanden, versuchen wir es noch einmal')
     
 #---------------------------------------------------------------------------------------------
 # helper function to handle the tree and sub-trees    
@@ -52,7 +44,7 @@ def processDecisionTree():
         nrOfOptions = JsonParser.loadDTData(area)
     
         sentence = Processing_Audio.getAudioToText()
-        sentence = JsonParser.normalize(sentence)     
+        sentence = Various_Functions.normalize(sentence)     
 
         if sentence.strip() == 'antwort 1' and nrOfOptions >= 1: area = JsonParser.goToNewArea(area, 1)
         elif sentence.strip() == 'antwort 2' and nrOfOptions >= 2: area = JsonParser.goToNewArea(area, 2)
@@ -64,22 +56,11 @@ def processDecisionTree():
         elif sentence.strip() == 'antwort 8' and nrOfOptions >= 8: area = JsonParser.goToNewArea(area, 8)
         elif sentence.strip() == 'antwort 9' and nrOfOptions >= 9: area = JsonParser.goToNewArea(area, 9)
         else:
-            JsonParser.qboSpeak('Diese Antwort ist leider nicht moeglich. Bitte hoer dir die letzte Frage noch einmal genau an')
+            Various_Functions.qboSpeak('Diese Antwort ist leider nicht moeglich. Bitte hoer dir die letzte Frage noch einmal genau an')
         
         if area == 'end':
-            JsonParser.qboSpeak('Dein Entscheidungsbaum ist nun zu Ende! Auf Wiedersehen!')
+            Various_Functions.qboSpeak('Dein Entscheidungsbaum ist nun zu Ende! Auf Wiedersehen!')
             break
-
-#---------------------------------------------------------------------------------------------
-# MainProgram Start - (entrance point)
-#---------------------------------------------------------------------------------------------
-while True:
-
-    # wait for wake word and tree selection
-    startDecisionTree()
-    
-    # handle tree and sub trees
-    processDecisionTree()
     
     
     
