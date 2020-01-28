@@ -3,7 +3,7 @@
 import sys
 import os
 
-sys.path.append('./dt')
+sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/dt')
 import Processing_Audio
 import Various_Functions
 import DecisionTrees

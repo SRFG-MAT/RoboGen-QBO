@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 import sys
+import os
 import Processing_Audio
 import JsonParser
 import Various_Functions
@@ -20,7 +21,7 @@ def startDecisionTree():
     sentence = Processing_Audio.getAudioToText()
     sentence = Various_Functions.normalize(sentence)
             
-    if sentence.strip() == 'sport':
+    if sentence.strip() == 'sport' or sentence.strip() == 'spart': # because always understands me wrong..
         area = 'EX'
     elif sentence.strip() == 'stress':
         area = 'STR'
@@ -39,24 +40,42 @@ def processDecisionTree():
     
     global area # tell Python interpreter variable area is global
     
+    if area == 'ERROR':
+        return
+    
     while True:
         
         nrOfOptions = JsonParser.loadDTData(area)
     
         sentence = Processing_Audio.getAudioToText()
-        sentence = Various_Functions.normalize(sentence)     
+        sentence = Various_Functions.normalize(sentence)
 
-        if sentence.strip() == 'antwort 1' and nrOfOptions >= 1: area = JsonParser.goToNewArea(area, 1)
-        elif sentence.strip() == 'antwort 2' and nrOfOptions >= 2: area = JsonParser.goToNewArea(area, 2)
-        elif sentence.strip() == 'antwort 3' and nrOfOptions >= 3: area = JsonParser.goToNewArea(area, 3)       
-        elif sentence.strip() == 'antwort 4' and nrOfOptions >= 4: area = JsonParser.goToNewArea(area, 4)
-        elif sentence.strip() == 'antwort 5' and nrOfOptions >= 5: area = JsonParser.goToNewArea(area, 5)
-        elif sentence.strip() == 'antwort 6' and nrOfOptions >= 6: area = JsonParser.goToNewArea(area, 6)
-        elif sentence.strip() == 'antwort 7' and nrOfOptions >= 7: area = JsonParser.goToNewArea(area, 7)
-        elif sentence.strip() == 'antwort 8' and nrOfOptions >= 8: area = JsonParser.goToNewArea(area, 8)
-        elif sentence.strip() == 'antwort 9' and nrOfOptions >= 9: area = JsonParser.goToNewArea(area, 9)
+        if  (
+            sentence.strip() == 'antwort 1' or
+            sentence.strip() == 'antwort 2' or
+            sentence.strip() == 'antwort 3' or
+            sentence.strip() == 'antwort 4' or
+            sentence.strip() == 'antwort 5' or
+            sentence.strip() == 'antwort 6' or
+            sentence.strip() == 'antwort 7' or
+            sentence.strip() == 'antwort 8' or
+            sentence.strip() == 'antwort 9' or
+            sentence.strip() == 'antwort 10' or
+            sentence.strip() == 'antwort 11' or
+            sentence.strip() == 'antwort 12' or
+            sentence.strip() == 'antwort 13'
+            ):                             
+                number = [int(s) for s in sentence.strip().split() if s.isdigit()][0]
+                
+                if(nrOfOptions >= number):
+                
+                    area = JsonParser.goToNewArea(area, number)
+                    os.system("mpg321 -q /home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/mp3/SoundEffect_Confirm.mp3") # Bestätigungs-Sound abspielen
+                else:
+                    Various_Functions.qboSpeak('Diese Antwort ist leider nicht moeglich. Bitte hoer dir die letzte Frage noch einmal genau an')
         else:
             Various_Functions.qboSpeak('Diese Antwort ist leider nicht moeglich. Bitte hoer dir die letzte Frage noch einmal genau an')
+        
         
         if area == 'end':
             Various_Functions.qboSpeak('Dein Entscheidungsbaum ist nun zu Ende! Auf Wiedersehen!')
