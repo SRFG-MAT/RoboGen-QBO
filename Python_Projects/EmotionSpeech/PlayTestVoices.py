@@ -1,9 +1,10 @@
 # coding=utf-8
-
 import sys
+import os
+
+sys.path.append('./dt')
 import Various_Functions
 import Processing_Audio
-import os
 
 #---------------------------------------------------------------------------------------------
 # Play Test Voices here
