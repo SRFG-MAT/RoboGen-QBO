@@ -59,6 +59,38 @@ def setQBOMouth(emotion):
         QBO.SetMouth(0x1f1b151f) #oval
     else:
         QBO.SetMouth(0x1b1f0e04) #love
+		
+# -------------------------------------------------------------------------------------------
+# helper function to control head
+# -------------------------------------------------------------------------------------------
+def setQBOHead(camCode):
+	if camCode[0] > 190:       
+        CamLeft(Step_x[0],1)
+    if camCode[0] > 200:      
+        CamLeft(Step_x[1],2)     
+    if camCode[0] > 210:      
+        CamLeft(Step_x[2],3)     
+
+    if camCode[0] < 150:
+        CamRight(Step_x[0],1)
+    if camCode[0] < 140:
+        CamRight(Step_x[1],2)
+    if camCode[0] < 130:
+        CamRight(Step_x[2],3)
+
+    if camCode[1] > 150:
+        CamDown(Step_y[0],1)
+    if camCode[1] > 160:
+        CamDown(Step_y[1],2)
+    if camCode[1] > 170:
+        CamDown(Step_y[2],3)
+
+    if camCode[1] < 130:
+        CamUp(Step_y[0],1)
+    if camCode[1] < 100:
+        CamUp(Step_y[1],2)
+    if camCode[1] < 90:
+        CamUp(Step_y[2],3)
         
 
 # -------------------------------------------------------------------------------------------
@@ -81,14 +113,15 @@ while worker_thread.is_alive():
             print("--------------------------")         
             print("Erkannte Emotion: " + str(r.content))
             print("--------------------------")
-            emotion = r.content
+            emotion, camCode = r.content
         else:
             print("--------------------------")
             print("Fehler bei Server-Antwort: " + str(r.status_code))
             print("--------------------------")
             
-        # set mouth
+        # set mouth and head
         setQBOMouth(emotion)
+		setQBOHead(camCode)
                     
     except requests.exceptions.RequestException as e:
         print e
