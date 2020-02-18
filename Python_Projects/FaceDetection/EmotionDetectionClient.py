@@ -2,6 +2,7 @@
 import cv2
 import math
 import sys
+import ast
 import time
 import threading
 import requests
@@ -10,7 +11,8 @@ import pickle
 import json
 import serial
 import QboCmd
-from ControlHead import * 
+from ControlHead import *
+from AutomaticFaceFollow import *
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -30,6 +32,7 @@ vs.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, 100)
 
 frame_rate = 1
 prevTime = 0
+
 
 # -------------------------------------------------------------------------------------------
 # helper function to pack image into a json string
@@ -64,34 +67,8 @@ def setQBOMouth(emotion):
 # helper function to control head
 # -------------------------------------------------------------------------------------------
 def setQBOHead(camCode):
-	if camCode[0] > 190:       
-        CamLeft(Step_x[0],1)
-    if camCode[0] > 200:      
-        CamLeft(Step_x[1],2)     
-    if camCode[0] > 210:      
-        CamLeft(Step_x[2],3)     
+    AdjustHeadPosition(QBO, camCode)
 
-    if camCode[0] < 150:
-        CamRight(Step_x[0],1)
-    if camCode[0] < 140:
-        CamRight(Step_x[1],2)
-    if camCode[0] < 130:
-        CamRight(Step_x[2],3)
-
-    if camCode[1] > 150:
-        CamDown(Step_y[0],1)
-    if camCode[1] > 160:
-        CamDown(Step_y[1],2)
-    if camCode[1] > 170:
-        CamDown(Step_y[2],3)
-
-    if camCode[1] < 130:
-        CamUp(Step_y[0],1)
-    if camCode[1] < 100:
-        CamUp(Step_y[1],2)
-    if camCode[1] < 90:
-        CamUp(Step_y[2],3)
-        
 
 # -------------------------------------------------------------------------------------------
 # keep looping until worker dies and send camera frames to python backend service
@@ -102,6 +79,7 @@ worker_thread.start()
 while worker_thread.is_alive():
     
     emotion = ""
+    camCode = [0, 0]
     ret, frame = vs.read()
 
     # send request to python backend server 
@@ -110,10 +88,14 @@ while worker_thread.is_alive():
         headers = {'Content-type': 'application/json'}      
             
         if r.ok:
+            emotion, strPos = r.content.split("-")
+            camCode = ast.literal_eval(strPos)
+            
             print("--------------------------")         
-            print("Erkannte Emotion: " + str(r.content))
+            print("Erkannte Emotion: " + emotion)
+            print("Position des Gesichtes ist: " + strPos)
             print("--------------------------")
-            emotion, camCode = r.content
+            
         else:
             print("--------------------------")
             print("Fehler bei Server-Antwort: " + str(r.status_code))
@@ -121,7 +103,7 @@ while worker_thread.is_alive():
             
         # set mouth and head
         setQBOMouth(emotion)
-		setQBOHead(camCode)
+	setQBOHead(camCode)
                     
     except requests.exceptions.RequestException as e:
         print e
