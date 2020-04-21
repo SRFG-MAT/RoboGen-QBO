@@ -34,7 +34,7 @@ def processEmotionAnalyze():
         print("Google Speech Recognition glaubt du sagst: \n" + sentence)
         print("------------------------------------------------------")
 
-        if sentence.strip() == "aufzeichnung beenden":
+        if sentence.strip() == "satzanalyse beenden":
             break
         else:
             allSentences.append(sentence)
@@ -54,11 +54,11 @@ while True:
     sentence = Processing_Audio.getAudioToText()
     sentence = Various_Functions.normalize(sentence)
           
-    if sentence.strip() == "aufzeichnung starten":
+    if sentence.strip() == "satzanalyse starten":
         startEmotionAnalyze()
         processEmotionAnalyze()
             
-    elif sentence.strip() == "starte entscheidungsbaum":
+    elif sentence.strip() == "entscheidungsbaum starten":
         DecisionTrees.startDecisionTree()
         DecisionTrees.processDecisionTree()
             

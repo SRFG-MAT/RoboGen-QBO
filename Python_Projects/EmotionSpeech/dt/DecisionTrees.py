@@ -27,7 +27,7 @@ def startDecisionTree():
         area = 'STR'
     elif sentence.strip() == 'schlaf':
         area = 'SLE'
-    elif sentence.strip() == 'spiele':
+    elif sentence.strip() == 'spiele' or sentence.strip() == 'spielen': # because always understands me wrong..
         area = 'GAM'
     else:
         area = 'ERROR'
