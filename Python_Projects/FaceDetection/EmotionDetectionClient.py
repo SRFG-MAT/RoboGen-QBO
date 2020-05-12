@@ -22,6 +22,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 port = '/dev/serial0'
 ser = serial.Serial(port, baudrate=115200, bytesize = serial.EIGHTBITS, stopbits = serial.STOPBITS_ONE, parity = serial.PARITY_NONE, rtscts = False, dsrdtr =False, timeout = 0)
 QBO = QboCmd.Controller(ser)
+QBO.SetNoseColor(0) # init nose
 
 # -------------------------------------------------------------------------------------------
 # Set up required webcam object and variables for frame cutting and sampling
@@ -32,6 +33,13 @@ vs.set(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT, 100)
 
 frame_rate = 1
 prevTime = 0
+
+
+## nose colors
+nose_color_none = 0
+nose_color_blue_dark = 3
+nose_color_green = 4
+nose_color_blue_light = 5
 
 
 # -------------------------------------------------------------------------------------------
@@ -62,11 +70,31 @@ def setQBOMouth(emotion):
         QBO.SetMouth(0x1f1b151f) #oval
     else:
         QBO.SetMouth(0x1b1f0e04) #love
+        
+# -------------------------------------------------------------------------------------------
+# helper function to control nose color
+# -------------------------------------------------------------------------------------------
+def setQBONose(camCode):
+    
+    # no face found
+    if camCode[camCode_XPos] == 0 and camCode[camCode_YPos] == 0:
+        QBO.SetNoseColor(nose_color_none)  
+        return
+    
+    # face found
+    QBO.SetNoseColor(nose_color_blue_dark)
+
 		
 # -------------------------------------------------------------------------------------------
-# helper function to control head
+# helper function to control head position
 # -------------------------------------------------------------------------------------------
-def setQBOHead(camCode):
+def setQBOHeadPos(camCode):
+    
+    # no face found
+    if camCode[camCode_XPos] == 0 and camCode[camCode_YPos] == 0:
+        return
+    
+    # face found
     AdjustHeadPosition(QBO, camCode)
 
 
@@ -91,19 +119,25 @@ while worker_thread.is_alive():
             emotion, strPos = r.content.split("-")
             camCode = ast.literal_eval(strPos)
             
-            print("--------------------------")         
-            print("Erkannte Emotion: " + emotion)
-            print("Position des Gesichtes ist: " + strPos)
-            print("--------------------------")
+            ##print("--------------------------")         
+            ##print("Erkannte Emotion: " + emotion)
+            ##print("Position des Gesichtes ist: " + strPos)
+            ##print("--------------------------")
             
-        else:
-            print("--------------------------")
-            print("Fehler bei Server-Antwort: " + str(r.status_code))
-            print("--------------------------")
+        ##else:
+            ##print("--------------------------")
+            ##print("Fehler bei Server-Antwort: " + str(r.status_code))
+            ##print("--------------------------")
             
-        # set mouth and head
-        setQBOMouth(emotion)
-	setQBOHead(camCode)
+        # set mouth, nose and headPos
+        setQBOMouth(emotion) # set mouth
+        time.sleep(0.1) # wait for queue
+        
+        setQBONose(camCode) # set nose
+        time.sleep(0.1) # wait for queue
+        
+	setQBOHeadPos(camCode) # set head position
+	time.sleep(0.1) # wait for queue
                     
     except requests.exceptions.RequestException as e:
         print e

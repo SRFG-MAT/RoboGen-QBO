@@ -38,69 +38,68 @@ threshold_up1 = 160
 threshold_up2 = 150
 threshold_up3 = 140
 
-distance_X1 = 1
+## distances for cam movement
+distance_X1 = 2
 distance_X2 = 2
 distance_X3 = 3
 
-distance_Y1 = 1
+distance_Y1 = 2
 distance_Y2 = 2
 distance_Y3 = 3
+
+## speed for cam movement
+cam_speed_slow = 1    ## standard is 1
+cam_speed_medium = 1  ## standard is 2
+cam_speed_fast = 2    ## standard is 3 (on QBO this is too fast, doesnt look good)
 
 # -------------------------------------------------------------------------------------------
 # interprets the cameraCode from server to see if any adjustments from head are required
 # -------------------------------------------------------------------------------------------
 def AdjustHeadPosition(QBO, camCode):
     
-    # no face found
-    if camCode[camCode_XPos] == 0 and camCode[camCode_YPos] == 0:
-        QBO.SetNoseColor(0) 
-        return
-    
-    QBO.SetNoseColor(4) 
-    
     # move head left
     if camCode[camCode_XPos] > threshold_left1:       
-        CamLeft(QBO, distance_X1, 1)
-        print("Kopf nach links bewegen 1")
+        CamLeft(QBO, distance_X1, cam_speed_slow)
+        ##print("Kopf nach links bewegen 1")
     if camCode[camCode_XPos] > threshold_left2:      
-        CamLeft(QBO, distance_X2, 2)
-        print("Kopf nach links bewegen 2")
+        CamLeft(QBO, distance_X2, cam_speed_medium)
+        ##print("Kopf nach links bewegen 2")
     if camCode[camCode_XPos] > threshold_left3:      
-        CamLeft(QBO, distance_X3, 3)
-        print("Kopf nach links bewegen 3")
+        CamLeft(QBO, distance_X3, cam_speed_fast)
+        ##print("Kopf nach links bewegen 3")
 
     # move head right
     if camCode[camCode_XPos] < threshold_right1:
-        CamRight(QBO, distance_X1 ,1)
-        print("Kopf nach rechts bewegen 1")
+        CamRight(QBO, distance_X1, cam_speed_slow)
+        ##print("Kopf nach rechts bewegen 1")
     if camCode[camCode_XPos] < threshold_right2:
-        CamRight(QBO, distance_X2 ,2)
-        print("Kopf nach rechts bewegen 2")
+        CamRight(QBO, distance_X2, cam_speed_medium)
+        ##print("Kopf nach rechts bewegen 2")
     if camCode[camCode_XPos] < threshold_right3:
-        CamRight(QBO, distance_X3 ,3)
-        print("Kopf nach rechts bewegen 3")
+        CamRight(QBO, distance_X3, cam_speed_fast)
+        ##print("Kopf nach rechts bewegen 3")
 
     # move head down
     if camCode[camCode_YPos] > threshold_down1:
-        CamDown(QBO, distance_Y1 ,1)
-        print("Kopf nach unten bewegen 1")
+        CamDown(QBO, distance_Y1, cam_speed_slow)
+        ##print("Kopf nach unten bewegen 1")
     if camCode[camCode_YPos] > threshold_down2:
-        CamDown(QBO, distance_Y2 ,2)
-        print("Kopf nach unten bewegen 2")
+        CamDown(QBO, distance_Y2, cam_speed_medium)
+        ##print("Kopf nach unten bewegen 2")
     if camCode[camCode_YPos] > threshold_down3:
-        CamDown(QBO, distance_Y3 ,3)
-        print("Kopf nach unten bewegen 3")
+        CamDown(QBO, distance_Y3, cam_speed_fast)
+        ##print("Kopf nach unten bewegen 3")
 
     # move head up
     if camCode[camCode_YPos] < threshold_up1:
-        CamUp(QBO, distance_Y1 ,1)
-        print("Kopf nach oben bewegen 1")
+        CamUp(QBO, distance_Y1, cam_speed_slow)
+        ##print("Kopf nach oben bewegen 1")
     if camCode[camCode_YPos] < threshold_up2:
-        CamUp(QBO, distance_Y2 ,2)
-        print("Kopf nach oben bewegen 2")
+        CamUp(QBO, distance_Y2, cam_speed_medium)
+        ##print("Kopf nach oben bewegen 2")
     if camCode[camCode_YPos] < threshold_up3:
-        CamUp(QBO, distance_Y3 ,3)
-        print("Kopf nach oben bewegen 3")
+        CamUp(QBO, distance_Y3, cam_speed_fast)
+        ##print("Kopf nach oben bewegen 3")
                
         
 # -------------------------------------------------------------------------------------------
