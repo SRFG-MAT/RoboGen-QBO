@@ -104,10 +104,11 @@ def setQBOHeadPos(camCode):
 worker_thread = threading.Thread(target=controlQBOHead, args=("Thread-1", vs, ser, QBO))
 worker_thread.start()
 
-while worker_thread.is_alive():
+emotion = ""
+camCode = [0, 0]
+
+while worker_thread.is_alive():  
     
-    emotion = ""
-    camCode = [0, 0]
     ret, frame = vs.read()
 
     # send request to python backend server 
@@ -124,10 +125,10 @@ while worker_thread.is_alive():
             ##print("Position des Gesichtes ist: " + strPos)
             ##print("--------------------------")
             
-        ##else:
-            ##print("--------------------------")
-            ##print("Fehler bei Server-Antwort: " + str(r.status_code))
-            ##print("--------------------------")
+        else:
+            print("--------------------------")
+            print("Fehler bei Server-Antwort: " + str(r.status_code))
+            print("--------------------------")
             
         # set mouth, nose and headPos
         setQBOMouth(emotion) # set mouth
@@ -136,8 +137,7 @@ while worker_thread.is_alive():
         setQBONose(camCode) # set nose
         time.sleep(0.1) # wait for queue
         
-	setQBOHeadPos(camCode) # set head position
-	time.sleep(0.1) # wait for queue
+	setQBOHeadPos(camCode) # set head position, dont sleep, will take long enough..
                     
     except requests.exceptions.RequestException as e:
         print e
