@@ -100,8 +100,8 @@ def AdjustHeadPosition(QBO, camCode):
     if camCode[camCode_YPos] < threshold_up3:
         CamUp(QBO, distance_Y3, cam_speed_fast)
         ##print("Kopf nach oben bewegen 3")
-               
-        
+              
+                    
 # -------------------------------------------------------------------------------------------
 # moves head left
 # -------------------------------------------------------------------------------------------

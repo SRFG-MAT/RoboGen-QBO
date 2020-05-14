@@ -4,6 +4,18 @@ import serial
 import binascii
 import time
 
+## ---------------------------------
+## nose color constants
+## ---------------------------------
+nose_color_none = 0
+nose_color_blue_dark = 3
+nose_color_green = 4
+nose_color_blue_light = 5
+
+
+## ---------------------------------
+## classes
+## ---------------------------------
 class Command:
     def __init__(self, command, nInputs, Data):
         self.cmd = command
@@ -27,9 +39,10 @@ class Controller:
     SET_SERVO_SPEED = 0x72
     SET_SERVO_ANGLE_REL = 0x73
 
-
-# Commands definions :('NAME',value, number of set params, number of get params)
-
+    ## ---------------------------------
+    # Commands definions:
+    # ('NAME',value, number of set params, number of get params)
+    ## ---------------------------------
     cmd_params = {
         "GET_VERSION": (0x40, 0, 1),
         "SET_MOUTH_VALUE": (0x44, 4, 0),
@@ -126,8 +139,8 @@ class Controller:
       0xbd, 0xca, 0x53, 0x24, 0xba, 0xcd, 0x54, 0x23, 0xb3, 0xc4, 0x5d, 0x2a,
       0xb4, 0xc3, 0x5a, 0x2d])
 
+
     # Compute pearson of data buffer starting at offset and ending at length position
-    
     def pearson(self, data, length, offset):
         hash = 0
         if offset > length:
@@ -137,7 +150,6 @@ class Controller:
         return hash
 
     # Check special token INPUT, OUTPUT and adds input scape secuence
-    
     def InputEscape(self, char, data):
         if  char >= self.INPUT_ESCAPE:
             data.append(self.INPUT_ESCAPE)
@@ -150,7 +162,6 @@ class Controller:
         return time.time() - start
 
     # Send QBO servo command to a serial port
-    
     def ReadResponse(self):
         isInputEscaped = False
         bExit = False
@@ -265,32 +276,27 @@ class Controller:
         
         return databuffer
 
-    # Mounts protocol data to set servo position&speed  and call sends
-    
+    # Mounts protocol data to set servo position&speed  and call sends  
     def SetServo(self, Axis, Angle, Speed):
         cmd_buffer = ([ Axis, Angle & 0xff ,  (Angle >>8) & 0xff, Speed & 0xff, (Speed >>8) & 0xff])
         return self.SendCmdQBO(Command(self.SET_SERVO, len(cmd_buffer), cmd_buffer))
 
     # Mounts protocol data to set QBO position angle
-
     def SetAngle(self, Axis, Angle):
         cmd_buffer = ([ Axis, Angle & 0xff ,  (Angle >>8) & 0xff])
         return self.SendCmdQBO(Command(self.SET_SERVO_ANGLE, len(cmd_buffer), cmd_buffer))
 
     # Mounts protocol data to set QBO position relative angle
-
     def SetAngleRelative(self, Axis, Angle):
         cmd_buffer = ([ Axis, Angle & 0xff ,  (Angle >>8) & 0xff])
 	print "SetAnlgeRelative: (" + str(Axis) + "," + str(Angle) + ")"
         return self.SendCmdQBO(Command(self.SET_SERVO_ANGLE_REL, len(cmd_buffer), cmd_buffer))
 
     # Mounts protocol data to set QBO nose state color
-
     def SetNoseColor(self, color):
         return self.SendCmdQBO(Command(self.SET_STATE, 1, color & 0xff))
 
     # Mounts protocol data to set QBO mouth 
-        
     def SetMouth(self, matrix):
         cmd_buffer = ([(matrix>>24) & 0xff, (matrix>>16) & 0xff, (matrix>>8) & 0xff, matrix & 0xff])
         return self.SendCmdQBO(Command(self.SET_MOUTH_VALUE, 4, cmd_buffer)) 

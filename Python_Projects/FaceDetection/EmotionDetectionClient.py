@@ -35,13 +35,6 @@ frame_rate = 1
 prevTime = 0
 
 
-## nose colors
-nose_color_none = 0
-nose_color_blue_dark = 3
-nose_color_green = 4
-nose_color_blue_light = 5
-
-
 # -------------------------------------------------------------------------------------------
 # helper function to pack image into a json string
 # -------------------------------------------------------------------------------------------
@@ -54,7 +47,12 @@ def im2json(im):
 # -------------------------------------------------------------------------------------------
 # helper function to display mouths
 # -------------------------------------------------------------------------------------------
-def setQBOMouth(emotion):
+def setQBOMouth(emotion, serverDown):
+    
+     # server down
+    if serverDown:
+        QBO.SetMouth(0x00000000) # all leds off
+        return
 
     if emotion == "fear":     
         QBO.SetMouth(0x1f1f1f1f) # all leds on
@@ -74,21 +72,30 @@ def setQBOMouth(emotion):
 # -------------------------------------------------------------------------------------------
 # helper function to control nose color
 # -------------------------------------------------------------------------------------------
-def setQBONose(camCode):
+def setQBONose(camCode, serverDown):
+    
+    # server down
+    if serverDown:
+        QBO.SetNoseColor(QboCmd.nose_color_none)  
+        return
     
     # no face found
     if camCode[camCode_XPos] == 0 and camCode[camCode_YPos] == 0:
-        QBO.SetNoseColor(nose_color_none)  
+        QBO.SetNoseColor(QboCmd.nose_color_green)  
         return
     
     # face found
-    QBO.SetNoseColor(nose_color_blue_dark)
+    QBO.SetNoseColor(QboCmd.nose_color_blue_dark)
 
 		
 # -------------------------------------------------------------------------------------------
 # helper function to control head position
 # -------------------------------------------------------------------------------------------
-def setQBOHeadPos(camCode):
+def setQBOHeadPos(camCode, serverDown):
+    
+    # server down
+    if serverDown:
+        return
     
     # no face found
     if camCode[camCode_XPos] == 0 and camCode[camCode_YPos] == 0:
@@ -123,7 +130,7 @@ while worker_thread.is_alive():
             ##print("--------------------------")         
             ##print("Erkannte Emotion: " + emotion)
             ##print("Position des Gesichtes ist: " + strPos)
-            ##print("--------------------------")
+            ##print("--------------------------")                          
             
         else:
             print("--------------------------")
@@ -131,13 +138,14 @@ while worker_thread.is_alive():
             print("--------------------------")
             
         # set mouth, nose and headPos
-        setQBOMouth(emotion) # set mouth
+        setQBOMouth(emotion, not r.ok) # set mouth
         time.sleep(0.1) # wait for queue
         
-        setQBONose(camCode) # set nose
+        setQBONose(camCode, not r.ok) # set nose
         time.sleep(0.1) # wait for queue
         
-	setQBOHeadPos(camCode) # set head position, dont sleep, will take long enough..
+	setQBOHeadPos(camCode, not r.ok) # set head position, dont sleep, will take long enough..
+	
                     
     except requests.exceptions.RequestException as e:
         print e
