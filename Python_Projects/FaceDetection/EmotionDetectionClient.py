@@ -11,8 +11,10 @@ import pickle
 import json
 import serial
 import QboCmd
-from ControlHead import *
+
+from ControlHeadAsync import *
 from AutomaticFaceFollow import *
+
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -22,7 +24,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 port = '/dev/serial0'
 ser = serial.Serial(port, baudrate=115200, bytesize = serial.EIGHTBITS, stopbits = serial.STOPBITS_ONE, parity = serial.PARITY_NONE, rtscts = False, dsrdtr =False, timeout = 0)
 QBO = QboCmd.Controller(ser)
-QBO.SetNoseColor(0) # init nose
+QBO.SetNoseColor(QboCmd.nose_color_none) # init nose
 
 # -------------------------------------------------------------------------------------------
 # Set up required webcam object and variables for frame cutting and sampling
@@ -108,7 +110,7 @@ def setQBOHeadPos(camCode, serverDown):
 # -------------------------------------------------------------------------------------------
 # keep looping until worker dies and send camera frames to python backend service
 # -------------------------------------------------------------------------------------------
-worker_thread = threading.Thread(target=controlQBOHead, args=("Thread-1", vs, ser, QBO))
+worker_thread = threading.Thread(target=controlQBOHead, args=("Thread-AsyncControl", vs, ser, QBO))
 worker_thread.start()
 
 emotion = ""

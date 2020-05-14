@@ -39,18 +39,18 @@ threshold_up2 = 150
 threshold_up3 = 140
 
 ## distances for cam movement
-distance_X1 = 2
+distance_X1 = 1
 distance_X2 = 2
 distance_X3 = 3
 
-distance_Y1 = 2
+distance_Y1 = 1
 distance_Y2 = 2
 distance_Y3 = 3
 
 ## speed for cam movement
 cam_speed_slow = 1    ## standard is 1
-cam_speed_medium = 1  ## standard is 2
-cam_speed_fast = 2    ## standard is 3 (on QBO this is too fast, doesnt look good)
+cam_speed_medium = 2  ## standard is 2
+cam_speed_fast = 3    ## standard is 3 (on QBO this is too fast, doesnt look good)
 
 # -------------------------------------------------------------------------------------------
 # interprets the cameraCode from server to see if any adjustments from head are required
@@ -106,52 +106,56 @@ def AdjustHeadPosition(QBO, camCode):
 # moves head left
 # -------------------------------------------------------------------------------------------
 def CamLeft(QBO, distance, speed ):                # To move left, we are provided a distance to move and a speed to move.
+    
         global Xcoor, Xmin, touch_tm
         Xcoor = Xcoor - Kpx * distance
+        
         if Xcoor < Xmin:
-                Xcoor = Xmin
-        #print "LEFT:",distance, Xcoor, Ycoor 
+            Xcoor = Xmin
+        
         QBO.SetServo(1, Xcoor, Ksp * speed)
-        touch_tm = time.time()
         return
 
 # -------------------------------------------------------------------------------------------
 # moves head right
 # -------------------------------------------------------------------------------------------
 def CamRight(QBO, distance, speed):                   # Same logic as above
+    
         global Xcoor, Xmax, touch_tm
         Xcoor = Xcoor + Kpx * distance
+        
         if Xcoor > Xmax:
-                Xcoor = Xmax
-        #print "RIGHT:",distance, Xcoor, Ycoor 
+            Xcoor = Xmax
+        
         QBO.SetServo(1, Xcoor, Ksp * speed)
-        touch_tm = time.time()
         return
     
 # -------------------------------------------------------------------------------------------
 # moves head down
 # -------------------------------------------------------------------------------------------
 def CamDown(QBO, distance, speed):                   # Same logic as above
+    
         global Ycoor, Ymax, touch_tm
         Ycoor = Ycoor + Kpy * distance
+        
         if Ycoor > Ymax:
-                Ycoor = Ymax
-        #print "DOWN:",distance, Xcoor, Ycoor 
+            Ycoor = Ymax
+        
         QBO.SetServo(2, Ycoor, Ksp * speed)
-        touch_tm = time.time()
         return
     
 # -------------------------------------------------------------------------------------------
 # moves head up
 # -------------------------------------------------------------------------------------------
 def CamUp(QBO, distance, speed):                     # Same logic as above
+    
         global Ycoor, Ymin, touch_tm
         Ycoor = Ycoor - Kpy * distance
+        
         if Ycoor < Ymin:
-                Ycoor = Ymin
-        #print "UP:",distance, Xcoor,Ycoor
+            Ycoor = Ymin
+        
         QBO.SetServo(2, Ycoor, Ksp * speed)
-        touch_tm = time.time()
         return
     
     

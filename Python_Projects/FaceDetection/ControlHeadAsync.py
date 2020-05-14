@@ -21,8 +21,8 @@ def moveHeadAxis(axis, angle, QBO):
     
 def moveToStart(QBO):
     QBO.SetServo(Control_X_Axis, 511, Control_Speed)#Axis,Angle,Speed
+    time.sleep(0.1)
     QBO.SetServo(Control_Y_Axis, 450, Control_Speed)#Axis,Angle,Speed
-    time.sleep(1)
 
 
 #-------------------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ def controlQBOHead(threadName, vs, ser, QBO):
     CurrentAngle_X = 511 # start pos
     CurrentAngle_Y = 450 # start pos
 
-    moveToStart(QBO)
+    time.sleep(1) # wait for camera to initialize correctly (gets an empty curropted frame otherwise)
 
     #-------------------------------------------------------------------------------------------
     # run in loop, stream QBO video and wait for QWEASD key inputs
