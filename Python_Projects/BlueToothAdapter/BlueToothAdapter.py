@@ -42,7 +42,7 @@ while True:
         print ("---------------------------------------------------------")
         print ("Start Q.bo mouth.py) all output will be redirected:")
         print ("---------------------------------------------------------")
-        subprocess.call(['python', "../Old_Control/mouth.py"])
+        subprocess.call(['python', "../Samples/Control/mouth.py"])
         print ("---------------------------------------------------------")
         
         client_socket.send("OK1")
@@ -51,7 +51,7 @@ while True:
         print ("---------------------------------------------------------")
         print ("Start Q.bo head.py) all output will be redirected:")
         print ("---------------------------------------------------------")
-        subprocess.call(['python', "../Old_Control/head.py"])
+        subprocess.call(['python', "../Samples/Control/head.py"])
         print ("---------------------------------------------------------")
         
         client_socket.send("OK2")
