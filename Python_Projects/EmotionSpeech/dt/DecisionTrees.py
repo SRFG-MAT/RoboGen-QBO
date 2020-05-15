@@ -11,11 +11,11 @@ area = 'UNKNOWN'
 #---------------------------------------------------------------------------------------------
 # helper function to wait for wake word and tree selection
 #---------------------------------------------------------------------------------------------
-def startDecisionTree():
+def startDecisionTree(robotName):
     
     global area # tell Python interpreter variable area is global
     
-    Various_Functions.qboSpeak('Hallo, mein Name ist QBO! Du hast die Entscheidungsbaeume gestartet!')
+    Various_Functions.qboSpeak('Hallo, mein Name ist' + robotName + ', der Roboter! Du hast die Entscheidungsbaeume gestartet!')
     Various_Functions.qboSpeak('Waehle nun den Entscheidungsbaum Sport, Stress, Schlaf oder Spiele, um fortzufahren.')
             
     sentence = Processing_Audio.getAudioToText()

@@ -2,7 +2,7 @@
     "version": "1",
 
     "robotSettings": {
-        "robotName": "John",
+        "robotName": "Mario",
 	"robotVoice": "Standard",
         "robotAudioVolume": 15,
 	"robotInfoDisplayLocation": "Standard",
@@ -27,7 +27,7 @@
             "city": "Salzburg",
             "state": "Salzburg",
             "postalCode": "5020"
-        }
+        },
 
         "userPhoneNumbers": [
         {
