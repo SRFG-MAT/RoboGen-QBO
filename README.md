@@ -11,3 +11,7 @@ Currently features:
 - Sample Python-Scripts from TheCorpora
 
 Info: Autorun-Information on Q.Bo One can be found in main info.txt file (please keep this info file updated if you add any autostart scripts)
+
+# SD Card Images
+
+In addition to this repository: hardware-specific changes to Q.Bo and OS changes are stored in 16GB and 32GB SD-Card images on a local harddrive: in case you ever need these backups to restore an older Q.Bo-version please contact "SRFG-MAT"
