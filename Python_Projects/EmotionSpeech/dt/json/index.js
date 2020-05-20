@@ -9,7 +9,7 @@ let reprompt;
 
 let welcome_1 = "Willkommen im RoboGen Entscheidungsbaum.";
 let welcome_2 = "Damit ich dir die richtigen Themen anzeige, muss ich dir zwei kurze Fragen stellen. Möchtest du Themen behandeln, die auf Diabetes eingehen?";
-let welcome_3 = "Danke, das merke ich mir. Möchtest du Themen behandeln, die auf SeniorenInnen eingehen?";
+let welcome_3 = "Danke, das merke ich mir. Möchtest du Themen behandeln, die auf Senioren und Seniorinnen eingehen?";
 let welcome_4 = "In Ordnung. Nun weiß ich welche Themen ich dir anzeigen werde.";
 let welcome_5 = "Wähle nun den Entscheidungsbaum Sport, Stress, Schlaf oder Spiele, um fortzufahren.";
 let cancel = "Danke fürs Mitmachen! Auf Wiedersehen!";
