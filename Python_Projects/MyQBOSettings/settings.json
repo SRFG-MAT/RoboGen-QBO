@@ -4,7 +4,7 @@
     "robotSettings": {
         "robotName": "Mario",
 	"robotVoice": "Standard",
-        "robotAudioVolume": 15,
+        "robotAudioVolume": "100",
 	"robotInfoDisplayLocation": "Standard",
 	"robotInfoDisplayFontSize": 12,
 	"robotThresholdStress": 50,

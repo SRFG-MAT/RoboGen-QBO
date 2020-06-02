@@ -8,6 +8,13 @@ from fuzzywuzzy import fuzz
 from gtts import gTTS 
 import os
 
+import sys
+sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/MyQBOSettings')
+import SettingsReader
+audioVolume = SettingsReader.getRobotAudioVolume()
+filepath_tmp_audio = "/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/mp3/tmp.mp3"
+
+
 #---------------------------------------------------------------------------------------------
 # qboSpeak - QBO will speak the sentence out loudly
 #---------------------------------------------------------------------------------------------
@@ -15,8 +22,9 @@ def qboSpeak(sentence):
     
     language = 'de' # Sprache (ISO Code)
     myobj = gTTS(text=sentence, lang=language, slow=False) # Erzeugen der Sprachausgabe
-    myobj.save("/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/mp3/tmp.mp3") # Speichern als mp3
-    os.system("mpg321 -q /home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/mp3/tmp.mp3")
+    myobj.save(filepath_tmp_audio) # Speichern als mp3
+    
+    os.system("mpg321 -q " + filepath_tmp_audio + " --gain " + audioVolume)
 
 #---------------------------------------------------------------------------------------------
 # qboResponse - analyzes all given sentences in sentenceArray and will answer them
