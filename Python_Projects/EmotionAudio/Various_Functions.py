@@ -4,7 +4,7 @@ import os, sys
 from gtts import gTTS 
 
 # from emotion analysis
-sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/ea')
+sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionAudio/ea')
 from Emotion_Dictionary import emo_dic
 from Emotion_Dictionary import emo_changers
 from string import punctuation
@@ -16,7 +16,7 @@ import SettingsReader
 audioVolume = SettingsReader.getRobotAudioVolume()
 
 # global variables
-filepath_tmp_audio = "/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/mp3/tmp.mp3"
+filepath_tmp_audio = "/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionAudio/mp3/tmp.mp3"
 
 
 #---------------------------------------------------------------------------------------------

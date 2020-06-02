@@ -60,7 +60,7 @@ while True:
         print ("---------------------------------------------------------")
         print ("Start Q.bo EmotionDetectionClient.py) all output will be redirected:")
         print ("---------------------------------------------------------")
-        os.chdir("../FaceDetection") # only works in its own folder
+        os.chdir("../EmotionVideo") # only works in its own folder
         subprocess.call(['python', "EmotionDetectionClient.py"])
         os.chdir("../BlueToothAdapter") # switch back to BluetoothAdapter folder
         print ("---------------------------------------------------------")
@@ -71,7 +71,7 @@ while True:
         print ("---------------------------------------------------------")
         print ("Start Q.bo EmotionSpeech.py) all output will be redirected:")
         print ("---------------------------------------------------------")
-        os.chdir("../EmotionSpeech") # only works in its own folder
+        os.chdir("../EmotionAudio") # only works in its own folder
         subprocess.call(['python', "Main_Programm.py"])
         os.chdir("../BlueToothAdapter") # switch back to BluetoothAdapter folder
         print ("---------------------------------------------------------")

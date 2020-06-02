@@ -5,11 +5,11 @@ import Processing_Audio
 import Various_Functions
 
 # decision trees
-sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/dt')
+sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionAudio/dt')
 import DecisionTrees
 
 # emotion analysis
-sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/ea')
+sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionAudio/ea')
 import EmotionAnalysis
 
 # saved settings

@@ -69,7 +69,7 @@ def processDecisionTree():
                 if(nrOfOptions >= number):
                 
                     area = JsonParser.goToNewArea(area, number)
-                    os.system("mpg321 -q /home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/mp3/SoundEffect_Confirm.mp3") # Bestätigungs-Sound abspielen
+                    os.system("mpg321 -q /home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionAudio/mp3/SoundEffect_Confirm.mp3") # Bestätigungs-Sound abspielen
                 else:
                     Various_Functions.qboSpeak('Diese Antwort ist leider nicht moeglich. Bitte hoer dir die letzte Frage noch einmal genau an')
         else:

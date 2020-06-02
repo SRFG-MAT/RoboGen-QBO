@@ -1,6 +1,7 @@
-# Die sehr einfache Variante des Dictionaries
 #!/usr/bin/env python
 # coding=utf-8
+
+# Die sehr einfache Variante des Dictionaries
 
 emo_dic = {
     "Wut": [
