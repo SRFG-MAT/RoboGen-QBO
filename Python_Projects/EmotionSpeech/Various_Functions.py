@@ -1,17 +1,21 @@
 #!/usr/bin/env python
 # coding=utf-8
+import os, sys
+from gtts import gTTS 
 
+# from emotion analysis
+sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/ea')
 from Emotion_Dictionary import emo_dic
 from Emotion_Dictionary import emo_changers
 from string import punctuation
 from fuzzywuzzy import fuzz
-from gtts import gTTS 
-import os
 
-import sys
+# from Settings
 sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/MyQBOSettings')
 import SettingsReader
 audioVolume = SettingsReader.getRobotAudioVolume()
+
+# global variables
 filepath_tmp_audio = "/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/mp3/tmp.mp3"
 
 

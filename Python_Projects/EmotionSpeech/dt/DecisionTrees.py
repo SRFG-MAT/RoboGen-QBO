@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # coding=utf-8
-import sys
-import os
-import Processing_Audio
+import os, sys
 import JsonParser
+import Processing_Audio
 import Various_Functions
 
 area = 'UNKNOWN'

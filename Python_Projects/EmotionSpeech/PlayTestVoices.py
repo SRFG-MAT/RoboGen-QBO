@@ -1,8 +1,5 @@
 # coding=utf-8
-import sys
-import os
-
-sys.path.append('./dt')
+import os, sys
 import Various_Functions
 import Processing_Audio
 

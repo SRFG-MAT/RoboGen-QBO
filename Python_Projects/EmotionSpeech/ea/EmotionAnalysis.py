@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
-import sys
-import os
-
-sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionSpeech/dt')
+import os, sys
 import Processing_Audio
 import Various_Functions
 

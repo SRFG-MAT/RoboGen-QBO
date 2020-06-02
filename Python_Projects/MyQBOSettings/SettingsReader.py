@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 # coding=utf-8
-import os
-import json
+import os, json
 from gtts import gTTS
 from string import punctuation
 
 # used for setting os audio volume
 from subprocess import call
-
 
 
 settings_data = {}
