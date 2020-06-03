@@ -46,13 +46,13 @@ while True:
             sys.exit()
                 
         # check if send response             
-        if req in ('temp', '*temp'):
-            data = str(random.random())+'!'            
-            client_socket.send(data)
-            #print "sending [%s]" % data
+        #if req in ('temp', '*temp'):
+        #   data = str(random.random())+'!'            
+        #   client_socket.send(data)
                     
         # write json               
         SettingsReader.writeJsonFile(req)
+        client_socket.send("Daten erfolgreich erhalten!")
 
     except IOError: pass
     
