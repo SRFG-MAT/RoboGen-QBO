@@ -1,6 +1,10 @@
 import bluetooth
 import subprocess
-import os
+import os, sys
+
+# saved settings
+sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/MyQBOSettings')
+import SettingsReader
 
 # -------------------------------------------------------------------------------------------
 # helper function: wait for accepted socket
@@ -10,6 +14,7 @@ def waitForConnection(server_socket):
     client_socket,address = server_socket.accept()
     print("Accepted connection from ", address)
     return client_socket,address
+
 
 # -------------------------------------------------------------------------------------------
 # defining criteria for listening socket
@@ -22,6 +27,8 @@ print("Socket created succesfully. Port is %i " % port)
 
 # wait for connection
 client_socket,address = waitForConnection(server_socket)
+BUFF_SIZE = 4096 # 4 KiB
+
 
 # -------------------------------------------------------------------------------------------
 # listen in endless loop
@@ -29,58 +36,34 @@ client_socket,address = waitForConnection(server_socket)
 while True:
     
     try:
-        data = client_socket.recv(1) # receive one char
-    except bluetooth.btcommon.BluetoothError as btError:
+        data = None  
+        req = client_socket.recv(BUFF_SIZE)
+                
+        # check for length
+        if len(req) == 0: break
+        elif len(req) == 1 and ord(req[0]) == 113: # 113 == 'q'
+            print ("Shutdown Android Communication")
+            sys.exit()
+                
+        # check if send response             
+        if req in ('temp', '*temp'):
+            data = str(random.random())+'!'            
+            client_socket.send(data)
+            #print "sending [%s]" % data
+                    
+        # write json               
+        SettingsReader.writeJsonFile(req)
+
+    except IOError: pass
+    
+    except KeyboardInterrupt:         
+        client_socket.close()
+        client_socket.close()
+        print "user forced close: cleanup all done"
+        break
+    
+    except bluetooth.btcommon.BluetoothError as btError:      
         print('Lost accepted connection...')
         client_socket,address = waitForConnection(server_socket)
         continue
-    
-    # parse received command
-    print ("Received: %s" % data)
-  
-    if (ord(data) == 1):
-        print ("---------------------------------------------------------")
-        print ("Start Q.bo mouth.py) all output will be redirected:")
-        print ("---------------------------------------------------------")
-        subprocess.call(['python', "../Samples/Control/mouth.py"])
-        print ("---------------------------------------------------------")
-        
-        client_socket.send("OK1")
-        
-    elif (ord(data) == 2):
-        print ("---------------------------------------------------------")
-        print ("Start Q.bo head.py) all output will be redirected:")
-        print ("---------------------------------------------------------")
-        subprocess.call(['python', "../Samples/Control/head.py"])
-        print ("---------------------------------------------------------")
-        
-        client_socket.send("OK2")
-        
-    elif (ord(data) == 3):
-        print ("---------------------------------------------------------")
-        print ("Start Q.bo EmotionDetectionClient.py) all output will be redirected:")
-        print ("---------------------------------------------------------")
-        os.chdir("../EmotionVideo") # only works in its own folder
-        subprocess.call(['python', "EmotionDetectionClient.py"])
-        os.chdir("../BlueToothAdapter") # switch back to BluetoothAdapter folder
-        print ("---------------------------------------------------------")
-        
-        client_socket.send("OK3")
-        
-    elif (ord(data) == 4):
-        print ("---------------------------------------------------------")
-        print ("Start Q.bo EmotionSpeech.py) all output will be redirected:")
-        print ("---------------------------------------------------------")
-        os.chdir("../EmotionAudio") # only works in its own folder
-        subprocess.call(['python', "Main_Programm.py"])
-        os.chdir("../BlueToothAdapter") # switch back to BluetoothAdapter folder
-        print ("---------------------------------------------------------")
-        
-        client_socket.send("OK4")
-  
-    elif (ord(data) == 113): # 113 == 'q'
-        print ("Shutdown Android Communication")
-        break
  
-client_socket.close()
-server_socket.close()
