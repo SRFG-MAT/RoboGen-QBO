@@ -1,3 +1,4 @@
 *.pyc
 
 /Python_Projects/EmotionSpeech/mp3/tmp.mp3
+/Python_Projects/MyQBOSettings/settings.json
