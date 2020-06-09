@@ -1,10 +1,15 @@
+#!/usr/bin/env python2.7
+import os, sys, time
+time.sleep(25) # wait for ubuntu bluetoothservice to be init
+
 import bluetooth
 import subprocess
-import os, sys
 
 # saved settings
-sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/MyQBOSettings')
+sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOSettings')
 import SettingsReader
+
+
 
 # -------------------------------------------------------------------------------------------
 # helper function: wait for accepted socket

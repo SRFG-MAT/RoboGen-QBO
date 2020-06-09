@@ -31,7 +31,7 @@ def processEmotionAnalyze():
             break
         else:
             allSentences.append(sentence)
-            os.system("mpg321 -q /home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionAudio/mp3/SoundEffect_Confirm.mp3") # Bestätigungs-Sound abspielen
+            os.system("mpg321 -q /opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/mp3/SoundEffect_Confirm.mp3") # Bestätigungs-Sound abspielen
  
     # analysiere und beantworte alle Sätze
     Various_Functions.qboResponse(allSentences)

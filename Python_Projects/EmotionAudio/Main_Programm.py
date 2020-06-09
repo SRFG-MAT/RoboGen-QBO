@@ -5,17 +5,16 @@ import Processing_Audio
 import Various_Functions
 
 # decision trees
-sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionAudio/dt')
+sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/dt')
 import DecisionTrees
 
 # emotion analysis
-sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionAudio/ea')
+sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/ea')
 import EmotionAnalysis
 
 # saved settings
-sys.path.append('/home/pi/Documents/RoboGen-QBO/Python_Projects/MyQBOSettings')
+sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOSettings')
 import SettingsReader
-robotName = SettingsReader.getRobotNameFromSettings().lower()
 
 
 #---------------------------------------------------------------------------------------------
@@ -25,9 +24,10 @@ robotName = SettingsReader.getRobotNameFromSettings().lower()
 while True:
     
     sentence = Processing_Audio.getAudioToText()
-    sentence = Various_Functions.normalize(sentence)
+    sentence = Various_Functions.normalize(sentence).strip()   
+    robotName = SettingsReader.getRobotNameFromSettings().lower().strip()
     
-    if sentence.strip() == robotName.strip():
+    if sentence == robotName:
         
         Various_Functions.qboSpeak('Ja?')
         
@@ -35,19 +35,19 @@ while True:
         while True:
             
             sentence = Processing_Audio.getAudioToText()
-            sentence = Various_Functions.normalize(sentence)
+            sentence = Various_Functions.normalize(sentence).strip()
           
-            if sentence.strip() == "starte satzanalyse":
+            if sentence == "starte satzanalyse":
                 EmotionAnalysis.startEmotionAnalyze(robotName)
                 EmotionAnalysis.processEmotionAnalyze()
                 break # break inner endless loop to go back to wakeup word
             
-            elif sentence.strip() == "starte entscheidungsbaum":
+            elif sentence == "starte entscheidungsbaum":
                 DecisionTrees.startDecisionTree(robotName)
                 DecisionTrees.processDecisionTree()
                 break # break inner endless loop to go back to wakeup word
             
-            elif sentence.strip() == "schon gut":
+            elif sentence == "schon gut":
                 Various_Functions.qboSpeak('Wenn du was brauchst ich bin hier.')
                 break
             

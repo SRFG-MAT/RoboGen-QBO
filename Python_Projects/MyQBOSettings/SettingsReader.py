@@ -8,7 +8,7 @@ from string import punctuation
 from subprocess import call
 
 
-settingsfile_path = '/home/pi/Documents/RoboGen-QBO/Python_Projects/MyQBOSettings/settings.json'
+settingsfile_path = '/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOSettings/settings.json'
 settings_data = {}
 
 # -------------------------------------------------------------------------------------------

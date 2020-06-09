@@ -3,13 +3,13 @@
         "doRecognizeFeelingsFromAudio": true, 
         "doRecognizeFeelingsFromVideo": true, 
         "isAlive": true, 
-        "robotAudioVolume": "95", 
+        "robotAudioVolume": 100, 
         "robotInfoDisplayFontSize": "12", 
-        "robotInfoDisplayLocation": "Standard", 
+        "robotInfoDisplayLocation": 1, 
         "robotName": "Mario", 
-        "robotThresholdSleep": "50", 
-        "robotThresholdStress": "50", 
-        "robotVoice": "Standard"
+        "robotThresholdSleep": 100, 
+        "robotThresholdStress": 100, 
+        "robotVoice": 0
     }, 
     "userSettings": {
         "userAddress": {
@@ -19,21 +19,21 @@
             "streetAddress": "Griesgasse 4 / Stiege 1 / Top 10"
         }, 
         "userAge": "30", 
-        "userEducationStatus": "Master (MSc.)", 
+        "userEducationStatus": 6, 
         "userEmailAccount": "eteru8@gmail.com", 
-        "userFamilyStatus": "engaged", 
-        "userGender": "male", 
+        "userFamilyStatus": 1, 
+        "userGender": 0, 
         "userName": "Mathias", 
         "userPersonalData": {
             "userAverageIncome": ">2000 EUR", 
-            "userEmploymentSituation": "employed as researcher at SRFG", 
-            "userHousingSituation": "in appartement with partner", 
-            "userKnownDiseases": [], 
-            "userMigrationBackground": "none", 
-            "userRegionalityScale": "medium-sized city, oldtown", 
-            "userReligionState": "catholic", 
-            "userResidenceDuringDay": "parks, restaurants and museums"
+            "userEmploymentSituation": "SRFG als Forscher", 
+            "userHousingSituation": "Wohngemeinschaft mit der Verlobten", 
+            "userKnownDiseases": "Diabetes", 
+            "userMigrationBackground": "Keiner", 
+            "userRegionalityScale": "Altstadt", 
+            "userReligionState": "Atheist, katholisch erzogen", 
+            "userResidenceDuringDay": "Parks, Restaurants, Museen"
         }, 
-        "userPhoneNumbers": []
+        "userPhoneNumber": "0699/17243550"
     }
 }

@@ -14,7 +14,7 @@ intervention_data = {}
 #---------------------------------------------------------------------------------------------
 def loadDTData(area):
     
-    with open('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionAudio/dt/json/robogen_decisiontrees.json', 'r') as dt_file:
+    with open('/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/dt/json/robogen_decisiontrees.json', 'r') as dt_file:
         dt_data = json.load(dt_file)
         
         # Frage
@@ -34,7 +34,7 @@ def loadDTData(area):
 #---------------------------------------------------------------------------------------------
 def loadInterventionData(codeInput):
         
-    with open('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionAudio/dt/json/robogen_interventions.json', 'r') as interventions_file:
+    with open('/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/dt/json/robogen_interventions.json', 'r') as interventions_file:
         intervention_data = json.load(interventions_file)
         
         print('Gesucht wird code: ' + codeInput)
@@ -53,7 +53,7 @@ def loadInterventionData(codeInput):
 #---------------------------------------------------------------------------------------------            
 def goToNewArea(area, option):
 
-    with open('/home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionAudio/dt/json/robogen_decisiontrees.json', 'r') as dt_file:
+    with open('/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/dt/json/robogen_decisiontrees.json', 'r') as dt_file:
         dt_data = json.load(dt_file)
 
         if dt_data[0][area]['options'][option-1]['action']['type'] == 'SUBTREE':

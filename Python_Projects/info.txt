@@ -5,6 +5,7 @@ Scripts fuer Autostart hinzufuegen in autostart-Datei unter:
 
 Derzeit eingetragen sind:
 
-lxterminal -e /usr/bin/python /home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionVideo/EmotionDetectionClient.py
-lxterminal -e /usr/bin/python /home/pi/Documents/RoboGen-QBO/Python_Projects/EmotionAudio/Main_Programm.py
+lxterminal -e /usr/bin/python /opt/QBO/RoboGen-QBO/Python_Projects/EmotionVideo/EmotionDetectionClient.py
+lxterminal -e /usr/bin/python /opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/Main_Programm.py 
+lxterminal -e /usr/bin/python /opt/QBO/RoboGen-QBO/Python_Projects/BlueToothAdapter/BlueToothAdapter.py 
 
