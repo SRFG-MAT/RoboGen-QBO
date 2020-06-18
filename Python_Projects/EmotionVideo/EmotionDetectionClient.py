@@ -122,7 +122,7 @@ while worker_thread.is_alive():
 
     # send request to python backend server 
     try:     
-        r = requests.post('https://power2dm.salzburgresearch.at/robogen/FaceDetection/AnalyzeFrameForEmotion', verify=False, json=im2json(frame))
+        r = requests.post('https://power2dm.salzburgresearch.at/robogen/FaceDetection/AnalyzeFrameForEmotion', timeout=5, verify=False, json=im2json(frame))
         headers = {'Content-type': 'application/json'}      
             
         if r.ok:
