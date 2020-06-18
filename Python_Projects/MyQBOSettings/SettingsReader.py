@@ -44,4 +44,14 @@ def getRobotAudioVolume():
     with open(settingsfile_path, 'r') as settings_file:
         settings_data = json.load(settings_file)
         return settings_data['robotSettings']['robotAudioVolume']
+    
+    
+def getRobotAudioVoice():
+    
+    with open(settingsfile_path, 'r') as settings_file:
+        settings_data = json.load(settings_file)
+        return settings_data['robotSettings']['robotVoice']    
+    
+    
+    
         

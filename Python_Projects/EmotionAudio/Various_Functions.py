@@ -14,21 +14,65 @@ from fuzzywuzzy import fuzz
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOSettings')
 import SettingsReader
 audioVolume = SettingsReader.getRobotAudioVolume()
+audioVoice = SettingsReader.getRobotAudioVoice()
+
+#for pydub audio modification
+#from urllib2 import urlopen
+from pydub import AudioSegment
+from pydub.playback import play
 
 # global variables
 filepath_tmp_audio = "/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/mp3/tmp.mp3"
 
 
 #---------------------------------------------------------------------------------------------
+# modify gtts mp3 volume
+#---------------------------------------------------------------------------------------------
+def modifyAudioVolume(sound):
+    return sound + (audioVolume-50)
+
+#---------------------------------------------------------------------------------------------
+# modify gtts mp3 pitch voice
+#---------------------------------------------------------------------------------------------
+def modifyAudioPitchVoice(sound):
+    
+    if (audioVoice == 1):  # Männlich - Markus
+        new_sample_rate = int(sound.frame_rate * (2.0 ** -1.5)) #octaves = -1.5
+        return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
+    
+    elif (audioVoice == 2):  # Männlich - Gustav
+        new_sample_rate = int(sound.frame_rate * (2.0 ** -0.5)) #octaves = -0.5
+        return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
+    
+    elif (audioVoice == 3):  # Weiblich - Anita
+        new_sample_rate = int(sound.frame_rate * (2.0 ** +0.5)) #octaves = +0.5
+        return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
+    
+    elif (audioVoice == 4):  # Weiblich - Arabella
+        new_sample_rate = int(sound.frame_rate * (2.0 ** +1.5)) #octaves = +1.5
+        return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
+    
+    elif (audioVoice == 5):  #Geschlechtsneutral
+        new_sample_rate = int(sound.frame_rate * (2.0 ** -3.5)) #octaves = -3.5
+        return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
+    
+    else: # std voice (0)
+        return sound   
+
+#---------------------------------------------------------------------------------------------
 # qboSpeak - QBO will speak the sentence out loudly
 #---------------------------------------------------------------------------------------------
 def qboSpeak(sentence):
     
-    language = 'de' # Sprache (ISO Code)
-    myobj = gTTS(text=sentence, lang=language, slow=False) # Erzeugen der Sprachausgabe
-    myobj.save(filepath_tmp_audio) # Speichern als mp3
+    # Erzeugen der Sprachausgabe und speichern als mp3
+    myobj = gTTS(text=sentence, lang='de', slow=False) 
+    myobj.save(filepath_tmp_audio)
     
-    os.system("mpg321 -q " + filepath_tmp_audio + " --gain " + str(audioVolume))
+    # Nachbearbeitung der mp3-Datei mit pydub
+    sound = AudioSegment.from_mp3(filepath_tmp_audio)
+    play(modifyAudioPitchVoice(modifyAudioVolume(sound)))
+    
+    #os.system("mpg321 -q " + filepath_tmp_audio + " --gain " + str(audioVolume))
 
 #---------------------------------------------------------------------------------------------
 # qboResponse - analyzes all given sentences in sentenceArray and will answer them
