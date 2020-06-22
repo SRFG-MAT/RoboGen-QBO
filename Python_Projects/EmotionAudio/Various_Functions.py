@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
 import os, sys
-from gtts import gTTS 
+from gtts import gTTS
 
 # from emotion analysis
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/ea')
@@ -24,6 +24,28 @@ from pydub.playback import play
 # global variables
 filepath_tmp_audio = "/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/mp3/tmp.mp3"
 
+voice_profile_markus = 1 # Männlich - Markus
+markus_speed = 2.0
+markus_octaves = -0.5
+markus_velocidad_X = 1.5 # speedup
+
+voice_profile_gustav = 2 # Männlich - Gustav
+gustav_speed = 2.0
+gustav_octaves = -0.25
+gustav_velocidad_X = 1.2 # speedup
+
+voice_profile_anita = 3 # Weiblich - Anita
+anita_speed = 2.0
+anita_octaves = +0.25
+
+voice_profile_arabella = 4 # Weiblich - Arabella
+arabella_speed = 2.0
+arabella_octaves = +0.5
+
+voice_profile_neutral = 5 # Geschlechtsneutral
+neutral_speed = 2.2
+neutral_octaves = +0.3
+
 
 #---------------------------------------------------------------------------------------------
 # modify gtts mp3 volume
@@ -36,24 +58,26 @@ def modifyAudioVolume(sound):
 #---------------------------------------------------------------------------------------------
 def modifyAudioPitchVoice(sound):
     
-    if (audioVoice == 1):  # Männlich - Markus
-        new_sample_rate = int(sound.frame_rate * (2.0 ** -1.5)) #octaves = -1.5
+    if (audioVoice == voice_profile_markus):  
+        new_sample_rate = int(sound.frame_rate * (markus_speed ** markus_octaves)) 
+        sound = sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
+        return sound.speedup(markus_velocidad_X, 150, 25)
+    
+    elif (audioVoice == voice_profile_gustav):  
+        new_sample_rate = int(sound.frame_rate * (gustav_speed ** gustav_octaves)) 
+        sound = sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
+        return sound.speedup(gustav_velocidad_X, 150, 25)
+    
+    elif (audioVoice == voice_profile_anita):  
+        new_sample_rate = int(sound.frame_rate * (anita_speed ** anita_octaves)) 
         return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
     
-    elif (audioVoice == 2):  # Männlich - Gustav
-        new_sample_rate = int(sound.frame_rate * (2.0 ** -0.5)) #octaves = -0.5
+    elif (audioVoice == voice_profile_arabella):  
+        new_sample_rate = int(sound.frame_rate * (arabella_speed ** arabella_octaves)) 
         return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
     
-    elif (audioVoice == 3):  # Weiblich - Anita
-        new_sample_rate = int(sound.frame_rate * (2.0 ** +0.5)) #octaves = +0.5
-        return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
-    
-    elif (audioVoice == 4):  # Weiblich - Arabella
-        new_sample_rate = int(sound.frame_rate * (2.0 ** +1.5)) #octaves = +1.5
-        return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
-    
-    elif (audioVoice == 5):  #Geschlechtsneutral
-        new_sample_rate = int(sound.frame_rate * (2.0 ** -3.5)) #octaves = -3.5
+    elif (audioVoice == voice_profile_neutral):  
+        new_sample_rate = int(sound.frame_rate * (neutral_speed ** neutral_octaves))
         return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
     
     else: # std voice (0)
@@ -65,11 +89,10 @@ def modifyAudioPitchVoice(sound):
 def qboSpeak(sentence):
     
     # Erzeugen der Sprachausgabe und speichern als mp3
-    myobj = gTTS(text=sentence, lang='de', slow=False) 
-    myobj.save(filepath_tmp_audio)
+    gTTS(text=sentence, lang='de', slow=False).save(filepath_tmp_audio)
     
-    # Nachbearbeitung der mp3-Datei mit pydub
-    sound = AudioSegment.from_mp3(filepath_tmp_audio)
+    # Nachbearbeitung der mp3-Datei mit pydub und Audio-Ausgabe
+    sound = AudioSegment.from_mp3(filepath_tmp_audio)   
     play(modifyAudioPitchVoice(modifyAudioVolume(sound)))
     
     #os.system("mpg321 -q " + filepath_tmp_audio + " --gain " + str(audioVolume))
@@ -126,7 +149,6 @@ def getHighestScoreEmotion(sentence):
     
     return highscore_emotion, highscore_word, str(highscore)
 
-
 #---------------------------------------------------------------------------------------------
 # checkNegation - (find negetaion in sentence)
 #---------------------------------------------------------------------------------------------
@@ -156,7 +178,6 @@ def checkNegation(sentence, emotion):
                     print("Die zu negierende Emotion konnte nicht gefunden werden")
 
     return emotion
-
 
 #---------------------------------------------------------------------------------------------
 # normalize - (needed for processing Google String)
