@@ -41,5 +41,5 @@ while True:
 	# ToDo: Calculate actual calendar events and set timings accordingly
 	if calendarTriggered == 0 and ts > (launch+30):
 		calendarTriggered = 1
-		Various_Functions.qboSpeak('In 10 Minuten ist Zeit für Medikamente nehmen.')
+		Various_Functions.qboSpeak('In 10 Minuten ist Zeit fuer Medikamente nehmen.')
 	
