@@ -21,5 +21,5 @@ def processEmergency(userName,emergencyMail):
 	s.starttls() 
 	s.login("qbo.emergency@gmail.com", "qboEmergencyPass321!") 
 	message = "Notfall bei "+userName+"! Sofort pruefen!"
-	s.sendmail("sender_email_id", emergencyMail, message) 
+	s.sendmail("qbo.emergency@gmail.com", emergencyMail, message) 
 	s.quit() 
