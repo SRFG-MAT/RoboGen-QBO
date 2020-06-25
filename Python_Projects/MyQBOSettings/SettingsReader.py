@@ -50,8 +50,34 @@ def getRobotAudioVoice():
     
     with open(settingsfile_path, 'r') as settings_file:
         settings_data = json.load(settings_file)
-        return settings_data['robotSettings']['robotVoice']    
+        return settings_data['robotSettings']['robotVoice']   
+
+def getSleepThreshold():
+
+	with open(settingsfile_path, 'r') as settings_file:
+        settings_data = json.load(settings_file)
+        return settings_data['robotSettings']['robotThresholdSleep'] 		
     
-    
+def getUserName():
+
+	with open(settingsfile_path, 'r') as settings_file:
+        settings_data = json.load(settings_file)
+        return settings_data['userSettings']['userName'] 
+	
+def getEmergencyEmail():
+
+	with open(settingsfile_path, 'r') as settings_file:
+        settings_data = json.load(settings_file)
+        return settings_data['userSettings']['emergencyAddress']['emergencyEmailAccount']  
+		
+def getSleepMinValue():
+	with open(settingsfile_path, 'r') as settings_file:
+        settings_data = json.load(settings_file)
+        return settings_data['fitbitSettings']['sleepMinValue'] 
+		
+def getCalendar():
+	with open(settingsfile_path, 'r') as settings_file:
+        settings_data = json.load(settings_file)
+        return settings_data['calSettings']
     
         

@@ -12,10 +12,13 @@ import DecisionTrees
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/ea')
 import EmotionAnalysis
 
+# emergency trigger
+sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/em')
+import Emergency
+
 # saved settings
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOSettings')
 import SettingsReader
-
 
 #---------------------------------------------------------------------------------------------
 # MainProgram Start - (entrance point)
@@ -23,9 +26,11 @@ import SettingsReader
 # wait for wake word
 while True:
     
+	robotName = SettingsReader.getRobotNameFromSettings().lower().strip()
+	userName = SettingsReader.getUserName()
+	emergencyMail = SettingsReader.getEmergencyEmail().lower().strip()
     sentence = Processing_Audio.getAudioToText()
     sentence = Various_Functions.normalize(sentence).strip()   
-    robotName = SettingsReader.getRobotNameFromSettings().lower().strip()
     
     if sentence == robotName:
         
@@ -46,6 +51,10 @@ while True:
                 DecisionTrees.startDecisionTree(robotName)
                 DecisionTrees.processDecisionTree()
                 break # break inner endless loop to go back to wakeup word
+				
+			elif sentence == "notfall":
+				Emergency.startEmergency(userName,emergencyMail)
+				break # break inner endless loop to go back to wakeup word
             
             elif sentence == "schon gut":
                 Various_Functions.qboSpeak('Wenn du was brauchst ich bin hier.')

@@ -18,6 +18,9 @@
             "state": "Salzburg", 
             "streetAddress": "Griesgasse 4 / Stiege 1 / Top 10"
         }, 
+		"emergencyAddress": {
+		  "emergencyEmailAccount": "oliver.jung@salzburgresearch.at"
+		},
         "userAge": "30", 
         "userEducationStatus": 6, 
         "userEmailAccount": "eteru8@gmail.com", 
@@ -35,5 +38,24 @@
             "userResidenceDuringDay": "Parks, Restaurants, Museen"
         }, 
         "userPhoneNumber": "0699/17243550"
-    }
+    },
+	"fitbitSettings": {
+		"sleepMinValue": 40
+	},
+	"calSettings": [
+		{
+			"title": "Medikamente nehmen",
+			"date": "2020-06-22",
+			"time": "10:15",
+			"repeat": 1,
+			"reminder": "10"
+		},
+		{
+			"title": "Routineuntersuchung beim Hausarzt",
+			"date": "2020-06-19",
+			"time": "08:30",
+			"repeat": 3,
+			"reminder": "60"
+		}
+	]
 }
