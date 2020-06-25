@@ -2,6 +2,7 @@
 # coding=utf-8
 import os
 import json
+import random
 from gtts import gTTS
 from string import punctuation
 import Various_Functions
@@ -39,14 +40,20 @@ def loadInterventionData(codeInput):
         
         print('Gesucht wird code: ' + codeInput)
         
+        entries = []
+        
         for entry in intervention_data:
             #print('text: ' + entry['text'])
             #print('link: ' + entry['link'])
             
             for code in entry['codes']:                 
                 if code == codeInput:
-                    print('code: ' + code)
-                    Various_Functions.qboSpeak(entry['text'])
+                    #print('code: ' + code)
+                    entries.append(entry['text'])
+        
+        if len(entries) > 0:
+            idx = random.randint(0,(len(entries)-1))
+            Various_Functions.qboSpeak(entries[idx])
                 
 #---------------------------------------------------------------------------------------------
 # load intervention data and print
@@ -60,7 +67,7 @@ def goToNewArea(area, option):
             return dt_data[0][area]['options'][option-1]['action']['ref']
         
         elif dt_data[0][area]['options'][option-1]['action']['type'] == 'INTERVENTION':
-            loadInterventionData(dt_data[0][area]['options'][option-1]['action']['ref'][0])
+            loadInterventionData(dt_data[0][area]['options'][option-1]['action']['ref'])
             return 'end'
         
         else:
