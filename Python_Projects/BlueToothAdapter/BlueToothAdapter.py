@@ -1,6 +1,6 @@
 #!/usr/bin/env python2.7
 import os, sys, time
-#time.sleep(25) # wait for ubuntu bluetoothservice to be init (TODO: maybe change this to wait until service is ready)
+time.sleep(25) # wait for ubuntu bluetoothservice to be init (TODO: maybe change this to wait until service is ready)
 
 import bluetooth
 import subprocess
