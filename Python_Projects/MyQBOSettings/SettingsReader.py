@@ -17,8 +17,8 @@ settings_data = {}
 def writeJsonFile(byte_data):
     
     my_json = byte_data.decode('string-escape').replace("'", '"')
+
     data = json.loads(my_json)
-    
     s = json.dumps(data, indent=4, sort_keys=True)
     
     print "------------------------------------------"

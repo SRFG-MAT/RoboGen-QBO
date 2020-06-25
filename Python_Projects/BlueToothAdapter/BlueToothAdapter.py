@@ -1,6 +1,6 @@
 #!/usr/bin/env python2.7
 import os, sys, time
-time.sleep(25) # wait for ubuntu bluetoothservice to be init (TODO: maybe change this to wait until service is ready)
+#time.sleep(25) # wait for ubuntu bluetoothservice to be init (TODO: maybe change this to wait until service is ready)
 
 import bluetooth
 import subprocess
@@ -12,7 +12,7 @@ import SettingsReader
 # -------------------------------------------------------------------------------------------
 # defining criteria for listening socket
 # -------------------------------------------------------------------------------------------
-BUFF_SIZE = 4096 # 4 KiB
+BUFF_SIZE = 1024 # 1 KiB
 port = 1
 
 # -------------------------------------------------------------------------------------------
@@ -41,22 +41,22 @@ while True:
     server_socket = createSocketAndBind() 
     client_socket,address = waitForConnection(server_socket)   
 
+    data = ""
+
     while True:
     
         try:
-            data = None  
             req = client_socket.recv(BUFF_SIZE)
                 
             # check for length
-            if len(req) == 0: break
-            elif len(req) == 1 and ord(req[0]) == 113: # 113 == 'q'
+            #if len(req) == 0: break
+            if len(req) == 1 and ord(req[0]) == 113: # 113 == 'q'
                 print ("Shutdown Android Communication")
                 server_socket.close()
-                break        
-                    
-            # write json               
-            SettingsReader.writeJsonFile(req)
-            client_socket.send("Daten erfolgreich erhalten!")
+                break
+            
+            data = data + req
+ 
 
         except IOError: pass
     
@@ -70,4 +70,8 @@ while True:
             print('Lost accepted connection...')
             client_socket,address = waitForConnection(server_socket)
             continue
+        
+    # write json               
+    SettingsReader.writeJsonFile(data)
+    client_socket.send("Daten erfolgreich erhalten!")
  
