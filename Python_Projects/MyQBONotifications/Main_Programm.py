@@ -23,7 +23,7 @@ launch = time.time()
 #---------------------------------------------------------------------------------------------
 while True:
 
-	robotName = SettingsReader.getRobotNameFromSettings().lower().strip()
+	#robotName = SettingsReader.getRobotNameFromSettings().lower().strip()
 	newSleepThreshold = SettingsReader.getSleepThreshold()
 	newSleepMinValue = SettingsReader.getSleepMinValue()
 	newCalendar = SettingsReader.getCalendar()
@@ -36,7 +36,7 @@ while True:
 		sleepMinValue = newSleepMinValue
 		calendar = newCalendar
 		if sleepMinValue < sleepThreshold:
-			Various_Functions.qboSpeak('Es scheint als haettest du kuerzlich schlecht geschlafen. Sage '+robotName+', starte Entscheidungsbaum und anschließend Schlaf, um Hilfe zu bekommen.')
+			Various_Functions.qboSpeak('Es scheint als haettest du kuerzlich schlecht geschlafen. Sage starte Entscheidungsbaum und anschließend Schlaf, um Hilfe zu bekommen.')
 			
 	# ToDo: Calculate actual calendar events and set timings accordingly
 	if calendarTriggered == 0 and ts > (launch+30):
