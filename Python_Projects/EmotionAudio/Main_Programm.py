@@ -26,9 +26,9 @@ import SettingsReader
 # wait for wake word
 while True:
     
-	robotName = SettingsReader.getRobotNameFromSettings().lower().strip()
-	userName = SettingsReader.getUserName()
-	emergencyMail = SettingsReader.getEmergencyEmail().lower().strip()
+    robotName = SettingsReader.getRobotNameFromSettings().lower().strip()
+    userName = SettingsReader.getUserName()
+    emergencyMail = SettingsReader.getEmergencyEmail().lower().strip()
     sentence = Processing_Audio.getAudioToText()
     sentence = Various_Functions.normalize(sentence).strip()   
     
@@ -51,10 +51,10 @@ while True:
                 DecisionTrees.startDecisionTree(robotName)
                 DecisionTrees.processDecisionTree()
                 break # break inner endless loop to go back to wakeup word
-				
-			elif sentence == "notfall":
-				Emergency.startEmergency(userName,emergencyMail)
-				break # break inner endless loop to go back to wakeup word
+
+            elif sentence == "notfall":
+                Emergency.startEmergency(userName,emergencyMail)
+                break # break inner endless loop to go back to wakeup word
             
             elif sentence == "schon gut":
                 Various_Functions.qboSpeak('Wenn du was brauchst ich bin hier.')
