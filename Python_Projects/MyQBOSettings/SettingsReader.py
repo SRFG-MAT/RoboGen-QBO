@@ -7,12 +7,12 @@ from string import punctuation
 # used for setting os audio volume
 from subprocess import call
 
-
-settingsfile_path = '/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOSettings/settings.json'
-settings_data = {}
+# Settings Class
+import Settings
+mysettings = Settings.MySettings()
 
 # -------------------------------------------------------------------------------------------
-# write json settings file
+# write json settings file (from bluetooth data)
 # -------------------------------------------------------------------------------------------
 def writeJsonFile(byte_data):
     
@@ -21,63 +21,75 @@ def writeJsonFile(byte_data):
     data = json.loads(my_json)
     s = json.dumps(data, indent=4, sort_keys=True)
     
+    open(mysettings.SETTINGS_FILE,"w").write(s)
+    mysettings.update_settings()
+    
     print "------------------------------------------"
     print s
     print "------------------------------------------"
     
-    open(settingsfile_path,"w").write(s)
     
+# -------------------------------------------------------------------------------------------
+# increment robot audio volume
+# -------------------------------------------------------------------------------------------
+def incrementRobotAudioVolume():
+    
+    if(mysettings.robot_audiovolume <= 90):
+        
+        with open(mysettings.SETTINGS_FILE, "r") as settings_file:
+            data = json.load(settings_file)
 
+        data['robotSettings']['robotAudioVolume']= mysettings.robot_audiovolume + 10
+        s = json.dumps(data, indent=4, sort_keys=True)
+
+        with open(mysettings.SETTINGS_FILE, "w") as settings_file:
+            settings_file.write(s)
+        
+        mysettings.update_settings()
+    
+# -------------------------------------------------------------------------------------------
+# decrement robot audio volume
+# -------------------------------------------------------------------------------------------
+def decrementRobotAudioVolume():
+    
+    if(mysettings.robot_audiovolume >= 10):
+        
+        with open(mysettings.SETTINGS_FILE, "r") as settings_file:
+            data = json.load(settings_file)
+
+        data['robotSettings']['robotAudioVolume']= mysettings.robot_audiovolume - 10
+        s = json.dumps(data, indent=4, sort_keys=True)
+
+        with open(mysettings.SETTINGS_FILE, "w") as settings_file:
+            settings_file.write(s)
+        
+        mysettings.update_settings()
 
 #---------------------------------------------------------------------------------------------
-# get settings
+# getters
 #---------------------------------------------------------------------------------------------
-def getRobotNameFromSettings():
-    
-    with open(settingsfile_path, 'r') as settings_file:
-        settings_data = json.load(settings_file)      
-        return settings_data['robotSettings']['robotName']
-            
+def getRobotNameFromSettings(): 
+    return mysettings.robot_name
             
 def getRobotAudioVolume():
-    
-    with open(settingsfile_path, 'r') as settings_file:
-        settings_data = json.load(settings_file)
-        return settings_data['robotSettings']['robotAudioVolume']
-    
+    return mysettings.robot_audiovolume
     
 def getRobotAudioVoice():
-    
-    with open(settingsfile_path, 'r') as settings_file:
-        settings_data = json.load(settings_file)
-        return settings_data['robotSettings']['robotVoice']   
+    return mysettings.robot_voice
 
 def getSleepThreshold():
-
-    with open(settingsfile_path, 'r') as settings_file:
-        settings_data = json.load(settings_file)
-        return settings_data['robotSettings']['robotThresholdSleep'] 		
+    return mysettings.robot_threshold_sleep
     
 def getUserName():
-
-    with open(settingsfile_path, 'r') as settings_file:
-        settings_data = json.load(settings_file)
-        return settings_data['userSettings']['userName'] 
+    return mysettings.user_name
 	
 def getEmergencyEmail():
-
-    with open(settingsfile_path, 'r') as settings_file:
-        settings_data = json.load(settings_file)
-        return settings_data['userSettings']['emergencyAddress']['emergencyEmailAccount']  
+    return mysettings.user_emergency_email
 		
 def getSleepMinValue():
-    with open(settingsfile_path, 'r') as settings_file:
-        settings_data = json.load(settings_file)
-        return settings_data['fitbitSettings']['sleepMinValue'] 
+    return mysettings.fitbit_sleepMin
 		
 def getCalendar():
-    with open(settingsfile_path, 'r') as settings_file:
-        settings_data = json.load(settings_file)
-        return settings_data['calSettings']
+    return mysettings.calendar_settings
     
         

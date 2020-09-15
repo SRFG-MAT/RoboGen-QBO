@@ -4,6 +4,8 @@ import os, sys, time
 import Processing_Audio
 import Various_Functions
 
+import imp
+
 # decision trees
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/dt')
 import DecisionTrees
@@ -55,6 +57,18 @@ while True:
             elif sentence == "notfall":
                 Emergency.startEmergency(userName,emergencyMail)
                 break # break inner endless loop to go back to wakeup word
+            
+            elif sentence == "lauter":
+                SettingsReader.incrementRobotAudioVolume()
+                imp.reload(Various_Functions)
+                Various_Functions.qboSpeak('Verstehe! Ich spreche dir wohl zu leise? Von jetzt an spreche ich lauter!')
+                break # break inner endless loop to go back to wakeup word
+                
+            elif sentence == "leiser":
+                SettingsReader.decrementRobotAudioVolume()
+                imp.reload(Various_Functions)
+                Various_Functions.qboSpeak('Verstehe! Ich spreche dir wohl zu laut? Von jetzt an spreche ich leiser!')
+                break # break inner endless loop to go back to wakeup word 
             
             elif sentence == "schon gut":
                 Various_Functions.qboSpeak('Wenn du was brauchst ich bin hier.')
