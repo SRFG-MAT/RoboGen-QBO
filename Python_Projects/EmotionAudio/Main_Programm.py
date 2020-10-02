@@ -26,6 +26,9 @@ import SettingsReader
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOFoodplan')
 import FoodReader
 
+# saved and uploaded calendar on server
+import CalendarManager
+
 #---------------------------------------------------------------------------------------------
 # MainProgram Start - (entrance point)
 #---------------------------------------------------------------------------------------------
@@ -87,7 +90,42 @@ while True:
                     FoodReader.createCalendarEntry(entries[0])
                     Various_Functions.qboSpeak('OK, ich habe das Nahrungsmittel' + entries[0] + 'deinem Ernaehrungstagebuch mit dem heutigen Datum hinzugefuegt!')      
                 
-                break # break inner endless loop to go back to wakeup word 
+                break # break inner endless loop to go back to wakeup word
+            
+            elif sentence == "kalendereintrag":
+                
+                Various_Functions.qboSpeak('Verstehe! Wie lautet der Titel dieses Kalendereintrages?')
+                title = Processing_Audio.getAudioToText()
+                title = Various_Functions.normalize(title).strip()
+                
+                Various_Functions.qboSpeak('Verstehe! Ich werde einen Kalendereintrag vornehmen! Welches Datum soll eingetragen werden?')
+                date = Processing_Audio.getAudioToText()
+                date = Various_Functions.normalize(date).strip()
+                
+                Various_Functions.qboSpeak('Verstehe! Welche Uhrzeit soll eingetragen werden?')
+                time = Processing_Audio.getAudioToText()
+                time = Various_Functions.normalize(time).strip()
+                
+                Various_Functions.qboSpeak('Verstehe! Wie lange vorher moechtest du an dieses Event erinnert werden?')
+                reminder = Processing_Audio.getAudioToText()
+                reminder = Various_Functions.normalize(reminder).strip()
+                
+                Various_Functions.qboSpeak('Verstehe! Wie oft soll dieses Event wiederholt werden?')
+                repeat = Processing_Audio.getAudioToText()
+                repeat = Various_Functions.normalize(repeat).strip()             
+                
+                CalendarManager.uploadCalendarEntry(title, date, time, reminder, repeat)                
+                CalendarManager.downloadCalendarEntry()
+                
+                break # break inner endless loop to go back to wakeup word
+            
+            elif sentence == "kalender entfernen":
+                if CalendarManager.resetCalendar():
+                    Various_Functions.qboSpeak('Ich habe alle deine Kalendereintraege fuer dich geloescht!')
+                else:
+                    Various_Functions.qboSpeak('Hoppla! Das Loeschen der Kalendereintraege hat offenbar nicht funktioniert!')
+                
+                break # break inner endless loop to go back to wakeup word
             
             elif sentence == "schon gut":
                 Various_Functions.qboSpeak('Wenn du was brauchst ich bin hier.')

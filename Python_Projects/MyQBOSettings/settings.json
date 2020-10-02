@@ -1,6 +1,14 @@
 {
     "cal": [], 
-    "calSettings": [], 
+    "calSettings": [
+        {
+            "date": "2020-09-29", 
+            "reminder": "10", 
+            "repeat": 1, 
+            "time": "06:56", 
+            "title": "Sandkorn"
+        }
+    ], 
     "fitbitSettings": {
         "sleepMinValue": 94
     }, 
@@ -8,15 +16,15 @@
         "doRecognizeFeelingsFromAudio": true, 
         "doRecognizeFeelingsFromVideo": true, 
         "isAlive": true, 
-        "robotAudioVolume": 48, 
+        "robotAudioVolume": 60, 
         "robotFrequencyOfTips": 3, 
         "robotInfoDisplayFontSize": "12", 
         "robotInfoDisplayLocation": 0, 
-        "robotName": "Martina", 
+        "robotName": "Mario", 
         "robotNotificationStyle": 0, 
         "robotThresholdSleep": 95, 
         "robotThresholdStress": 62, 
-        "robotVoice": 3
+        "robotVoice": 2
     }, 
     "userSettings": {
         "emergencyAddress": {
