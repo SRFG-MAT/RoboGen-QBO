@@ -9,16 +9,15 @@ import base64
 # -------------------------------------------------------------------------------------------
 def uploadCalendarEntry(title, date, time, reminder, repeat):
     
-    data = {}
-    data['cal_entry'] = []
-    data['cal_entry'].append({
+    data = {
         'title': title.encode('utf-8').strip(),
         'date': date.encode('utf-8').strip(),
         'time': time.encode('utf-8').strip(),
         'reminder': reminder.encode('utf-8').strip(),
         'repeat': repeat.encode('utf-8').strip()
-    }) 
+    }
     json_data = json.dumps(data)
+    print json_data
     
     try:     
         r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/UploadJSON_MyCalendar', timeout=5, verify=False, json=json_data)
