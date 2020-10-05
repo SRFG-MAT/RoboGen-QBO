@@ -17,7 +17,6 @@ def uploadCalendarEntry(title, date, time, reminder, repeat):
         'repeat': repeat.encode('utf-8').strip()
     }
     json_data = json.dumps(data)
-    print json_data
     
     try:     
         r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/UploadJSON_MyCalendar', timeout=5, verify=False, json=json_data)

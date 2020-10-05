@@ -27,6 +27,7 @@ sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOFoodplan')
 import FoodReader
 
 # saved and uploaded calendar on server
+sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOCalendar')
 import CalendarManager
 
 #---------------------------------------------------------------------------------------------
