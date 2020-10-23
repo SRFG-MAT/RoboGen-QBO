@@ -5,10 +5,6 @@ time.sleep(25) # wait for ubuntu bluetoothservice to be init (TODO: maybe change
 import bluetooth
 import subprocess
 
-# saved settings
-#sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOSettings')
-#import SettingsReader
-
 # -------------------------------------------------------------------------------------------
 # defining criteria for listening socket
 # -------------------------------------------------------------------------------------------
@@ -41,25 +37,38 @@ while True:
     server_socket = createSocketAndBind() 
     client_socket,address = waitForConnection(server_socket)   
 
-    data = ""
-
     while True:
     
         try:
             req = client_socket.recv(BUFF_SIZE)
-                
-            # check for length
-            #if len(req) == 0: break
+            
             if len(req) == 1 and ord(req[0]) == 113: # 113 == 'q'
                 print ("Shutdown Android Communication")
                 server_socket.close()
                 break
-            
-            data = data + req
- 
+            elif req == "LEFT":
+                print("TODO: Drive to the LEFT now")
+                client_socket.send("Roboter versucht nach LINKS zu fahren...")
+                server_socket.close()
+                break
+            elif req == "UP":
+                print("TODO: Drive FORWARD now")
+                client_socket.send("Roboter versucht nach VORNE zu fahren...")
+                server_socket.close()
+                break
+            elif req == "DOWN":
+                print("TODO: Drive BACKWARD now")
+                client_socket.send("Roboter versucht nach HINTEN zu fahren...")
+                server_socket.close()
+                break
+            elif req == "RIGHT":
+                print("TODO: Drive to the RIGHT now")
+                client_socket.send("Roboter versucht nach RECHTS zu fahren...")
+                server_socket.close()
+                break
 
         except IOError: pass
-    
+        
         except KeyboardInterrupt:         
             client_socket.close()
             client_socket.close()
@@ -70,8 +79,6 @@ while True:
             print('Lost accepted connection...')
             client_socket,address = waitForConnection(server_socket)
             continue
-        
-    # write json               
-    #SettingsReader.writeJsonFile(data)
-    client_socket.send("Daten erfolgreich erhalten!")
+                     
+    
  
