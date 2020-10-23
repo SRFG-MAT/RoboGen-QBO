@@ -40,7 +40,7 @@ while True:
     userName = SettingsReader.getUserName()
     emergencyMail = SettingsReader.getEmergencyEmail().lower().strip()
     sentence = Processing_Audio.getAudioToText()
-    sentence = Various_Functions.normalize(sentence).strip()   
+    sentence = Various_Functions.normalize(sentence).strip()
     
     if sentence == robotName:
         
@@ -64,6 +64,22 @@ while True:
 
             elif sentence == "notfall":
                 Emergency.startEmergency(userName,emergencyMail)
+                break # break inner endless loop to go back to wakeup word
+            
+            elif sentence == "roboter umbenennen":
+                Various_Functions.qboSpeak('Verstehe! Wie soll mein Name in Zukunft lauten?')
+                name = Processing_Audio.getAudioToText()
+                name = Various_Functions.normalize(name).strip()
+                SettingsReader.renameRobot(name)
+                Various_Functions.qboSpeak('OK, gut ab jetzt kannst du mich ' + name + " nennen!")
+                break # break inner endless loop to go back to wakeup word
+            
+            elif sentence == "benutzer umbenennen":
+                Various_Functions.qboSpeak('Verstehe! Mit wem spreche ich gerade?')
+                name = Processing_Audio.getAudioToText()
+                name = Various_Functions.normalize(name).strip()
+                SettingsReader.renameUser(name)
+                Various_Functions.qboSpeak('OK, ab jetzt werde ich dich ' + name + " nennen!")
                 break # break inner endless loop to go back to wakeup word
             
             elif sentence == "lauter":

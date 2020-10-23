@@ -12,82 +12,64 @@ import Settings
 mysettings = Settings.MySettings()
 
 # -------------------------------------------------------------------------------------------
-# write json settings file (from bluetooth data)
+# rename robot
 # -------------------------------------------------------------------------------------------
-def writeJsonFile(byte_data):
-    
-    my_json = byte_data.decode('string-escape').replace("'", '"')
-
-    data = json.loads(my_json)
-    s = json.dumps(data, indent=4, sort_keys=True)
-    
-    open(mysettings.SETTINGS_FILE,"w").write(s)
+def renameRobot(name):
+    mysettings.settings['robotSettings']['robotName'] = name
     mysettings.update_settings()
+    mysettings._load_settings()
     
-    print "------------------------------------------"
-    print s
-    print "------------------------------------------"
-    
+# -------------------------------------------------------------------------------------------
+# rename user
+# -------------------------------------------------------------------------------------------
+def renameUser(name):
+    mysettings.settings['userSettings']['userName'] = name
+    mysettings.update_settings()
+    mysettings._load_settings()
     
 # -------------------------------------------------------------------------------------------
 # increment robot audio volume
 # -------------------------------------------------------------------------------------------
 def incrementRobotAudioVolume():
     
-    if(mysettings.robot_audiovolume <= 90):
-        
-        with open(mysettings.SETTINGS_FILE, "r") as settings_file:
-            data = json.load(settings_file)
-
-        data['robotSettings']['robotAudioVolume']= mysettings.robot_audiovolume + 10
-        s = json.dumps(data, indent=4, sort_keys=True)
-
-        with open(mysettings.SETTINGS_FILE, "w") as settings_file:
-            settings_file.write(s)
-        
+    if(mysettings.robotAudioVolume <= 90):
+        mysettings.settings['robotSettings']['robotAudioVolume']+= 10
         mysettings.update_settings()
+        mysettings._load_settings()
     
 # -------------------------------------------------------------------------------------------
 # decrement robot audio volume
 # -------------------------------------------------------------------------------------------
 def decrementRobotAudioVolume():
     
-    if(mysettings.robot_audiovolume >= 10):
-        
-        with open(mysettings.SETTINGS_FILE, "r") as settings_file:
-            data = json.load(settings_file)
-
-        data['robotSettings']['robotAudioVolume']= mysettings.robot_audiovolume - 10
-        s = json.dumps(data, indent=4, sort_keys=True)
-
-        with open(mysettings.SETTINGS_FILE, "w") as settings_file:
-            settings_file.write(s)
-        
+    if(mysettings.robotAudioVolume >= 10):
+        mysettings.settings['robotSettings']['robotAudioVolume']-= 10
         mysettings.update_settings()
+        mysettings._load_settings()
 
 #---------------------------------------------------------------------------------------------
 # getters
 #---------------------------------------------------------------------------------------------
 def getRobotNameFromSettings(): 
-    return mysettings.robot_name
+    return mysettings.robotName
             
 def getRobotAudioVolume():
-    return mysettings.robot_audiovolume
+    return mysettings.robotAudioVolume
     
 def getRobotAudioVoice():
-    return mysettings.robot_voice
+    return mysettings.robotVoice
 
 def getSleepThreshold():
-    return mysettings.robot_threshold_sleep
+    return mysettings.robotThresholdSleep
     
 def getUserName():
-    return mysettings.user_name
+    return mysettings.userName
 	
 def getEmergencyEmail():
-    return mysettings.user_emergency_email
+    return mysettings.userEmergencyEmail
 		
 def getSleepMinValue():
-    return mysettings.fitbit_sleepMin
+    return mysettings.userSleepMinValue
 		
 def getCalendar():
     return mysettings.calendar_settings

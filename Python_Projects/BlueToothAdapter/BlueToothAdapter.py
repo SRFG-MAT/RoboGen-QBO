@@ -6,8 +6,8 @@ import bluetooth
 import subprocess
 
 # saved settings
-sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOSettings')
-import SettingsReader
+#sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOSettings')
+#import SettingsReader
 
 # -------------------------------------------------------------------------------------------
 # defining criteria for listening socket
@@ -72,6 +72,6 @@ while True:
             continue
         
     # write json               
-    SettingsReader.writeJsonFile(data)
+    #SettingsReader.writeJsonFile(data)
     client_socket.send("Daten erfolgreich erhalten!")
  
