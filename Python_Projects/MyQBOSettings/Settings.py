@@ -64,7 +64,7 @@ class MySettings:
             headers = {'Content-type': 'application/json'}      
             
             if r.ok:
-                print(r.content)
+                #print(r.content)
                 return r.content
             else:
                 print("--------------------------")

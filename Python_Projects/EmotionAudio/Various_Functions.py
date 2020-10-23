@@ -13,8 +13,6 @@ from fuzzywuzzy import fuzz
 # from Settings
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOSettings')
 import SettingsReader
-audioVolume = SettingsReader.getRobotAudioVolume()
-audioVoice = SettingsReader.getRobotAudioVoice()
 
 #for pydub audio modification
 #from urllib2 import urlopen
@@ -51,12 +49,14 @@ neutral_octaves = +0.3
 # modify gtts mp3 volume
 #---------------------------------------------------------------------------------------------
 def modifyAudioVolume(sound):
-    return sound + (audioVolume-50)
+    return sound + (SettingsReader.getRobotAudioVolume() - 50)
 
 #---------------------------------------------------------------------------------------------
 # modify gtts mp3 pitch voice
 #---------------------------------------------------------------------------------------------
 def modifyAudioPitchVoice(sound):
+    
+    audioVoice = SettingsReader.getRobotAudioVoice()
     
     if (audioVoice == voice_profile_markus):  
         new_sample_rate = int(sound.frame_rate * (markus_speed ** markus_octaves)) 
@@ -87,6 +87,9 @@ def modifyAudioPitchVoice(sound):
 # qboSpeak - QBO will speak the sentence out loudly
 #---------------------------------------------------------------------------------------------
 def qboSpeak(sentence):
+    
+    #update load settings config from server to see if any changes
+    SettingsReader.LoadFromServer()
     
     # Erzeugen der Sprachausgabe und speichern als mp3
     gTTS(text=sentence, lang='de', slow=False).save(filepath_tmp_audio)

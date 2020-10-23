@@ -36,6 +36,7 @@ import CalendarManager
 # wait for wake word
 while True:
     
+    SettingsReader.LoadFromServer()
     robotName = SettingsReader.getRobotNameFromSettings().lower().strip()
     userName = SettingsReader.getUserName()
     emergencyMail = SettingsReader.getEmergencyEmail().lower().strip()
