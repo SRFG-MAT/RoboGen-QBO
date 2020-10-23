@@ -6,8 +6,6 @@ import base64
 import os
 import json
 
-import SettingsManager
-
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
