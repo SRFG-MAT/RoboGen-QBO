@@ -23,6 +23,8 @@ from pydub.playback import play
 
 # global variables
 filepath_tmp_audio = "/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/mp3/tmp.mp3"
+# text-to-speech source, can be "Google" or "IBM"
+tts_src = "IBM"
 
 voice_profile_markus = 1 # Männlich - Markus
 markus_speed = 2.0
@@ -60,26 +62,33 @@ def modifyAudioPitchVoice(sound):
     
     audioVoice = SettingsReader.getRobotAudioVoice()
     
+    # speed modifier for different text-to-speech sources
+    speed_mod = 1
+    if (tts_src == "Google"):
+        speed_mod = 1
+    elif (tts_src == "IBM"):
+        speed_mod = 0.9
+    
     if (audioVoice == voice_profile_markus):  
-        new_sample_rate = int(sound.frame_rate * (markus_speed ** markus_octaves)) 
+        new_sample_rate = int(sound.frame_rate * speed_mod * (markus_speed ** markus_octaves)) 
         sound = sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
         return sound.speedup(markus_velocidad_X, 150, 25)
     
     elif (audioVoice == voice_profile_gustav):  
-        new_sample_rate = int(sound.frame_rate * (gustav_speed ** gustav_octaves)) 
+        new_sample_rate = int(sound.frame_rate * speed_mod * (gustav_speed ** gustav_octaves)) 
         sound = sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
         return sound.speedup(gustav_velocidad_X, 150, 25)
     
     elif (audioVoice == voice_profile_anita):  
-        new_sample_rate = int(sound.frame_rate * (anita_speed ** anita_octaves)) 
+        new_sample_rate = int(sound.frame_rate * speed_mod * (anita_speed ** anita_octaves)) 
         return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
     
     elif (audioVoice == voice_profile_arabella):  
-        new_sample_rate = int(sound.frame_rate * (arabella_speed ** arabella_octaves)) 
+        new_sample_rate = int(sound.frame_rate * speed_mod * (arabella_speed ** arabella_octaves)) 
         return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
     
     elif (audioVoice == voice_profile_neutral):  
-        new_sample_rate = int(sound.frame_rate * (neutral_speed ** neutral_octaves))
+        new_sample_rate = int(sound.frame_rate * speed_mod * (neutral_speed ** neutral_octaves))
         return sound._spawn(sound.raw_data, overrides={'frame_rate': new_sample_rate})
     
     else: # std voice (0)
@@ -95,19 +104,21 @@ def qboSpeak(sentence):
     
     # Erzeugen der Sprachausgabe und speichern als mp3
     
-    # Google Version - disabled due to API issues since Nov 2020
-    #tts = gTTS(text=sentence, lang='de', slow=False)
-    #tts.save(filepath_tmp_audio)
+    # Google Version - API issues since Nov 2020
+    if (tts_src == "Google"):
+        tts = gTTS(text=sentence, lang='de', slow=False)
+        tts.save(filepath_tmp_audio)
     
     # IBM Watson Version
-    ibm_headers = {"Content-Type": "application/json", "Accept": "audio/mp3"}
-    ibm_auth = ("apikey", "L2UHSc2F0l8ugrdfnk8d5Zs54QjZAuLpadluNys2yafC")
-    ibm_data = json.dumps({"text":sentence})
-    ibm_url = "https://api.eu-gb.text-to-speech.watson.cloud.ibm.com/instances/5e6012e2-98d5-4c6a-814e-aa71c7c185d3/v1/synthesize?voice=de-DE_BirgitVoice"
-    resp = requests.post(ibm_url, headers=ibm_headers, auth=ibm_auth, data=ibm_data)
-    file = open(filepath_tmp_audio, "wb")
-    file.write(resp.content)
-    file.close()
+    elif (tts_src == "IBM"):
+        ibm_headers = {"Content-Type": "application/json", "Accept": "audio/mp3"}
+        ibm_auth = ("apikey", "L2UHSc2F0l8ugrdfnk8d5Zs54QjZAuLpadluNys2yafC")
+        ibm_data = json.dumps({"text":sentence})
+        ibm_url = "https://api.eu-gb.text-to-speech.watson.cloud.ibm.com/instances/5e6012e2-98d5-4c6a-814e-aa71c7c185d3/v1/synthesize?voice=de-DE_BirgitVoice"
+        resp = requests.post(ibm_url, headers=ibm_headers, auth=ibm_auth, data=ibm_data)
+        file = open(filepath_tmp_audio, "wb")
+        file.write(resp.content)
+        file.close()
     
     # Nachbearbeitung der mp3-Datei mit pydub und Audio-Ausgabe
     sound = AudioSegment.from_mp3(filepath_tmp_audio)   
