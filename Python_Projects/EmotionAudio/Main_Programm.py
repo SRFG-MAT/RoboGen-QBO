@@ -18,6 +18,10 @@ import EmotionAnalysis
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/em')
 import Emergency
 
+# notif trigger
+sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/not')
+import Notif
+
 # saved settings
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOSettings')
 import SettingsReader

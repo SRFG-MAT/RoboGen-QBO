@@ -92,7 +92,8 @@ def qboSpeak(sentence):
     SettingsReader.LoadFromServer()
     
     # Erzeugen der Sprachausgabe und speichern als mp3
-    gTTS(text=sentence, lang='de', slow=False).save(filepath_tmp_audio)
+    tts = gTTS(text=sentence, lang='de', slow=False)
+    tts.save(filepath_tmp_audio)
     
     # Nachbearbeitung der mp3-Datei mit pydub und Audio-Ausgabe
     sound = AudioSegment.from_mp3(filepath_tmp_audio)   
