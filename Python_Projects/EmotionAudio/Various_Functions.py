@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # coding=utf-8
 import os, sys
+import json
+import requests
 from gtts import gTTS
 
 # from emotion analysis
@@ -92,8 +94,20 @@ def qboSpeak(sentence):
     SettingsReader.LoadFromServer()
     
     # Erzeugen der Sprachausgabe und speichern als mp3
-    tts = gTTS(text=sentence, lang='de', slow=False)
-    tts.save(filepath_tmp_audio)
+    
+    # Google Version - disabled due to API issues since Nov 2020
+    #tts = gTTS(text=sentence, lang='de', slow=False)
+    #tts.save(filepath_tmp_audio)
+    
+    # IBM Watson Version
+    ibm_headers = {"Content-Type": "application/json", "Accept": "audio/mp3"}
+    ibm_auth = ("apikey", "L2UHSc2F0l8ugrdfnk8d5Zs54QjZAuLpadluNys2yafC")
+    ibm_data = json.dumps({"text":sentence})
+    ibm_url = "https://api.eu-gb.text-to-speech.watson.cloud.ibm.com/instances/5e6012e2-98d5-4c6a-814e-aa71c7c185d3/v1/synthesize?voice=de-DE_BirgitVoice"
+    resp = requests.post(ibm_url, headers=ibm_headers, auth=ibm_auth, data=ibm_data)
+    file = open(filepath_tmp_audio, "wb")
+    file.write(resp.content)
+    file.close()
     
     # Nachbearbeitung der mp3-Datei mit pydub und Audio-Ausgabe
     sound = AudioSegment.from_mp3(filepath_tmp_audio)   
