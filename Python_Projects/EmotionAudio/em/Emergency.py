@@ -7,7 +7,7 @@ import smtplib
 
 def startEmergency(userName,emergencyMail):
     
-	Various_Functions.qboSpeak('Ich habe verstanden, dass ein Notfall vorliegt und werde sofort eine Nachricht an deinen Notfallkontakt senden.')
+	Various_Functions.qboSpeak('Ich habe verstanden, dass ein Notfall vorliegt und werde sofort eine Nachricht an deine Kontaktperson senden.')
 	processEmergency(userName,emergencyMail)
             
     
@@ -20,6 +20,8 @@ def processEmergency(userName,emergencyMail):
 	s = smtplib.SMTP('smtp.gmail.com', 587) 
 	s.starttls() 
 	s.login("qbo.emergency@gmail.com", "qboEmergencyPass321!") 
-	message = "Notfall bei "+userName+"! Sofort pruefen!"
+    SUBJECT = "Notfall bei "+userName
+	TEXT = "Notfall bei "+userName+"!\n\nSofort pruefen!"
+	message = 'Subject: {}\n\n{}'.format(SUBJECT, TEXT)
 	s.sendmail("qbo.emergency@gmail.com", emergencyMail, message) 
 	s.quit() 

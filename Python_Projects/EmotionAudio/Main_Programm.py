@@ -66,6 +66,10 @@ while True:
             elif sentence == "notfall":
                 Emergency.startEmergency(userName,emergencyMail)
                 break # break inner endless loop to go back to wakeup word
+
+            elif sentence == "benachrichtigung":
+                Notif.startNotif(userName,emergencyMail)
+                break # break inner endless loop to go back to wakeup word
             
             elif sentence == "roboter umbenennen":
                 Various_Functions.qboSpeak('Verstehe! Wie soll mein Name in Zukunft lauten?')
