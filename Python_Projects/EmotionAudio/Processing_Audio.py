@@ -40,13 +40,13 @@ def getAudioToText():
 
         try:
             sentence = recognizer.recognize_google(audio, language="de-AT")          
-            print("Google Speech Recognition glaubt du sagst: " + sentence)            
+            print("Die Sprachaufzeichnung glaubt du sagst: " + sentence)            
             return sentence
         
         except sr.UnknownValueError:
             print("Die Sprachaufzeichnung konnte dich leider nicht verstehen")
             
         except sr.RequestError as e:
-            print("Konnte kein Ergebnis von Google erhalten; {0}".format(e))
+            print("Konnte kein Ergebnis vom Server erhalten; {0}".format(e))
             
             
