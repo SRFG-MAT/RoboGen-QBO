@@ -9,11 +9,6 @@ import requests
 import base64
 import pickle
 import json
-import serial
-import QboCmd
-
-from ControlHeadAsync import *
-from AutomaticFaceFollow import *
 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -21,6 +16,13 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # -------------------------------------------------------------------------------------------
 #set up ports for communicating with servos
 # -------------------------------------------------------------------------------------------
+sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/ControlQBO')
+import serial
+import QboCmd
+
+from ControlHeadAsync import *
+from AutomaticFaceFollow import *
+
 port = '/dev/serial0'
 ser = serial.Serial(port, baudrate=115200, bytesize = serial.EIGHTBITS, stopbits = serial.STOPBITS_ONE, parity = serial.PARITY_NONE, rtscts = False, dsrdtr =False, timeout = 0)
 QBO = QboCmd.Controller(ser)

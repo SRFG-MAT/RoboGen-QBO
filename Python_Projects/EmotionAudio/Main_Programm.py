@@ -34,9 +34,36 @@ import FoodReader
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOCalendar')
 import CalendarManager
 
+# use QBOControl File to control Head
+sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/ControlQBO')
+import serial
+import QboCmd
+
+port = '/dev/serial0'
+ser = serial.Serial(port, baudrate=115200, bytesize = serial.EIGHTBITS, stopbits = serial.STOPBITS_ONE, parity = serial.PARITY_NONE, rtscts = False, dsrdtr =False, timeout = 0)
+QBO = QboCmd.Controller(ser)
+
+#---------------------------------------------------------------------------------------------
+# ChangeMicrophone: will switch between Arduino QBoards connected MICs
+#---------------------------------------------------------------------------------------------
+def ChangeMicrophone():
+    
+    par_list = QBO.GetHeadCmd("GET_MIC_REPORT", 0) # Get mics present RMS values 0 - 32767: 0 - 1V
+    if par_list:
+        mic1_rms = (par_list[1] << 8 | par_list[0]) / 32767.0
+        mic2_rms = (par_list[3] << 8 | par_list[2]) / 32767.0
+        mic3_rms = (par_list[5] << 8 | par_list[4]) / 32767.0
+       
+    QBO.GetHeadCmd("SET_MIC_INPUT", 0) # Switch to mic 0/1/2 (or 1/2/3?)
+    
+    #print(sr.Microphone.list_microphone_names())
+    #print(sr.Microphone.list_working_microphones())
+
 #---------------------------------------------------------------------------------------------
 # MainProgram Start - (entrance point)
 #---------------------------------------------------------------------------------------------
+ChangeMicrophone()
+
 # wait for wake word
 while True:
     

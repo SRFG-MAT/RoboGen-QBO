@@ -2,11 +2,13 @@ from __future__ import print_function
 import cv2 as cv
 
 from os import sys, path
+
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/FaceDetection')
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/FaceDetection/CameraOnly')
+sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/ControlQBO')
 
-import QboCmd
 import serial
+import QboCmd
 
 
 # -------------------------------------------------------------------------------------------

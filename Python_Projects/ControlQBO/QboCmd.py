@@ -249,7 +249,7 @@ class Controller:
             
         for i in range(nParam):
             if nParam== 1:
-                data = cmd.data_bytes #[0]
+                data = cmd.data_bytes[0]
             else:
                 data = cmd.data_bytes[i]
 
@@ -294,7 +294,9 @@ class Controller:
 
     # Mounts protocol data to set QBO nose state color
     def SetNoseColor(self, color):
-        return self.SendCmdQBO(Command(self.SET_STATE, 1, color & 0xff))
+        colorList = []
+        colorList.append(color & 0xff)
+        return self.SendCmdQBO(Command(self.SET_STATE, 1, colorList))
 
     # Mounts protocol data to set QBO mouth 
     def SetMouth(self, matrix):
