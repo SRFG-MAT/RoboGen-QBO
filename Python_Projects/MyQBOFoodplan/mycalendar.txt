@@ -1,5 +1,2 @@
-[16/09/2020]: Ananas
-[16/09/2020]: Bierschinken
-[16/09/2020]: Blattsalat
-[16/09/2020]: Bier
-[23/10/2020]: Apfelschorle
+[08/02/2021]: Bier(500 ml)
+[08/02/2021]: Apfel(500 gramm)

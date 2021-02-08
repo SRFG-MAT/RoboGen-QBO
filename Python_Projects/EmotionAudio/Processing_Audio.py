@@ -30,6 +30,8 @@ p.terminate()
 #---------------------------------------------------------------------------------------------
 def getAudioToText():
     recognizer = sr.Recognizer()
+    
+    #print(sr.Microphone.list_microphone_names())
 
     while True:
         

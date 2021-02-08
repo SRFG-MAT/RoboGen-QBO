@@ -30,10 +30,10 @@ def searchFoodArray(searchTerm):
 # -------------------------------------------------------------------------------------------
 # create JSON calendar entry
 # -------------------------------------------------------------------------------------------
-def createCalendarEntry(food):
+def createCalendarEntry(food, amount):
     
     today = date.today()
-    str = "[" + today.strftime("%d/%m/%Y") + "]: " + food + "\n"
+    str = "[" + today.strftime("%d/%m/%Y") + "]: " + food + "(" + amount + ")" +"\n"
     
     file = open(filepath_mycalendar, "a") # 'a' -> append for writing if exists
     file.write(str) 

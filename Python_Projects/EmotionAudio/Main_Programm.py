@@ -53,11 +53,12 @@ def ChangeMicrophone():
         mic1_rms = (par_list[1] << 8 | par_list[0]) / 32767.0
         mic2_rms = (par_list[3] << 8 | par_list[2]) / 32767.0
         mic3_rms = (par_list[5] << 8 | par_list[4]) / 32767.0
+        
+        #print mic1_rms
+        #print mic2_rms
+        #print mic3_rms
        
     QBO.GetHeadCmd("SET_MIC_INPUT", 0) # Switch to mic 0/1/2 (or 1/2/3?)
-    
-    #print(sr.Microphone.list_microphone_names())
-    #print(sr.Microphone.list_working_microphones())
 
 #---------------------------------------------------------------------------------------------
 # MainProgram Start - (entrance point)
@@ -130,7 +131,7 @@ while True:
                 Various_Functions.qboSpeak('Verstehe! Ich spreche dir wohl zu laut? Von jetzt an spreche ich leiser!')
                 break # break inner endless loop to go back to wakeup word 
             
-            elif sentence == "nahrungsaufnahme":
+            elif sentence == "nahrung":
                 Various_Functions.qboSpeak('Verstehe! Was hast du kuerzlich gegessen oder getrunken?')
                 
                 food = Processing_Audio.getAudioToText()
@@ -140,7 +141,11 @@ while True:
                 if not entries:
                     Various_Functions.qboSpeak('Tut mir Leid, leider konnte ich dieses Nahrungsmittel in meiner Datenbank nicht finden!')
                 else:
-                    FoodReader.createCalendarEntry(entries[0])
+                    Various_Functions.qboSpeak('Wieviel hast du davon konsumiert?')
+                    amount = Processing_Audio.getAudioToText()
+                    amount = Various_Functions.normalize(amount).strip()
+                    
+                    FoodReader.createCalendarEntry(entries[0], amount)
                     Various_Functions.qboSpeak('OK, ich habe das Nahrungsmittel' + entries[0] + 'deinem Ernaehrungstagebuch mit dem heutigen Datum hinzugefuegt!')      
                 
                 break # break inner endless loop to go back to wakeup word
