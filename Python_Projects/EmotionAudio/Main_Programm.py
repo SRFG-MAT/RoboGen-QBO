@@ -28,7 +28,7 @@ import SettingsReader
 
 # saved nutrition
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOFoodplan')
-import FoodReader
+import FoodManager
 
 # saved and uploaded calendar on server
 sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOCalendar')
@@ -132,21 +132,27 @@ while True:
                 break # break inner endless loop to go back to wakeup word 
             
             elif sentence == "nahrung":
-                Various_Functions.qboSpeak('Verstehe! Was hast du kuerzlich gegessen oder getrunken?')
                 
+                Various_Functions.qboSpeak('Verstehe! Was hast du kuerzlich gegessen oder getrunken?')
                 food = Processing_Audio.getAudioToText()
                 food = Various_Functions.normalize(food).strip()
                 
-                entries = FoodReader.searchFoodArray(food)
-                if not entries:
-                    Various_Functions.qboSpeak('Tut mir Leid, leider konnte ich dieses Nahrungsmittel in meiner Datenbank nicht finden!')
-                else:
-                    Various_Functions.qboSpeak('Wieviel hast du davon konsumiert?')
-                    amount = Processing_Audio.getAudioToText()
-                    amount = Various_Functions.normalize(amount).strip()
-                    
-                    FoodReader.createCalendarEntry(entries[0], amount)
-                    Various_Functions.qboSpeak('OK, ich habe das Nahrungsmittel' + entries[0] + 'deinem Ernaehrungstagebuch mit dem heutigen Datum hinzugefuegt!')      
+                Various_Functions.qboSpeak('Verstehe! Wieviel hast du davon konsumiert?')
+                amount = Processing_Audio.getAudioToText()
+                amount = Various_Functions.normalize(amount).strip()
+                
+                Various_Functions.qboSpeak('Verstehe! Ich werde einen Nahrungseintrag vornehmen! Welches Datum soll eingetragen werden?')
+                date = Processing_Audio.getAudioToText()
+                date = Various_Functions.normalize(date).strip()
+                
+                Various_Functions.qboSpeak('Verstehe! Welche Uhrzeit soll eingetragen werden?')
+                time = Processing_Audio.getAudioToText()
+                time = Various_Functions.normalize(time).strip()
+                        
+                FoodManager.uploadNutritionEntry(food, date, time, amount)
+                #CalendarManager.downloadNutritionEntry()
+                
+                Various_Functions.qboSpeak('Danke, ich habe das Nahrungsmittel eingetragen!')
                 
                 break # break inner endless loop to go back to wakeup word
             
