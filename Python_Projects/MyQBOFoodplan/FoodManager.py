@@ -22,10 +22,13 @@ def uploadNutritionEntry(food, date, time, amount):
             
         if r.ok:
             print(r.content)
+            return r.content
+
         else:
             print("--------------------------")
             print("Fehler bei Server-Antwort: " + str(r.status_code))
             print("--------------------------")
+            return "ERROR"
                         
     except requests.exceptions.RequestException as e:
         print e

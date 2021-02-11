@@ -149,10 +149,21 @@ while True:
                 time = Processing_Audio.getAudioToText()
                 time = Various_Functions.normalize(time).strip()
                         
-                FoodManager.uploadNutritionEntry(food, date, time, amount)
-                #CalendarManager.downloadNutritionEntry()
+                ret = FoodManager.uploadNutritionEntry(food, date, time, amount)
+                FoodManager.downloadNutritionEntry()
                 
-                Various_Functions.qboSpeak('Danke, ich habe das Nahrungsmittel eingetragen!')
+                if "Server stored entry succesfully" in str(ret): 
+                    Various_Functions.qboSpeak('Danke, ich habe das Nahrungsmittel eingetragen!')
+                else:
+                    Various_Functions.qboSpeak('Entschuldige, aber ich habe dieses Nahrungsmittel nicht gefunden!')   
+                
+                break # break inner endless loop to go back to wakeup word
+            
+            elif sentence == "meine nahrung entfernen":
+                if FoodManager.resetNutritionDiary():
+                    Various_Functions.qboSpeak('Ich habe alle deine Nahrungseintraege fuer dich geloescht!')
+                else:
+                    Various_Functions.qboSpeak('Hoppla! Das Loeschen der Nahrungseintraege hat offenbar nicht funktioniert!')
                 
                 break # break inner endless loop to go back to wakeup word
             
