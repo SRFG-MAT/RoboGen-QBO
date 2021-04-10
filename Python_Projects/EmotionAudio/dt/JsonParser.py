@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
-import os
+import os, sys
 import json
 import random
 from gtts import gTTS
@@ -45,7 +45,8 @@ def loadInterventionData(codeInput):
     with open('/opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/dt/json/robogen_interventions.json', 'r') as interventions_file:
         intervention_data = json.load(interventions_file)
         
-        print('Gesucht wird code: ' + codeInput)
+        print('Gesucht wird code: ')
+        print(''.join(codeInput))
         
         entries = []
         links = []
@@ -66,9 +67,9 @@ def loadInterventionData(codeInput):
             outp = entries[idx]
             if (links[idx] != ""):
                 #ToDo: push link to reading list and add to android app
-                link = links[idk]
+                link = links[idx]
                 #print('link to save: ' + link)
-                outp = outp + "Zu diesem Thema wurden weiterführende Links in die Leseliste eingetragen."
+                outp = outp + "Zu diesem Thema wurden weiterfuehrende Links in die Leseliste eingetragen."
             Various_Functions.qboSpeak(outp)
                 
 #---------------------------------------------------------------------------------------------
