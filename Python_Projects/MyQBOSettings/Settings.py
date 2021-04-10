@@ -34,6 +34,8 @@ class MySettings:
         self.userName = self.settings['userSettings']['userName']
         self.userEmergencyEmail = self.settings['userSettings']['emergencyAddress']['emergencyEmailAccount']
         self.userSleepMinValue = self.settings['fitbitSettings']['sleepMinValue']
+        self.userAge = self.settings['userSettings']['userAge']
+        self.userDiseases = self.settings['userSettings']['userPersonalData']['userKnownDiseases']
     
     # -------------------------------------------------------------------------------------------
     # uploadSettingsEntry (upload full settings with all entries)

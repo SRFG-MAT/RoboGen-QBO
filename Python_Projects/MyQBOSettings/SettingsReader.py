@@ -58,26 +58,30 @@ def decrementRobotAudioVolume():
 #---------------------------------------------------------------------------------------------
 def getRobotNameFromSettings(): 
     return mysettings.robotName
-            
+
 def getRobotAudioVolume():
     return mysettings.robotAudioVolume
-    
+
 def getRobotAudioVoice():
     return mysettings.robotVoice
 
 def getSleepThreshold():
     return mysettings.robotThresholdSleep
-    
+
 def getUserName():
     return mysettings.userName
-	
+
+def getUserSen():
+    return (mysettings.userAge>=60)
+
+def getUserDiab():
+    return ((mysettings.userDiseases==1) or (mysettings.userDiseases==3))
+
 def getEmergencyEmail():
     return mysettings.userEmergencyEmail
-		
+
 def getSleepMinValue():
     return mysettings.userSleepMinValue
-		
+
 def getCalendar():
     return mysettings.calendar_settings
-    
-        

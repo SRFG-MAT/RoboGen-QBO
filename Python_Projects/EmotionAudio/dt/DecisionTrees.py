@@ -15,7 +15,7 @@ def startDecisionTree(robotName):
     global area # tell Python interpreter variable area is global
     
     Various_Functions.qboSpeak('Hallo, mein Name ist' + robotName + ', der Roboter! Du hast die Entscheidungsbaeume gestartet!')
-    Various_Functions.qboSpeak('Waehle nun den Entscheidungsbaum Sport, Stress, Schlaf oder Spiele, um fortzufahren.')
+    Various_Functions.qboSpeak('Waehle nun den Entscheidungsbaum Sport, Stress, Schlaf oder SeniorInnen, um fortzufahren.')
             
     sentence = Processing_Audio.getAudioToText()
     sentence = Various_Functions.normalize(sentence)
@@ -26,8 +26,10 @@ def startDecisionTree(robotName):
         area = 'STR'
     elif sentence.strip() == 'schlaf':
         area = 'SLE'
-    elif sentence.strip() == 'spiele' or sentence.strip() == 'spielen': # because always understands me wrong..
-        area = 'GAM'
+    #elif sentence.strip() == 'spiele' or sentence.strip() == 'spielen': # because always understands me wrong..
+    #    area = 'GAM'
+    elif sentence.strip() == "seniorinnen":
+        area = 'SEN'
     else:
         area = 'ERROR'
         Various_Functions.qboSpeak('Ich habe dich leider nicht richtig verstanden, versuchen wir es noch einmal')
