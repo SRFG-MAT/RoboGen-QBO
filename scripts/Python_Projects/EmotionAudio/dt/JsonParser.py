@@ -8,7 +8,7 @@ from string import punctuation
 import Various_Functions
 
 # saved settings
-sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/MyQBOSettings')
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/MyQBOSettings')
 import SettingsReader
 
 dt_data = {}

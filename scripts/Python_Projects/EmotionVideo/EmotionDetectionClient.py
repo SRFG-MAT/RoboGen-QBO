@@ -16,7 +16,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # -------------------------------------------------------------------------------------------
 #set up ports for communicating with servos
 # -------------------------------------------------------------------------------------------
-sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/ControlQBO')
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/ControlQBO')
 import serial
 import QboCmd
 
