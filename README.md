@@ -21,7 +21,8 @@ In addition to this repository: hardware-specific changes to Q.Bo and OS changes
 - clone this repository into the workspace's src directory
 - clone other, required repositories into the src directory
 - [OPTIONAL] execute "rosdep install -i --from-paths src" from the workspace to install ROS dependencies
-- [OPTIONAL] execute "catkin_make" from the workspace to build all packages in the workspace
+- [OPTIONAL] execute "rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:stretch"
+- execute "catkin_make" from the workspace to build all packages in the workspace
 
 ## steps to create the catkin workspace with ROS
 1) mkdir –p ~/catkin_ws/src
