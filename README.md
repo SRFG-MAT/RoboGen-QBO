@@ -34,6 +34,10 @@ In addition to this repository: hardware-specific changes to Q.Bo and OS changes
 7) echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 8) catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
 
+## alternative install guide
+if the above steps did not work try the following tutorial instead:
+http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi
+
 ## start with
 "rosrun TODO"
 
