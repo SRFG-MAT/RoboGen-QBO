@@ -44,3 +44,4 @@ http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry
 ## access with
 - package_name = "RoboGen-QBO"
 - IP-Address: "192.168.48.177"
+- to check for connectivity try steps: http://wiki.ros.org/ROS/NetworkSetup
