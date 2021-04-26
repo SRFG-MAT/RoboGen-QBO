@@ -42,5 +42,5 @@ http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry
 "rosrun TODO"
 
 ## access with
-package_name = "TODO"
-IP-Address: "TODO"
+package_name = "RoboGen-QBO"
+IP-Address: "192.168.48.177"
