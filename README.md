@@ -16,7 +16,7 @@ Info: Autorun-Information on Q.Bo One can be found in main info.txt file (please
 In addition to this repository: hardware-specific changes to Q.Bo and OS changes are stored in 16GB and 32GB SD-Card images on a local harddrive: in case you ever need these backups to restore an older Q.Bo-version please contact "SRFG-MAT"
 
 ## steps for first installation
-- install Ubuntu and ROS
+- install Ubuntu/Debian and ROS (Ubuntu 18 with ROS Melodic OR Ubuntu 16 with ROS Kinetic; for Raspbian use alternative install guide below)
 - create a catkin workspace (see the steps below)
 - clone this repository into the workspace's src directory
 - clone other, required repositories into the src directory
