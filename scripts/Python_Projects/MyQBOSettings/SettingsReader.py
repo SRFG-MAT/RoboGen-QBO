@@ -38,7 +38,7 @@ def renameUser(name):
 # -------------------------------------------------------------------------------------------
 def incrementRobotAudioVolume():
     
-    if(mysettings.robotAudioVolume <= 90):
+    if(mysettings.robotAudioVolume <= 80):
         mysettings.settings['robotSettings']['robotAudioVolume']+= 10
         mysettings.update_settings()
         mysettings._load_settings()
@@ -48,7 +48,7 @@ def incrementRobotAudioVolume():
 # -------------------------------------------------------------------------------------------
 def decrementRobotAudioVolume():
     
-    if(mysettings.robotAudioVolume >= 10):
+    if(mysettings.robotAudioVolume >= 60):
         mysettings.settings['robotSettings']['robotAudioVolume']-= 10
         mysettings.update_settings()
         mysettings._load_settings()
@@ -75,7 +75,7 @@ def getUserSen():
     return (mysettings.userAge>=60)
 
 def getUserDiab():
-    return ((mysettings.userDiseases==1) or (mysettings.userDiseases==3))
+    return ((mysettings.userDiseases==0) or (mysettings.userDiseases==2))
 
 def getEmergencyEmail():
     return mysettings.userEmergencyEmail

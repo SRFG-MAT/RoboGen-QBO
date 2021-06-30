@@ -8,7 +8,7 @@ from email.mime.text import MIMEText as text
 
 def startNotif(userName,emergencyMail):
 
-    Various_Functions.qboSpeak('Ich habe verstanden, dass du eine Benachrichtigung an deine Kontaktperson senden willst. Bitte nenne jetzt deinen Benachrichtigungstext.')
+    Various_Functions.qboSpeak('Ich habe verstanden, dass du eine Nachricht an deine Kontaktperson senden willst. Bitte nenne jetzt deinen Benachrichtigungstext.')
     sentence = Processing_Audio.getAudioToText()
     Various_Functions.qboSpeak('Vielen Dank. Ich werde deine Nachricht sofort an deine Kontaktperson senden.')
     processNotif(userName,sentence,emergencyMail)

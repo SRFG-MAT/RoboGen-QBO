@@ -33,7 +33,8 @@ class MySettings:
         self.robotThresholdSleep = self.settings['robotSettings']['robotThresholdSleep']
         self.userName = self.settings['userSettings']['userName']
         self.userEmergencyEmail = self.settings['userSettings']['emergencyAddress']['emergencyEmailAccount']
-        self.userSleepMinValue = self.settings['fitbitSettings']['sleepMinValue']
+        #self.userSleepMinValue = self.settings['fitbitSettings']['sleepMinValue']
+        self.userSleepMinValue = 0
         self.userAge = int(self.settings['userSettings']['userAge'])
         self.userDiseases = self.settings['userSettings']['userPersonalData']['userKnownDiseases']
     

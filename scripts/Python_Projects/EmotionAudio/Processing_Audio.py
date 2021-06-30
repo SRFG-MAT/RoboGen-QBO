@@ -41,9 +41,11 @@ def getAudioToText():
             audio = recognizer.listen(source)
 
         try:
-            sentence = recognizer.recognize_google(audio, language="de-AT")          
-            print("Die Sprachaufzeichnung glaubt du sagst: " + sentence)            
-            return sentence
+            sentence = recognizer.recognize_google(audio, language="de-AT")
+            special_char_map = {ord(u'ä'):u'ae', ord(u'Ä'):u'Ae', ord(u'ü'):u'ue', ord(u'Ü'):u'Ue', ord(u'ö'):u'oe', ord(u'Ö'):u'Oe', ord(u'ß'):u'ss'}
+            sentence_norm = sentence.translate(special_char_map)
+            print("Die Sprachaufzeichnung glaubt du sagst: " + sentence_norm)            
+            return sentence_norm
         
         except sr.UnknownValueError:
             print("Die Sprachaufzeichnung konnte dich leider nicht verstehen")

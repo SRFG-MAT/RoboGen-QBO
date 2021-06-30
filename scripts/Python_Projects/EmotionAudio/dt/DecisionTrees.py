@@ -14,8 +14,8 @@ def startDecisionTree(robotName):
     
     global area # tell Python interpreter variable area is global
     
-    Various_Functions.qboSpeak('Hallo, mein Name ist' + robotName + ', der Roboter! Du hast die Entscheidungsbaeume gestartet!')
-    Various_Functions.qboSpeak('Waehle nun den Entscheidungsbaum Sport, Stress, Schlaf oder SeniorInnen, um fortzufahren.')
+    Various_Functions.qboSpeak('Hallo, mein Name ist' + robotName + ', der Roboter! Du hast den Dialog gestartet!')
+    Various_Functions.qboSpeak('Waehle nun den Dialog Sport, Stress, Schlaf oder SeniorInnen, um fortzufahren.')
             
     sentence = Processing_Audio.getAudioToText()
     sentence = Various_Functions.normalize(sentence)
@@ -71,7 +71,7 @@ def processDecisionTree():
                 if(nrOfOptions >= number):
                 
                     area = JsonParser.goToNewArea(area, number)
-                    os.system("mpg321 -q /opt/QBO/RoboGen-QBO/Python_Projects/EmotionAudio/mp3/SoundEffect_Confirm.mp3") # Bestätigungs-Sound abspielen
+                    os.system("mpg321 -q /opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/EmotionAudio/mp3/SoundEffect_Confirm.mp3") # Bestätigungs-Sound abspielen
                 else:
                     Various_Functions.qboSpeak('Diese Antwort ist leider nicht moeglich. Bitte hoer dir die letzte Frage noch einmal genau an')
         else:
@@ -79,7 +79,7 @@ def processDecisionTree():
         
         
         if area == 'end':
-            Various_Functions.qboSpeak('Dein Entscheidungsbaum ist nun zu Ende! Auf Wiedersehen!')
+            Various_Functions.qboSpeak('Dein Dialog ist nun zu Ende! Auf Wiedersehen!')
             break
     
     
