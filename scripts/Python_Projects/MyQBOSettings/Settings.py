@@ -44,11 +44,12 @@ class MySettings:
     def uploadSettings(self, settings):
     
         try:     
-            r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/UploadJSON_MySettings', timeout=5, verify=False, json=settings)
+            #r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/UploadJSON_MySettings', timeout=5, verify=False, json=settings)
+            r = requests.put('https://api.jsonstorage.net/v1/json/f8d89bf8-6826-4434-9ca1-edd60405bf6d', timeout=5, verify=False, json=settings)
             headers = {'Content-type': 'application/json'}      
             
             if r.ok:
-                print(r.content)
+                print("Settings gespeichert")
             else:
                 print("--------------------------")
                 print("Fehler bei Server-Antwort: " + str(r.status_code))
@@ -63,7 +64,8 @@ class MySettings:
     def downloadSettings(self):
     
         try:     
-            r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/DownloadJSON_MySettings', timeout=5, verify=False, json='')
+            #r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/DownloadJSON_MySettings', timeout=5, verify=False, json='')
+            r = requests.get('https://api.jsonstorage.net/v1/json/f8d89bf8-6826-4434-9ca1-edd60405bf6d', timeout=5, verify=False, json='')
             headers = {'Content-type': 'application/json'}      
             
             if r.ok:
