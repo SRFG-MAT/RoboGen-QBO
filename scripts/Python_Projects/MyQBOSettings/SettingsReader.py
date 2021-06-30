@@ -42,7 +42,7 @@ def renameUser(name):
 # -------------------------------------------------------------------------------------------
 def incrementRobotAudioVolume():
     
-    if(mysettings.robotAudioVolume <= (vol_max-10):
+    if(mysettings.robotAudioVolume <= (vol_max-10)):
         mysettings.settings['robotSettings']['robotAudioVolume']+= 10
         mysettings.update_settings()
         mysettings._load_settings()

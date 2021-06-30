@@ -20,8 +20,9 @@ def uploadCalendarEntry(title, date, time, reminder, repeat):
         'repeat': repeat.encode('utf-8').strip()
     }
     if (add_entries):
-        data_old = downloadCalendarEntry()
-        data_new = data_old.append(data)
+        data_old = json.loads(downloadCalendarEntry())
+        data_old.append(data)
+        data_new = data_old
     else:
         data_new = data
     

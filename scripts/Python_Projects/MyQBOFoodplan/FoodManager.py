@@ -19,14 +19,15 @@ def uploadNutritionEntry(food, date, time, amount):
         'time': time.encode('utf-8').strip()
     }
     if (add_entries):
-        data_old = downloadNutritionEntry()
-        data_new = data_old.append(data)
+        data_old = json.loads(downloadNutritionEntry())
+        data_old.append(data)
+        data_new = data_old
     else:
         data_new = data
     
     try:     
         #r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/UploadJSON_MyNutrition', timeout=5, verify=False, json=data_new)
-        r = requests.put(food_endpoint, timeout=5, verify=False, json=data)
+        r = requests.put(food_endpoint, timeout=5, verify=False, json=data_new)
         headers = {'Content-type': 'application/json'}      
             
         if r.ok:
@@ -49,7 +50,8 @@ def uploadNutritionEntry(food, date, time, amount):
 def downloadNutritionEntry():
     
     try:     
-        r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/DownloadJSON_MyNutrition', timeout=5, verify=False, json='')
+        #r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/DownloadJSON_MyNutrition', timeout=5, verify=False, json='')
+        r = requests.get(food_endpoint, timeout=5, verify=False, json='')
         headers = {'Content-type': 'application/json'}      
             
         if r.ok:

@@ -18,13 +18,14 @@ dt_data = {}
 intervention_data = {}
 sen = SettingsReader.getUserSen()
 diab = SettingsReader.getUserDiab()
+special_char_map = {ord(u'ä'):u'ae', ord(u'Ä'):u'Ae', ord(u'ü'):u'ue', ord(u'Ü'):u'Ue', ord(u'ö'):u'oe', ord(u'Ö'):u'Oe', ord(u'ß'):u'ss'}
 
 #---------------------------------------------------------------------------------------------
 # read in and speak a question from json file
 #---------------------------------------------------------------------------------------------
 def loadDTData(area):
 
-    if (area == 'EX' || area == 'STR' || area == 'SLE' || area == 'SEN'):
+    if (area == 'EX' or area == 'STR' or area == 'SLE' or area == 'SEN'):
         clearDT()
 
     with open('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/EmotionAudio/dt/json/robogen_decisiontrees.json', 'r') as dt_file:
@@ -40,6 +41,7 @@ def loadDTData(area):
 
         # Frage
         question = dt_data[0][area]['question']
+        question = question.translate(special_char_map)
         data['question'] = question
         print(question)
         
@@ -48,8 +50,10 @@ def loadDTData(area):
         for entry in dt_data[0][area]['options']:
             if ((entry['condition'] == '') or (entry['condition'] == 'diabetes=true' and diab) or (entry['condition'] == 'diabetes=false' and not diab) or (entry['condition'] == 'age>=60' and sen)):
                 answerStr = 'Antwort ' + str(i+1) + ': '
-                print(answerStr + entry['question'])
-                data['answers'].append(entry['question'])
+                answerStr2 = entry['question']
+                answerStr2 = answerStr2.translate(special_char_map)
+                print(answerStr + answerStr2)
+                data['answers'].append(answerStr2)
                 i = i + 1
 
         uploadDT(data)
@@ -59,7 +63,9 @@ def loadDTData(area):
         for entry in dt_data[0][area]['options']:
             if ((entry['condition'] == '') or (entry['condition'] == 'diabetes=true' and diab) or (entry['condition'] == 'diabetes=false' and not diab) or (entry['condition'] == 'age>=60' and sen)):
                 answerStr = 'Antwort: ' + str(j+1) + '. '
-                Various_Functions.qboSpeak(answerStr + entry['question'])
+                answerStr2 = entry['question']
+                answerStr2 = answerStr2.translate(special_char_map)
+                Various_Functions.qboSpeak(answerStr + answerStr2)
                 j = j + 1
         
         Various_Functions.qboSpeak('Waehle nun aus')
@@ -94,11 +100,12 @@ def loadInterventionData(codeInput):
         if len(entries) > 0:
             idx = random.randint(0,(len(entries)-1))
             intervention = entries[idx]
+            intervention = intervention.translate(special_char_map)
             outp = intervention
             link = ""
             if (links[idx] != ""):
                 link = links[idx]
-                outp = outp + "Zu diesem Thema gibt es weiterfuehrende Links. Du findest diese am Tablet."
+                outp = outp + " Zu diesem Thema gibt es weiterfuehrende Links. Du findest diese am Tablet."
             data = {
                 "area": "END",
                 "question": intervention,
@@ -148,8 +155,9 @@ def goToNewArea(area, option):
 # -------------------------------------------------------------------------------------------
 def uploadDT(data):
     
-    data_old = downloadDT()
-    data_new = data_old.append(data)
+    data_old = json.loads(downloadDT())
+    data_old.append(data)
+    data_new = data_old
     
     try:
         r = requests.put(dt_endpoint, timeout=5, verify=False, json=data_new)
@@ -191,7 +199,7 @@ def downloadDT():
 # -------------------------------------------------------------------------------------------
 def addAnswerDT(area,answer):
     
-    data = downloadDT()
+    data = json.loads(downloadDT())
     for entry in data:
         if (entry['area']==area):
             entry['answer']=answer

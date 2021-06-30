@@ -102,7 +102,7 @@ def modifyAudioPitchVoice(sound):
 def qboSpeak(sentence):
     
     #update load settings config from server to see if any changes
-    SettingsReader.LoadFromServer()
+    #SettingsReader.LoadFromServer()
     
     # Erzeugen der Sprachausgabe und speichern als mp3
     

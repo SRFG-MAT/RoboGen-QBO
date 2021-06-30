@@ -67,11 +67,12 @@ def ChangeMicrophone():
 # MainProgram Start - (entrance point)
 #---------------------------------------------------------------------------------------------
 ChangeMicrophone()
+SettingsReader.LoadFromServer()
 
 # wait for wake word
 while True:
     
-    SettingsReader.LoadFromServer()
+    #SettingsReader.LoadFromServer()
     robotName = SettingsReader.getRobotNameFromSettings().lower().strip()
     userName = SettingsReader.getUserName()
     emergencyMail = SettingsReader.getEmergencyEmail().lower().strip()
@@ -79,6 +80,8 @@ while True:
     sentence = Various_Functions.normalize(sentence).strip()
     
     if sentence == robotName:
+        
+        SettingsReader.LoadFromServer()
         
         Various_Functions.qboSpeak('Ja?')
         
@@ -89,8 +92,8 @@ while True:
             sentence = Various_Functions.normalize(sentence).strip()
             
             if sentence == "dialog":
-                DecisionTrees.startDecisionTree()
-                DecisionTrees.processDecisionTree()
+                DecisionTrees.startDecisionTree(False)
+                #DecisionTrees.processDecisionTree()
                 break # break inner endless loop to go back to wakeup word
             
             #elif sentence == "satzanalyse":
@@ -157,7 +160,7 @@ while True:
                 t1 = now.strftime("%H:%M")
                         
                 ret = FoodManager.uploadNutritionEntry(food, d1, t1, amount)
-                FoodManager.downloadNutritionEntry()
+                #FoodManager.downloadNutritionEntry()
                 
                 Various_Functions.qboSpeak('Danke, ich habe die Mahlzeit gespeichert! Du kannst deine Eintraege am Tablet aufrufen und aendern.')  
                 
@@ -196,7 +199,7 @@ while True:
                 repeat = "0"
                 
                 CalendarManager.uploadCalendarEntry(title, date, time, reminder, repeat)                
-                CalendarManager.downloadCalendarEntry()
+                #CalendarManager.downloadCalendarEntry()
                 
                 Various_Functions.qboSpeak('Danke, ich habe das Ereignis gespeichert! Du kannst deine Eintraege am Tablet aufrufen und aendern.')
                 
@@ -210,8 +213,8 @@ while True:
             #    
             #    break # break inner endless loop to go back to wakeup word
 
-            elif sentence == "energiebatterie":
-                Various_Functions.qboSpeak('Die Energie-Batterie findest du am Tablet.')
+            elif sentence == "energie batterie":
+                Various_Functions.qboSpeak('Die Energie Batterie findest du am Tablet.')
                 break
 
             elif sentence == "schlafdaten":
@@ -223,8 +226,8 @@ while True:
                 break
             
             else:
-                Various_Functions.qboSpeak('Ich habe dich leider nicht gut verstanden.')
-                break
+                Various_Functions.qboSpeak('Ich habe dich leider nicht gut verstanden. Bitte wiederhole dein Kommando.')
+            
     
 
 
