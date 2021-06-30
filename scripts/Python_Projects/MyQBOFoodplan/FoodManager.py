@@ -4,6 +4,9 @@ import requests
 import json
 import base64
 
+food_endpoint = 'https://api.jsonstorage.net/v1/json/324bf60d-07e0-4098-9f4c-5fc40486e1c3'
+add_entries = True
+
 # -------------------------------------------------------------------------------------------
 # uploadNutritionEntry
 # -------------------------------------------------------------------------------------------
@@ -11,17 +14,23 @@ def uploadNutritionEntry(food, date, time, amount):
     
     data = {
         'food': food.encode('utf-8').strip(),
+        'amount': amount.encode('utf-8').strip(),
         'date': date.encode('utf-8').strip(),
-        'time': time.encode('utf-8').strip(),
-        'amount': amount.encode('utf-8').strip()
+        'time': time.encode('utf-8').strip()
     }
+    if (add_entries):
+        data_old = downloadNutritionEntry()
+        data_new = data_old.append(data)
+    else:
+        data_new = data
     
     try:     
-        r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/UploadJSON_MyNutrition', timeout=5, verify=False, json=data)
+        #r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/UploadJSON_MyNutrition', timeout=5, verify=False, json=data_new)
+        r = requests.put(food_endpoint, timeout=5, verify=False, json=data)
         headers = {'Content-type': 'application/json'}      
             
         if r.ok:
-            print(r.content)
+            print("Mahlzeit gespeichert")
             return r.content
 
         else:
@@ -44,7 +53,7 @@ def downloadNutritionEntry():
         headers = {'Content-type': 'application/json'}      
             
         if r.ok:
-            print(r.content)
+            #print(r.content)
             return r.content
         else:
             print("--------------------------")
@@ -66,7 +75,7 @@ def resetNutritionDiary():
         headers = {'Content-type': 'application/json'}      
             
         if r.ok:
-            print(r.content)
+            #print(r.content)
             return True
         else:
             print("--------------------------")

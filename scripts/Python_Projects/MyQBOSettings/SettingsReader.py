@@ -11,6 +11,10 @@ from subprocess import call
 import Settings
 mysettings = Settings.MySettings()
 
+age_senior = 50
+vol_min = 50
+vol_max = 90
+
 # -------------------------------------------------------------------------------------------
 # to update/refresh infos from outside
 # -------------------------------------------------------------------------------------------
@@ -38,7 +42,7 @@ def renameUser(name):
 # -------------------------------------------------------------------------------------------
 def incrementRobotAudioVolume():
     
-    if(mysettings.robotAudioVolume <= 80):
+    if(mysettings.robotAudioVolume <= (vol_max-10):
         mysettings.settings['robotSettings']['robotAudioVolume']+= 10
         mysettings.update_settings()
         mysettings._load_settings()
@@ -48,7 +52,7 @@ def incrementRobotAudioVolume():
 # -------------------------------------------------------------------------------------------
 def decrementRobotAudioVolume():
     
-    if(mysettings.robotAudioVolume >= 60):
+    if(mysettings.robotAudioVolume >= (vol_min+10)):
         mysettings.settings['robotSettings']['robotAudioVolume']-= 10
         mysettings.update_settings()
         mysettings._load_settings()
@@ -72,7 +76,7 @@ def getUserName():
     return mysettings.userName
 
 def getUserSen():
-    return (mysettings.userAge>=60)
+    return (mysettings.userAge>=age_senior)
 
 def getUserDiab():
     return ((mysettings.userDiseases==0) or (mysettings.userDiseases==2))

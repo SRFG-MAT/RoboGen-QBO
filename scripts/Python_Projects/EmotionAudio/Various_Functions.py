@@ -25,6 +25,8 @@ from pydub.playback import play
 filepath_tmp_audio = "/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/EmotionAudio/mp3/tmp.mp3"
 # text-to-speech source, can be "Google" or "IBM"
 tts_src = "IBM"
+ibm_api_key = "L2UHSc2F0l8ugrdfnk8d5Zs54QjZAuLpadluNys2yafC"
+ibm_url = "https://api.eu-gb.text-to-speech.watson.cloud.ibm.com/instances/5e6012e2-98d5-4c6a-814e-aa71c7c185d3/v1/synthesize?voice=de-DE_BirgitVoice"
 
 voice_profile_markus = 1 # Männlich - Markus
 markus_speed = 2.0
@@ -112,9 +114,8 @@ def qboSpeak(sentence):
     # IBM Watson Version
     elif (tts_src == "IBM"):
         ibm_headers = {"Content-Type": "application/json", "Accept": "audio/mp3"}
-        ibm_auth = ("apikey", "L2UHSc2F0l8ugrdfnk8d5Zs54QjZAuLpadluNys2yafC")
+        ibm_auth = ("apikey", ibm_api_key)
         ibm_data = json.dumps({"text":sentence})
-        ibm_url = "https://api.eu-gb.text-to-speech.watson.cloud.ibm.com/instances/5e6012e2-98d5-4c6a-814e-aa71c7c185d3/v1/synthesize?voice=de-DE_BirgitVoice"
         resp = requests.post(ibm_url, headers=ibm_headers, auth=ibm_auth, data=ibm_data)
         file = open(filepath_tmp_audio, "wb")
         file.write(resp.content)

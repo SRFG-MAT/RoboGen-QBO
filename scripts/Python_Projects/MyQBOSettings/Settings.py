@@ -9,6 +9,8 @@ import json
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+settings_endpoint = 'https://api.jsonstorage.net/v1/json/f8d89bf8-6826-4434-9ca1-edd60405bf6d'
+
 # -------------------------------------------------------------------------------------------
 # Settings Class holds internal json representation
 # -------------------------------------------------------------------------------------------
@@ -45,11 +47,11 @@ class MySettings:
     
         try:     
             #r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/UploadJSON_MySettings', timeout=5, verify=False, json=settings)
-            r = requests.put('https://api.jsonstorage.net/v1/json/f8d89bf8-6826-4434-9ca1-edd60405bf6d', timeout=5, verify=False, json=settings)
+            r = requests.put(settings_endpoint, timeout=5, verify=False, json=settings)
             headers = {'Content-type': 'application/json'}      
             
             if r.ok:
-                print("Settings gespeichert")
+                print("Einstellungen gespeichert")
             else:
                 print("--------------------------")
                 print("Fehler bei Server-Antwort: " + str(r.status_code))
@@ -65,7 +67,7 @@ class MySettings:
     
         try:     
             #r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/DownloadJSON_MySettings', timeout=5, verify=False, json='')
-            r = requests.get('https://api.jsonstorage.net/v1/json/f8d89bf8-6826-4434-9ca1-edd60405bf6d', timeout=5, verify=False, json='')
+            r = requests.get(settings_endpoint, timeout=5, verify=False, json='')
             headers = {'Content-type': 'application/json'}      
             
             if r.ok:

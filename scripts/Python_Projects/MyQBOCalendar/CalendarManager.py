@@ -4,6 +4,9 @@ import requests
 import json
 import base64
 
+calendar_endpoint = 'https://api.jsonstorage.net/v1/json/547520b2-1b42-4451-86df-dcff1e6d3d8c'
+add_entries = True
+
 # -------------------------------------------------------------------------------------------
 # uploadCalendarEntry
 # -------------------------------------------------------------------------------------------
@@ -16,13 +19,19 @@ def uploadCalendarEntry(title, date, time, reminder, repeat):
         'reminder': reminder.encode('utf-8').strip(),
         'repeat': repeat.encode('utf-8').strip()
     }
+    if (add_entries):
+        data_old = downloadCalendarEntry()
+        data_new = data_old.append(data)
+    else:
+        data_new = data
     
     try:     
-        r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/UploadJSON_MyCalendar', timeout=5, verify=False, json=data)
+        #r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/UploadJSON_MyCalendar', timeout=5, verify=False, json=data_new)
+        r = requests.put(calendar_endpoint, timeout=5, verify=False, json=data_new)
         headers = {'Content-type': 'application/json'}      
             
         if r.ok:
-            print(r.content)
+            print("Kalender gespeichert")
         else:
             print("--------------------------")
             print("Fehler bei Server-Antwort: " + str(r.status_code))
@@ -38,11 +47,12 @@ def uploadCalendarEntry(title, date, time, reminder, repeat):
 def downloadCalendarEntry():
     
     try:     
-        r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/DownloadJSON_MyCalendar', timeout=5, verify=False, json='')
+        #r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/DownloadJSON_MyCalendar', timeout=5, verify=False, json='')
+        r = requests.get(calendar_endpoint, timeout=5, verify=False, json='')
         headers = {'Content-type': 'application/json'}      
             
         if r.ok:
-            print(r.content)
+            #print(r.content)
             return r.content
         else:
             print("--------------------------")
@@ -64,7 +74,7 @@ def resetCalendar():
         headers = {'Content-type': 'application/json'}      
             
         if r.ok:
-            print(r.content)
+            #print(r.content)
             return True
         else:
             print("--------------------------")

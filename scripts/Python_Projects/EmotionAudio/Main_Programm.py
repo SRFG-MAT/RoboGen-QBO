@@ -89,7 +89,7 @@ while True:
             sentence = Various_Functions.normalize(sentence).strip()
             
             if sentence == "dialog":
-                DecisionTrees.startDecisionTree(robotName)
+                DecisionTrees.startDecisionTree()
                 DecisionTrees.processDecisionTree()
                 break # break inner endless loop to go back to wakeup word
             
@@ -209,6 +209,14 @@ while True:
             #        Various_Functions.qboSpeak('Hoppla! Das Loeschen der Kalendereintraege hat offenbar nicht funktioniert!')
             #    
             #    break # break inner endless loop to go back to wakeup word
+
+            elif sentence == "energiebatterie":
+                Various_Functions.qboSpeak('Die Energie-Batterie findest du am Tablet.')
+                break
+
+            elif sentence == "schlafdaten":
+                Various_Functions.qboSpeak('Die Schlafdaten findest du am Tablet.')
+                break
             
             elif sentence == "schon gut":
                 Various_Functions.qboSpeak('Wenn du was brauchst, ich bin hier.')
