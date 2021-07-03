@@ -6,6 +6,18 @@ import speech_recognition as sr
 from ctypes import *
 import pyaudio
 
+# speech-to-text source, can be "Google" or "IBM"
+stt_src = "Google"
+# IBM keys v1
+ibm_api_key = "qHTNcaz_aCi4vf-uqnCSMwc1Gn7Yl3PB-bWQ-lM47TAj"
+ibm_url = "https://api.eu-de.speech-to-text.watson.cloud.ibm.com/instances/2c390da0-ee03-4b16-af63-f6a9547335ce/v1/recognize?model=de-DE_BroadbandModel"
+# IBM keys v2
+#ibm_api_key = "MDlpOdtcBGankFLxzFUSKuLXWNOvwQGqFRihaSP7c_al"
+#ibm_url = "https://api.eu-de.speech-to-text.watson.cloud.ibm.com/instances/a807706d-de82-498f-a59f-266a89528e93/v1/recognize?model=de-DE_BroadbandModel"
+# IBM keys v3
+#ibm_api_key = "_fb8dF0odQAQ8n90GMXfmcZyRkhkeG7lKfLU8We8UWtg"
+#ibm_url = "https://api.eu-de.speech-to-text.watson.cloud.ibm.com/instances/e286a508-bece-465a-92f4-8703fd1abc6b/v1/recognize?model=de-DE_BroadbandModel"
+
 #---------------------------------------------------------------------------------------------
 # surpress ALSA errors and warnings
 #---------------------------------------------------------------------------------------------
@@ -41,7 +53,14 @@ def getAudioToText():
             audio = recognizer.listen(source)
 
         try:
-            sentence = recognizer.recognize_google(audio, language="de-AT")
+            sentence = ""
+            if (stt_src == "Google"):
+                sentence = recognizer.recognize_google(audio, language="de-AT")
+            elif (stt_src == "IBM"):
+                ibm_headers = {"Content-Type": "application/json"}
+                ibm_auth = ("apikey", ibm_api_key)
+                resp = requests.post(ibm_url, headers=ibm_headers, auth=ibm_auth, data=audio)
+                sentence = resp.results[0].alternatives[0].transcript
             special_char_map = {ord(u'ä'):u'ae', ord(u'Ä'):u'Ae', ord(u'ü'):u'ue', ord(u'Ü'):u'Ue', ord(u'ö'):u'oe', ord(u'Ö'):u'Oe', ord(u'ß'):u'ss'}
             sentence_norm = sentence.translate(special_char_map)
             print("Die Sprachaufzeichnung glaubt du sagst: " + sentence_norm)            

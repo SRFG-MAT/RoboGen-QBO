@@ -25,8 +25,15 @@ from pydub.playback import play
 filepath_tmp_audio = "/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/EmotionAudio/mp3/tmp.mp3"
 # text-to-speech source, can be "Google" or "IBM"
 tts_src = "IBM"
-ibm_api_key = "L2UHSc2F0l8ugrdfnk8d5Zs54QjZAuLpadluNys2yafC"
-ibm_url = "https://api.eu-gb.text-to-speech.watson.cloud.ibm.com/instances/5e6012e2-98d5-4c6a-814e-aa71c7c185d3/v1/synthesize?voice=de-DE_BirgitVoice"
+# IBM keys v1
+ibm_api_key = "x1F9JrWvm0S5I4hejtY3ZUPSAv_C7RTDI2Q7l2aEjwaB"
+ibm_url = "https://api.eu-de.text-to-speech.watson.cloud.ibm.com/instances/e3f7fc29-f502-4d10-a3bb-19c6579a7ab3/v1/synthesize?voice=de-DE_BirgitVoice"
+# IBM keys v2
+#ibm_api_key = "hQWa-gj66v9-Un5-dnQBlTgxXni2PN6m1X188u3Ez841"
+#ibm_url = "https://api.eu-de.text-to-speech.watson.cloud.ibm.com/instances/e157f16e-4584-4d6a-b622-3aa3e0d6d560/v1/synthesize?voice=de-DE_BirgitVoice"
+# IBM keys v3
+#ibm_api_key = "Gn0WySAEj-cUxQDnMKkkOpdusngzdhgYoEdhqi3IijCM"
+#ibm_url = "https://api.eu-de.text-to-speech.watson.cloud.ibm.com/instances/94b93815-2b08-4f6f-9598-4b521f23f2e1/v1/synthesize?voice=de-DE_BirgitVoice"
 
 voice_profile_markus = 1 # Männlich - Markus
 markus_speed = 2.0
