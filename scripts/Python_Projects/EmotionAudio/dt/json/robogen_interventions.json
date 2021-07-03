@@ -824,5 +824,12 @@
     "codes": [
       "SEN_Bewegung"
     ]
+  },
+  {
+    "text": "Danke, dass du das mit mir teilst. Das ist gut zu wissen. Du bist nicht allein. Viele Menschen mit Diabetes kämpfen mit der Angst, an Gewicht zuzulegen.",
+    "link": "",
+    "codes": [
+      "EX_TM_Fear_Weight"
+    ]
   }
 ]
