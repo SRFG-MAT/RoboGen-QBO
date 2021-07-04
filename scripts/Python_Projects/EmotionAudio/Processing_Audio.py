@@ -2,6 +2,7 @@
 # coding=utf-8
 
 import speech_recognition as sr
+import requests
 
 from ctypes import *
 import pyaudio
@@ -59,6 +60,7 @@ def getAudioToText():
             elif (stt_src == "IBM"):
                 ibm_headers = {"Content-Type": "application/json"}
                 ibm_auth = ("apikey", ibm_api_key)
+                # Request not yet working - need to figure out how to correctly pass audio data to the IBM endpoint
                 resp = requests.post(ibm_url, headers=ibm_headers, auth=ibm_auth, data=audio)
                 sentence = resp.results[0].alternatives[0].transcript
             special_char_map = {ord(u'ä'):u'ae', ord(u'Ä'):u'Ae', ord(u'ü'):u'ue', ord(u'Ü'):u'Ue', ord(u'ö'):u'oe', ord(u'Ö'):u'Oe', ord(u'ß'):u'ss'}
