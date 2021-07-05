@@ -21,6 +21,15 @@ import SettingsReader
 from pydub import AudioSegment
 from pydub.playback import play
 
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/ControlQBO')
+import serial
+import QboCmd
+
+port = '/dev/serial0'
+ser = serial.Serial(port, baudrate=115200, bytesize = serial.EIGHTBITS, stopbits = serial.STOPBITS_ONE, parity = serial.PARITY_NONE, rtscts = False, dsrdtr =False, timeout = 0)
+QBO = QboCmd.Controller(ser)
+QBO.SetNoseColor(QboCmd.nose_color_green) # init nose
+
 # global variables
 filepath_tmp_audio = "/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/EmotionAudio/mp3/tmp.mp3"
 # text-to-speech source, can be "Google" or "IBM"
@@ -108,6 +117,8 @@ def modifyAudioPitchVoice(sound):
 #---------------------------------------------------------------------------------------------
 def qboSpeak(sentence):
     
+    QBO.SetNoseColor(QboCmd.nose_color_blue_dark) 
+    
     #update load settings config from server to see if any changes
     #SettingsReader.LoadFromServer()
     
@@ -131,6 +142,8 @@ def qboSpeak(sentence):
     # Nachbearbeitung der mp3-Datei mit pydub und Audio-Ausgabe
     sound = AudioSegment.from_mp3(filepath_tmp_audio)   
     play(modifyAudioPitchVoice(modifyAudioVolume(sound)))
+    
+    QBO.SetNoseColor(QboCmd.nose_color_green) 
     
     #os.system("mpg321 -q " + filepath_tmp_audio + " --gain " + str(audioVolume))
 

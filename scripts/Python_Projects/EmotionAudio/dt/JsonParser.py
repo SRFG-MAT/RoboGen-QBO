@@ -137,7 +137,7 @@ def goToNewArea(area, option):
             else:
                 tmp2 = tmp2 + 1
 
-        addAnswerDT(area,tmp3-1)
+        addAnswerDT(area,(option-1))
 
         if dt_data[0][area]['options'][tmp3-1]['action']['type'] == 'SUBTREE':
             return dt_data[0][area]['options'][tmp3-1]['action']['ref']
