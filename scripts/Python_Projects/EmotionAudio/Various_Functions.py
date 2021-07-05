@@ -28,7 +28,6 @@ import QboCmd
 port = '/dev/serial0'
 ser = serial.Serial(port, baudrate=115200, bytesize = serial.EIGHTBITS, stopbits = serial.STOPBITS_ONE, parity = serial.PARITY_NONE, rtscts = False, dsrdtr =False, timeout = 0)
 QBO = QboCmd.Controller(ser)
-QBO.SetNoseColor(QboCmd.nose_color_green) # init nose
 
 # global variables
 filepath_tmp_audio = "/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/EmotionAudio/mp3/tmp.mp3"
