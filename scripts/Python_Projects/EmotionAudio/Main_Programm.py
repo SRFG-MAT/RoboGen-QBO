@@ -45,8 +45,6 @@ import QboCmd
 port = '/dev/serial0'
 ser = serial.Serial(port, baudrate=115200, bytesize = serial.EIGHTBITS, stopbits = serial.STOPBITS_ONE, parity = serial.PARITY_NONE, rtscts = False, dsrdtr =False, timeout = 0)
 QBO = QboCmd.Controller(ser)
-QBO.SetNoseColor(QboCmd.nose_color_green) # init nose
-QBO.SetMouth(0x1b1f0e04)
 
 #---------------------------------------------------------------------------------------------
 # ChangeMicrophone: will switch between Arduino QBoards connected MICs
@@ -70,6 +68,11 @@ def ChangeMicrophone():
 #---------------------------------------------------------------------------------------------
 ChangeMicrophone()
 SettingsReader.LoadFromServer()
+
+QBO.SetMouth(0x1b1f0e04)
+QBO.SetMouth(0x1b1f0e04)
+QBO.SetNoseColor(QboCmd.nose_color_green) # init nose
+QBO.SetNoseColor(QboCmd.nose_color_green) # init nose
 
 # wait for wake word
 while True:
@@ -234,6 +237,10 @@ while True:
             
     
     except KeyboardInterrupt:
+        QBO.SetMouth(0x00000000)
+        QBO.SetMouth(0x00000000)
         QBO.SetNoseColor(QboCmd.nose_color_none)
+        QBO.SetNoseColor(QboCmd.nose_color_none)
+        print("exit")
         sys.exit()
 
