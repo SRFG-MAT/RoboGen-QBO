@@ -1,5 +1,5 @@
 # RoboGen-QBO
-Holds all python projects of QBO One Robot (Documents-folder on Raspberry Pi 3)
+Holds all python projects of QBO One Robot ("opt/qbo"-folder on Raspberry Pi 3)
 
 Currently features:
 - EmotionAnalysis of Faces in VideoStreams
