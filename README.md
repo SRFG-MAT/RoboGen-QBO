@@ -9,6 +9,7 @@ Currently features:
 - Bluetooth-Connection adapter to tablet android app
 - Saved personal Settings
 - Sample Python-Scripts from TheCorpora
+- ROS Action Server implementation with self-registry feature
 
 Info: Autorun-Information on Q.Bo One can be found in main info.txt file (please keep this info file updated if you add any autostart scripts)
 
