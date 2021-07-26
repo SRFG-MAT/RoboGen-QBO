@@ -3,9 +3,9 @@ import cv2 as cv
 
 from os import sys, path
 
-sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/FaceDetection')
-sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/FaceDetection/CameraOnly')
-sys.path.append('/opt/QBO/RoboGen-QBO/Python_Projects/ControlQBO')
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/FaceDetection')
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/FaceDetection/CameraOnly')
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/ControlQBO')
 
 import serial
 import QboCmd

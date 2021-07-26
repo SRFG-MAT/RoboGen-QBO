@@ -7,7 +7,7 @@ import actionlib
 
 # Brings in the messages used by the qbo actions, including the
 # goal message and the result message of the task modules "WaitForUserInput" and "VoiceOutput"
-import actionlib_tutorials.msg
+import robogenqbo.msg
 
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -17,14 +17,14 @@ def qbo_client():
 
     # Creates the SimpleActionClient, passing the type of the action
     # (FibonacciAction) to the constructor.
-    client = actionlib.SimpleActionClient('qbo', actionlib_tutorials.msg.FibonacciAction)
+    client = actionlib.SimpleActionClient('qbo', robogenqbo.msg.FibonacciAction)
 
     # Waits until the action server has started up and started
     # listening for goals.
     client.wait_for_server()
 
     # Creates a goal to send to the action server.
-    goal = actionlib_tutorials.msg.FibonacciGoal(order=5)
+    goal = robogenqbo.msg.FibonacciGoal(order=5)
 
     # Sends the goal to the action server.
     client.send_goal(goal)

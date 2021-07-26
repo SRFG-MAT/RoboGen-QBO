@@ -1,0 +1,11 @@
+Scripts fuer Autostart hinzufuegen in autostart-Datei unter:
+
+/home/pi/.config/lxsession/LXDE-pi/ 
+
+
+Derzeit eingetragen sind:
+
+lxterminal -e /usr/bin/python /opt/QBO/catkin_ws/src/RoboGen-QBO/python/RoboGen_Projects/EmotionVideo/EmotionDetectionClient.py
+lxterminal -e /usr/bin/python /opt/QBO/catkin_ws/src/RoboGen-QBO/python/RoboGen_Projects/EmotionAudio/Main_Programm.py 
+lxterminal -e /usr/bin/python /opt/QBO/catkin_ws/src/RoboGen-QBO/python/RoboGen_Projects/BlueToothAdapter/BlueToothAdapter.py 
+

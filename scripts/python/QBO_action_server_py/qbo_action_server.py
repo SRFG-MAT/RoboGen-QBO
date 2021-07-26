@@ -2,19 +2,19 @@
 
 import rospy
 import actionlib
-import actionlib_tutorials.msg
+import robogenqbo.msg
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 # VoiceOutput
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 class VoiceOutput(object):
     # create messages that are used to publish feedback/result
-    _feedback = actionlib_tutorials.msg.VoiceOutputFeedback()
-    _result = actionlib_tutorials.msg.VoiceOutputResult()
+    _feedback = robogenqbo.msg.VoiceOutputFeedback()
+    _result = robogenqbo.msg.VoiceOutputResult()
 
     def __init__(self, name):
         self._action_name = name
-        self._as = actionlib.SimpleActionServer(self._action_name, actionlib_tutorials.msg.VoiceOutput, execute_cb=self.execute_cb, auto_start = False)
+        self._as = actionlib.SimpleActionServer(self._action_name, robogenqbo.msg.VoiceOutput, execute_cb=self.execute_cb, auto_start = False)
         self._as.start()
       
     def execute_cb(self, goal):
@@ -54,12 +54,12 @@ class VoiceOutput(object):
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 class WaitForUserInput(object):
     # create messages that are used to publish feedback/result
-    _feedback = actionlib_tutorials.msg.WaitForUserInputFeedback()
-    _result = actionlib_tutorials.msg.WaitForUserInputResult()
+    _feedback = robogenqbo.msg.WaitForUserInputFeedback()
+    _result = robogenqbo.msg.WaitForUserInputResult()
 
     def __init__(self, name):
         self._action_name = name
-        self._as = actionlib.SimpleActionServer(self._action_name, actionlib_tutorials.msg.WaitForUserInput, execute_cb=self.execute_cb, auto_start = False)
+        self._as = actionlib.SimpleActionServer(self._action_name, robogenqbo.msg.WaitForUserInput, execute_cb=self.execute_cb, auto_start = False)
         self._as.start()
       
     def execute_cb(self, goal):

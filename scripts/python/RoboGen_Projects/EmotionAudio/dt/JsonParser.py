@@ -10,7 +10,7 @@ from string import punctuation
 import Various_Functions
 
 # saved settings
-sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/MyQBOSettings')
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/MyQBOSettings')
 import SettingsReader
 
 dt_endpoint = 'https://api.jsonstorage.net/v1/json/e7278ae4-8cca-42e7-bba7-5eb3fe91b6f1'
@@ -28,7 +28,7 @@ def loadDTData(area):
     if (area == 'EX' or area == 'STR' or area == 'SLE' or area == 'SEN'):
         clearDT()
 
-    with open('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/EmotionAudio/dt/json/robogen_decisiontrees.json', 'r') as dt_file:
+    with open('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/EmotionAudio/dt/json/robogen_decisiontrees.json', 'r') as dt_file:
         dt_data = json.load(dt_file)
         
         data = {
@@ -77,7 +77,7 @@ def loadDTData(area):
 #---------------------------------------------------------------------------------------------
 def loadInterventionData(codeInput):
         
-    with open('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/EmotionAudio/dt/json/robogen_interventions.json', 'r') as interventions_file:
+    with open('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/EmotionAudio/dt/json/robogen_interventions.json', 'r') as interventions_file:
         intervention_data = json.load(interventions_file)
         
         print('Gesucht wird code: ')
@@ -122,7 +122,7 @@ def loadInterventionData(codeInput):
 #---------------------------------------------------------------------------------------------            
 def goToNewArea(area, option):
 
-    with open('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/EmotionAudio/dt/json/robogen_decisiontrees.json', 'r') as dt_file:
+    with open('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/EmotionAudio/dt/json/robogen_decisiontrees.json', 'r') as dt_file:
         dt_data = json.load(dt_file)
 
         tmp = option

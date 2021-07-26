@@ -3,12 +3,12 @@
 import os, sys, time, json
 
 # audio
-sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/EmotionAudio')
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/EmotionAudio')
 import Processing_Audio
 import Various_Functions
 
 # saved settings
-sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/MyQBOSettings')
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/MyQBOSettings')
 import SettingsReader
 
 sleepThreshold = SettingsReader.getSleepThreshold()

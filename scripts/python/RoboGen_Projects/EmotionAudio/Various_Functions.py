@@ -6,14 +6,14 @@ import requests
 from gtts import gTTS
 
 # from emotion analysis
-sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/EmotionAudio/ea')
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/EmotionAudio/ea')
 from Emotion_Dictionary import emo_dic
 from Emotion_Dictionary import emo_changers
 from string import punctuation
 from fuzzywuzzy import fuzz
 
 # from Settings
-sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/MyQBOSettings')
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/MyQBOSettings')
 import SettingsReader
 
 #for pydub audio modification
@@ -21,7 +21,7 @@ import SettingsReader
 from pydub import AudioSegment
 from pydub.playback import play
 
-sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/ControlQBO')
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/ControlQBO')
 import serial
 import QboCmd
 
@@ -30,7 +30,7 @@ ser = serial.Serial(port, baudrate=115200, bytesize = serial.EIGHTBITS, stopbits
 QBO = QboCmd.Controller(ser)
 
 # global variables
-filepath_tmp_audio = "/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/Python_Projects/EmotionAudio/mp3/tmp.mp3"
+filepath_tmp_audio = "/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/EmotionAudio/mp3/tmp.mp3"
 # text-to-speech source, can be "Google" or "IBM"
 tts_src = "IBM"
 # IBM keys v1
