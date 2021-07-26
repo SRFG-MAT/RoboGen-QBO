@@ -39,7 +39,7 @@ if the above steps did not work try the following tutorial instead:
 http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi
 
 ## start with
-"rosrun RoboGen-QBO StartROSConnection.py"
+"rosrun robogenqbo [name_of_python_file.py]"
 
 ## access with
 - package_name = "robogenqbo"
