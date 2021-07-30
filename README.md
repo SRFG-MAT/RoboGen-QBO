@@ -20,21 +20,22 @@ In addition to this repository: hardware-specific changes to Q.Bo and OS changes
 - installed OS on QBO: Debian/Stretch 
 - installed ROS on QBO: ROS Kinetic
 - for Raspbian install, try to use alternative install guide: http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi
+- this project uses a python based action server following the instructions here: http://docs.ros.org/en/hydro/api/catkin/html/user_guide/setup_dot_py.html
+- this project requires as a dependency: actionlib git-repo (https://github.com/ros/actionlib / branch: indigo-devel)
 
 ## steps to create the catkin workspace with ROS
-1) mkdir –p ~/catkin_ws/src
-2) cd ~/catkin_ws/src
-3) catkin_init_workspace
+1) "mkdir –p ~/catkin_ws/src"
+2) "cd ~/catkin_ws/src"
+3) "catkin_init_workspace"
 4) checkout this git repo in the src-dir
 5) checkout the actionlib git repo (https://github.com/ros/actionlib / branch: indigo-devel) in the src-dir
-6) cd ~/catkin_ws/
-7) catkin_make
-8) source ~/catkin_ws/devel/setup.bash
-9) echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
-10) catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
-11) [OPTIONAL] execute "rosdep install -i --from-paths src" from the workspace to install ROS dependencies
-12) [OPTIONAL] execute "rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:stretch"
-13) HINT: If you want to also use a python based action server follow the instructions here: http://docs.ros.org/en/hydro/api/catkin/html/user_guide/setup_dot_py.html
+6) "cd ~/catkin_ws/"
+7) "catkin_make" (first build of actionlib will take some time)
+8) "source ~/catkin_ws/devel/setup.bash"
+9) "echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc"
+10) "catkin_create_pkg beginner_tutorials std_msgs rospy roscpp"
+11) [OPTIONAL] "rosdep install -i --from-paths src" (execute from workspace)
+12) [OPTIONAL] "rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:stretch" (execute from workspace)
 
 ## start with
 "rosrun robogenqbo [name_of_python_file.py]"
