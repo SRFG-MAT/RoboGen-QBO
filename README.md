@@ -34,6 +34,7 @@ In addition to this repository: hardware-specific changes to Q.Bo and OS changes
 6) source ~/catkin_ws/devel/setup.bash
 7) echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 8) catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
+9) HINT: If you want to also use a python based action server follow the instructions here: http://docs.ros.org/en/hydro/api/catkin/html/user_guide/setup_dot_py.html
 
 ## alternative install guide
 if the above steps did not work try the following tutorial instead:
