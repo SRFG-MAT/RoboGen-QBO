@@ -24,15 +24,15 @@ In addition to this repository: hardware-specific changes to Q.Bo and OS changes
 - this project requires as a dependency: actionlib git-repo (https://github.com/ros/actionlib / branch: indigo-devel)
 
 ## steps to create the catkin workspace with ROS
-1) "mkdir –p ~/catkin_ws/src"
-2) "cd ~/catkin_ws/src"
+1) "mkdir –p /opt/QBO/catkin_ws/src"
+2) "cd /opt/QBO/catkin_ws/src"
 3) "catkin_init_workspace"
 4) checkout this git repo in the src-dir
 5) checkout the actionlib git repo (https://github.com/ros/actionlib / branch: indigo-devel) in the src-dir
 6) "cd ~/catkin_ws/"
 7) "catkin_make" (first build of actionlib will take some time)
-8) "source ~/catkin_ws/devel/setup.bash"
-9) "echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc"
+8) "source /opt/QBO/catkin_ws/devel/setup.bash"
+9) "echo "source /opt/QBO/catkin_ws/devel/setup.bash" >> ~/.bashrc"
 10) "catkin_create_pkg beginner_tutorials std_msgs rospy roscpp"
 11) [OPTIONAL] "rosdep install -i --from-paths src" (execute from workspace)
 12) [OPTIONAL] "rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:stretch" (execute from workspace)
