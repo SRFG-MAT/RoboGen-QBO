@@ -22,6 +22,7 @@ In addition to this repository: hardware-specific changes to Q.Bo and OS changes
 - for Raspbian install, try to use alternative install guide: http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi
 - this project uses a python based action server following the instructions here: http://docs.ros.org/en/hydro/api/catkin/html/user_guide/setup_dot_py.html
 - this project requires as a dependency: actionlib git-repo (https://github.com/ros/actionlib / branch: indigo-devel)
+- this project requires rosdep installation following: https://wiki.ros.org/rosdep
 
 ## steps to create the catkin workspace with ROS
 1) "mkdir –p /opt/QBO/catkin_ws/src"
