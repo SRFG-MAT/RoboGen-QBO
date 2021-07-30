@@ -38,8 +38,8 @@ In addition to this repository: hardware-specific changes to Q.Bo and OS changes
 12) [OPTIONAL] "rosdep install -y --from-paths /opt/QBO/catkin_ws --ignore-src --rosdistro kinetic -r --os=debian:stretch" (from workspace)
 
 ## start with
-"roscore"
-"rosrun robogenqbo [name_of_python_file.py]"
+1) "roscore"
+2) "rosrun robogenqbo [name_of_python_file.py]"
 
 ## access with
 - package_name = "robogenqbo"
