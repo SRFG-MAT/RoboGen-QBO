@@ -1,6 +1,6 @@
 Scripts fuer Autostart hinzufuegen in autostart-Datei unter:
 
-/home/pi/.config/lxsession/LXDE-pi/ 
+/home/pi/.config/lxsession/LXDE-pi/autostart
 
 
 Derzeit eingetragen sind:
