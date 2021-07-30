@@ -1,6 +1,8 @@
 # this file will reuse all information from your package.xml file
 # and extend it with required dependencies for ROS python
-# dont install this file directly, instead 
+# dont install this file directly, instead it will be found and
+# installed automatically by adding the "catkin_python_setup()"-
+# entry to your CMakeLists.txt project file
 from distutils.core import setup
 from catkin_pkg.python_setup import generate_distutils_setup
 
