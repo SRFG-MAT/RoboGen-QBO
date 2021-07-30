@@ -29,15 +29,17 @@ In addition to this repository: hardware-specific changes to Q.Bo and OS changes
 1) mkdir –p ~/catkin_ws/src
 2) cd ~/catkin_ws/src
 3) catkin_init_workspace
-4) cd ~/catkin_ws/
-5) catkin_make
-6) source ~/catkin_ws/devel/setup.bash
-7) echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
-8) catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
-9) HINT: If you want to also use a python based action server follow the instructions here: http://docs.ros.org/en/hydro/api/catkin/html/user_guide/setup_dot_py.html
+4) checkout this git repo in the src-dir
+5) checkout the actionlib git repo (https://github.com/ros/actionlib / branch: indigo-devel) in the src-dir
+6) cd ~/catkin_ws/
+7) catkin_make
+8) source ~/catkin_ws/devel/setup.bash
+9) echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+10) catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
+11) HINT: If you want to also use a python based action server follow the instructions here: http://docs.ros.org/en/hydro/api/catkin/html/user_guide/setup_dot_py.html
 
-## alternative install guide
-if the above steps did not work try the following tutorial instead:
+## alternative install guide for Raspberry
+if the above steps did not work on raspberry pi installation, try the following tutorial instead:
 http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi
 
 ## start with
