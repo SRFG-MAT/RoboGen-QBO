@@ -3,6 +3,7 @@
 import requests
 import json
 
+#register one full AAS in asset-directory-controller under "/directory/aas" or one submodel under "/directory/submodel"
 
 #---------------------------------------------------------------------------------------------
 # loadAASType
@@ -32,7 +33,7 @@ def loadAASInstance():
 def uploadAAS(aas):
     
     try:     
-        #r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/UploadJSON_MySettings', timeout=5, verify=False, json=settings)
+        #r = requests.post('https://power2dm.salzburgresearch.at/robogen/DataBase/UploadJSON_MySettings', timeout=5, verify=False, json=aas)
         r = requests.put(settings_endpoint, timeout=5, verify=False, json=aas)
         headers = {'Content-type': 'application/json'}      
             
