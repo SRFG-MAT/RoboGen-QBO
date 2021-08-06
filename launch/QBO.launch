@@ -1,0 +1,6 @@
+<launch>
+    <node pkg = "example" type = "talker.py" name = "talker">
+    <node pkg = "example" type = "listener.py" name = "listener" output = "screen">
+        <remap to = "chatter" from ="singing"/>
+    </node>
+</launch>
