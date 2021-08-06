@@ -3,7 +3,8 @@
 import requests
 import json
 
-#register one full AAS in asset-directory-controller under "/directory/aas" or one submodel under "/directory/submodel"
+# register one full AAS in asset-directory-controller under "/directory/aas" or one submodel under "/directory/submodel"
+# see iAsset project: https://iasset.salzburgresearch.at/registry-service/swagger-ui.html#/
 
 #---------------------------------------------------------------------------------------------
 # loadAASType
