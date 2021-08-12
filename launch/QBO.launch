@@ -1,6 +1,5 @@
+<?xml version="1.0"?>
 <launch>
-    <node pkg = "example" type = "talker.py" name = "talker">
-    <node pkg = "example" type = "listener.py" name = "listener" output = "screen">
-        <remap to = "chatter" from ="singing"/>
-    </node>
+  <node pkg="robogenqbo" type="ActionServer" name="ActionServer" launch-prefix="xterm -e" />
+  <node pkg="robogenqbo" type="ActionClient" name="ActionClient" launch-prefix="xterm -e" /> 
 </launch>
