@@ -42,12 +42,15 @@ In addition to this repository: hardware-specific changes to Q.Bo and OS changes
 1) "roscore"
 2) "rosrun robogenqbo [name_of_python_file.py]"
 
-## access with
-- package_name = "robogenqbo"
+## connectivity
+
+QBO:
+- package_name: "robogenqbo"
+- Hostname: "qbo"
 - IP-Address: "192.168.48.177"
 - to check for connectivity try steps: http://wiki.ros.org/ROS/NetworkSetup
 - to check environment variable setup try: http://wiki.ros.org/ROS/EnvironmentVariables
 
 Maser Node is setup and provided by Franka Panda PC:
-Ping: 192.168.48.41
-Hostname: il041
+- IP-Address: "192.168.48.41"
+- Hostname: "il041"
