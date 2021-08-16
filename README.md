@@ -34,7 +34,7 @@ In addition to this repository: hardware-specific changes to Q.Bo and OS changes
 7) "catkin_make" (first build of actionlib will take some time)
 8) "source /opt/QBO/catkin_ws/devel/setup.bash"
 9) "echo "source /opt/QBO/catkin_ws/devel/setup.bash" >> ~/.bashrc"
-10) "rosdep install -y --from-paths /opt/QBO/catkin_ws --ignore-src --rosdistro kinetic -r --os=debian:stretch" (from workspace, NEEDS A ROOT USER TERMINAL!)
+10) "rosdep install -y --from-paths /opt/QBO/catkin_ws --ignore-src --rosdistro kinetic -r --os=debian:stretch" (from workspace, needs a root user terminal or "sudo" command depending on local setup, use "pkexec su" to login console as root!)
 11) "catkin_create_pkg robogenqbo std_msgs rospy roscpp"
 
 ## start with
