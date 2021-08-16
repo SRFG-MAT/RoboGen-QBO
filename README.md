@@ -44,7 +44,7 @@ In addition to this repository: hardware-specific changes to Q.Bo and OS changes
 
 ## connectivity
 
-QBO:
+Q.BO One Robot:
 - package_name: "robogenqbo"
 - Hostname: "qbo"
 - IP-Address: "192.168.48.177"
