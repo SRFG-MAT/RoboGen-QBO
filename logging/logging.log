@@ -1,0 +1,765 @@
+2021-08-16 14:31:04,133 - rospy.client - INFO - client : 314 - init_node, name[/fibonacci_client_py], pid[4717]
+2021-08-16 14:31:04,146 - xmlrpc - INFO - xmlrpc : 232 - XML-RPC server binding to 0.0.0.0:0
+2021-08-16 14:31:04,150 - xmlrpc - INFO - xmlrpc : 260 - Started XML-RPC server [http://qbo:37105/]
+2021-08-16 14:31:04,151 - rospy.init - INFO - init : 102 - ROS Slave URI: [http://qbo:37105/]
+2021-08-16 14:31:04,152 - rospy.impl.masterslave - INFO - masterslave : 217 - _ready: http://qbo:37105/
+2021-08-16 14:31:04,157 - rospy.registration - INFO - registration : 224 - Registering with master node http://192.168.48.41:11311/
+2021-08-16 14:31:04,159 - rosout - DEBUG - registration : 266 - No topics to register with master node http://192.168.48.41:11311/
+2021-08-16 14:31:04,166 - xmlrpc - INFO - xmlrpc : 276 - xml rpc node: starting XML-RPC server
+2021-08-16 14:31:04,253 - rospy.init - INFO - init : 106 - registered with master
+2021-08-16 14:31:04,254 - rospy.rosout - INFO - rosout : 69 - initializing /rosout core topic
+2021-08-16 14:31:04,255 - rospy.topics - DEBUG - topics : 1151 - tm._add: /rosout, rosgraph_msgs/Log, pub
+2021-08-16 14:31:04,256 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci_client_py, /rosout, rosgraph_msgs/Log, http://qbo:37105/)
+2021-08-16 14:31:04,270 - rospy.rosout - INFO - rosout : 71 - connected to core topic /rosout
+2021-08-16 14:31:04,285 - rospy.simtime - INFO - simtime : 80 - /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-08-16 14:31:04,286 - rosout - DEBUG - client : 340 - init_node, name[/fibonacci_client_py], pid[4717]
+2021-08-16 14:31:04,287 - rosout - DEBUG - tcpros_base : 192 - binding to 0.0.0.0 0
+2021-08-16 14:31:04,288 - rosout - DEBUG - tcpros_base : 195 - bound to 0.0.0.0 37363
+2021-08-16 14:31:04,290 - rosout - DEBUG - tcpros_service : 565 - ... service URL is rosrpc://qbo:37363
+2021-08-16 14:31:04,291 - rosout - DEBUG - tcpros_service : 569 - [/fibonacci_client_py/get_loggers]: new Service instance
+2021-08-16 14:31:04,291 - rospy.registration - DEBUG - registration : 456 - master.registerService(/fibonacci_client_py, /fibonacci_client_py/get_loggers, rosrpc://qbo:37363, http://qbo:37105/)
+2021-08-16 14:31:04,303 - rosout - DEBUG - tcpros_service : 565 - ... service URL is rosrpc://qbo:37363
+2021-08-16 14:31:04,304 - rosout - DEBUG - tcpros_service : 569 - [/fibonacci_client_py/set_logger_level]: new Service instance
+2021-08-16 14:31:04,305 - rospy.registration - DEBUG - registration : 456 - master.registerService(/fibonacci_client_py, /fibonacci_client_py/set_logger_level, rosrpc://qbo:37363, http://qbo:37105/)
+2021-08-16 14:31:04,337 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/goal, robogenqbo/FibonacciActionGoal, pub
+2021-08-16 14:31:04,338 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci_client_py, /fibonacci/goal, robogenqbo/FibonacciActionGoal, http://qbo:37105/)
+2021-08-16 14:31:04,351 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/cancel, actionlib_msgs/GoalID, pub
+2021-08-16 14:31:04,352 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci_client_py, /fibonacci/cancel, actionlib_msgs/GoalID, http://qbo:37105/)
+2021-08-16 14:31:04,389 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/status, actionlib_msgs/GoalStatusArray, sub
+2021-08-16 14:31:04,390 - rospy.registration - DEBUG - registration : 447 - master.registerSubscriber(/fibonacci_client_py, /fibonacci/status, actionlib_msgs/GoalStatusArray, http://qbo:37105/)
+2021-08-16 14:31:04,419 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/result, robogenqbo/FibonacciActionResult, sub
+2021-08-16 14:31:04,420 - rospy.registration - DEBUG - registration : 447 - master.registerSubscriber(/fibonacci_client_py, /fibonacci/result, robogenqbo/FibonacciActionResult, http://qbo:37105/)
+2021-08-16 14:31:04,444 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/feedback, robogenqbo/FibonacciActionFeedback, sub
+2021-08-16 14:31:04,445 - rospy.registration - DEBUG - registration : 447 - master.registerSubscriber(/fibonacci_client_py, /fibonacci/feedback, robogenqbo/FibonacciActionFeedback, http://qbo:37105/)
+2021-08-16 14:31:40,641 - rospy.client - INFO - client : 314 - init_node, name[/fibonacci], pid[4849]
+2021-08-16 14:31:40,644 - xmlrpc - INFO - xmlrpc : 232 - XML-RPC server binding to 0.0.0.0:0
+2021-08-16 14:31:40,647 - xmlrpc - INFO - xmlrpc : 260 - Started XML-RPC server [http://qbo:46601/]
+2021-08-16 14:31:40,648 - rospy.init - INFO - init : 102 - ROS Slave URI: [http://qbo:46601/]
+2021-08-16 14:31:40,649 - rospy.impl.masterslave - INFO - masterslave : 217 - _ready: http://qbo:46601/
+2021-08-16 14:31:40,655 - rospy.registration - INFO - registration : 224 - Registering with master node http://192.168.48.41:11311/
+2021-08-16 14:31:40,659 - rosout - DEBUG - registration : 266 - No topics to register with master node http://192.168.48.41:11311/
+2021-08-16 14:31:40,656 - xmlrpc - INFO - xmlrpc : 276 - xml rpc node: starting XML-RPC server
+2021-08-16 14:31:40,750 - rospy.init - INFO - init : 106 - registered with master
+2021-08-16 14:31:40,752 - rospy.rosout - INFO - rosout : 69 - initializing /rosout core topic
+2021-08-16 14:31:40,752 - rospy.topics - DEBUG - topics : 1151 - tm._add: /rosout, rosgraph_msgs/Log, pub
+2021-08-16 14:31:40,753 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci, /rosout, rosgraph_msgs/Log, http://qbo:46601/)
+2021-08-16 14:31:40,769 - rospy.rosout - INFO - rosout : 71 - connected to core topic /rosout
+2021-08-16 14:31:40,782 - rospy.simtime - INFO - simtime : 80 - /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-08-16 14:31:40,783 - rosout - DEBUG - client : 340 - init_node, name[/fibonacci], pid[4849]
+2021-08-16 14:31:40,784 - rosout - DEBUG - tcpros_base : 192 - binding to 0.0.0.0 0
+2021-08-16 14:31:40,785 - rosout - DEBUG - tcpros_base : 195 - bound to 0.0.0.0 46783
+2021-08-16 14:31:40,787 - rosout - DEBUG - tcpros_service : 565 - ... service URL is rosrpc://qbo:46783
+2021-08-16 14:31:40,788 - rosout - DEBUG - tcpros_service : 569 - [/fibonacci/get_loggers]: new Service instance
+2021-08-16 14:31:40,790 - rospy.registration - DEBUG - registration : 456 - master.registerService(/fibonacci, /fibonacci/get_loggers, rosrpc://qbo:46783, http://qbo:46601/)
+2021-08-16 14:31:40,804 - rosout - DEBUG - tcpros_service : 565 - ... service URL is rosrpc://qbo:46783
+2021-08-16 14:31:40,805 - rosout - DEBUG - tcpros_service : 569 - [/fibonacci/set_logger_level]: new Service instance
+2021-08-16 14:31:40,806 - rospy.registration - DEBUG - registration : 456 - master.registerService(/fibonacci, /fibonacci/set_logger_level, rosrpc://qbo:46783, http://qbo:46601/)
+2021-08-16 14:31:40,828 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/status, actionlib_msgs/GoalStatusArray, pub
+2021-08-16 14:31:40,829 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci, /fibonacci/status, actionlib_msgs/GoalStatusArray, http://qbo:46601/)
+2021-08-16 14:31:40,839 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/result, robogenqbo/FibonacciActionResult, pub
+2021-08-16 14:31:40,840 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci, /fibonacci/result, robogenqbo/FibonacciActionResult, http://qbo:46601/)
+2021-08-16 14:31:40,850 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/feedback, robogenqbo/FibonacciActionFeedback, pub
+2021-08-16 14:31:40,851 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci, /fibonacci/feedback, robogenqbo/FibonacciActionFeedback, http://qbo:46601/)
+2021-08-16 14:31:40,882 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/goal, robogenqbo/FibonacciActionGoal, sub
+2021-08-16 14:31:40,883 - rospy.registration - DEBUG - registration : 447 - master.registerSubscriber(/fibonacci, /fibonacci/goal, robogenqbo/FibonacciActionGoal, http://qbo:46601/)
+2021-08-16 14:31:40,886 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/rosout', '/rosout', [['TCPROS']])
+2021-08-16 14:31:40,887 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/rosout', '/rosout', [['TCPROS']])
+2021-08-16 14:31:40,888 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/rosout]: choosing protocol TCPROS
+2021-08-16 14:31:40,888 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/rosout]: choosing protocol TCPROS
+2021-08-16 14:31:40,889 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/rosout', '/rosout', [['TCPROS']]) returns (1, 'ready on qbo:46783', ['TCPROS', 'qbo', 46783])
+2021-08-16 14:31:40,889 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/rosout', '/rosout', [['TCPROS']]) returns (1, 'ready on qbo:37363', ['TCPROS', 'qbo', 37363])
+2021-08-16 14:31:40,893 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/status', ['http://qbo:46601/'])
+2021-08-16 14:31:40,894 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/status', ['http://qbo:46601/']) returns (1, '', 0)
+2021-08-16 14:31:40,901 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/status]: calling requestTopic(/fibonacci_client_py, /fibonacci/status, [['TCPROS']])
+2021-08-16 14:31:40,910 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci_client_py', '/fibonacci/status', [['TCPROS']])
+2021-08-16 14:31:40,912 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/cancel, actionlib_msgs/GoalID, sub
+2021-08-16 14:31:40,913 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/result', ['http://qbo:46601/'])
+2021-08-16 14:31:40,913 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/status]: choosing protocol TCPROS
+2021-08-16 14:31:40,914 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/result', ['http://qbo:46601/']) returns (1, '', 0)
+2021-08-16 14:31:40,914 - rospy.registration - DEBUG - registration : 447 - master.registerSubscriber(/fibonacci, /fibonacci/cancel, actionlib_msgs/GoalID, http://qbo:46601/)
+2021-08-16 14:31:40,914 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci_client_py', '/fibonacci/status', [['TCPROS']]) returns (1, 'ready on qbo:46783', ['TCPROS', 'qbo', 46783])
+2021-08-16 14:31:40,919 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/status]: requestTopic returned protocol list ['TCPROS', 'qbo', 46783]
+2021-08-16 14:31:40,921 - rospy.internal - INFO - core : 138 - topic[/fibonacci/status] adding connection to [http://qbo:46601/], count 0
+2021-08-16 14:31:40,927 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/cancel]: calling requestTopic(/fibonacci, /fibonacci/cancel, [['TCPROS']])
+2021-08-16 14:31:40,929 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/feedback', ['http://qbo:46601/'])
+2021-08-16 14:31:40,923 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/result]: calling requestTopic(/fibonacci_client_py, /fibonacci/result, [['TCPROS']])
+2021-08-16 14:31:40,930 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/feedback', ['http://qbo:46601/']) returns (1, '', 0)
+2021-08-16 14:31:40,935 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/goal]: calling requestTopic(/fibonacci, /fibonacci/goal, [['TCPROS']])
+2021-08-16 14:31:40,936 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/feedback]: calling requestTopic(/fibonacci_client_py, /fibonacci/feedback, [['TCPROS']])
+2021-08-16 14:31:40,940 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:31:40,945 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/status]: writing header
+2021-08-16 14:31:40,951 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci', '/fibonacci/cancel', [['TCPROS']])
+2021-08-16 14:31:40,952 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/cancel]: choosing protocol TCPROS
+2021-08-16 14:31:40,952 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci', '/fibonacci/cancel', [['TCPROS']]) returns (1, 'ready on qbo:37363', ['TCPROS', 'qbo', 37363])
+2021-08-16 14:31:40,953 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/status]: writing header
+2021-08-16 14:31:40,954 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/status]
+2021-08-16 14:31:40,955 - rospy.internal - INFO - core : 138 - topic[/fibonacci/status] adding connection to [/fibonacci_client_py], count 0
+2021-08-16 14:31:40,962 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci', '/fibonacci/goal', [['TCPROS']])
+2021-08-16 14:31:40,959 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/cancel]: requestTopic returned protocol list ['TCPROS', 'qbo', 37363]
+2021-08-16 14:31:40,952 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci_client_py', '/fibonacci/result', [['TCPROS']])
+2021-08-16 14:31:40,963 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/goal]: choosing protocol TCPROS
+2021-08-16 14:31:40,963 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci', '/fibonacci/goal', [['TCPROS']]) returns (1, 'ready on qbo:37363', ['TCPROS', 'qbo', 37363])
+2021-08-16 14:31:40,964 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/result]: choosing protocol TCPROS
+2021-08-16 14:31:40,963 - rospy.internal - INFO - core : 138 - topic[/fibonacci/cancel] adding connection to [http://qbo:37105/], count 0
+2021-08-16 14:31:40,965 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci_client_py', '/fibonacci/result', [['TCPROS']]) returns (1, 'ready on qbo:46783', ['TCPROS', 'qbo', 46783])
+2021-08-16 14:31:40,969 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/result]: requestTopic returned protocol list ['TCPROS', 'qbo', 46783]
+2021-08-16 14:31:40,969 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/goal]: requestTopic returned protocol list ['TCPROS', 'qbo', 37363]
+2021-08-16 14:31:40,970 - rospy.internal - INFO - core : 138 - topic[/fibonacci/result] adding connection to [http://qbo:46601/], count 0
+2021-08-16 14:31:40,972 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:31:40,972 - rosout - DEBUG - action_server : 52 - Starting timer
+2021-08-16 14:31:40,975 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/result]: writing header
+2021-08-16 14:31:40,973 - rospy.internal - INFO - core : 138 - topic[/fibonacci/goal] adding connection to [http://qbo:37105/], count 0
+2021-08-16 14:31:40,975 - rosout - DEBUG - client : 126 - node[/fibonacci, http://qbo:46601/] entering spin(), pid[4849]
+2021-08-16 14:31:40,977 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/result]: writing header
+2021-08-16 14:31:40,981 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/result]
+2021-08-16 14:31:40,982 - rospy.internal - INFO - core : 138 - topic[/fibonacci/result] adding connection to [/fibonacci_client_py], count 0
+2021-08-16 14:31:40,990 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 37363
+2021-08-16 14:31:40,986 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci_client_py', '/fibonacci/feedback', [['TCPROS']])
+2021-08-16 14:31:40,994 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/feedback]: choosing protocol TCPROS
+2021-08-16 14:31:40,995 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci_client_py', '/fibonacci/feedback', [['TCPROS']]) returns (1, 'ready on qbo:46783', ['TCPROS', 'qbo', 46783])
+2021-08-16 14:31:40,997 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/cancel]: writing header
+2021-08-16 14:31:40,999 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/feedback]: requestTopic returned protocol list ['TCPROS', 'qbo', 46783]
+2021-08-16 14:31:41,002 - rospy.internal - INFO - core : 138 - topic[/fibonacci/feedback] adding connection to [http://qbo:46601/], count 0
+2021-08-16 14:31:40,990 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 37363
+2021-08-16 14:31:41,003 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/cancel]: writing header
+2021-08-16 14:31:41,005 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/goal]: writing header
+2021-08-16 14:31:41,006 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:31:41,008 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/cancel]
+2021-08-16 14:31:41,009 - rospy.internal - INFO - core : 138 - topic[/fibonacci/cancel] adding connection to [/fibonacci], count 0
+2021-08-16 14:31:41,010 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/feedback]: writing header
+2021-08-16 14:31:41,012 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/feedback]: writing header
+2021-08-16 14:31:41,012 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/goal]: writing header
+2021-08-16 14:31:41,015 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/feedback]
+2021-08-16 14:31:41,017 - rospy.internal - INFO - core : 138 - topic[/fibonacci/feedback] adding connection to [/fibonacci_client_py], count 0
+2021-08-16 14:31:41,020 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/goal]
+2021-08-16 14:31:41,019 - rospy.internal - INFO - core : 138 - topic[/fibonacci/goal] adding connection to [/fibonacci], count 0
+2021-08-16 14:31:41,022 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/rosout]: writing header
+2021-08-16 14:31:41,024 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/rosout]: writing header
+2021-08-16 14:31:41,025 - rospy.internal - INFO - core : 138 - topic[/rosout] adding connection to [/rosout], count 0
+2021-08-16 14:31:41,030 - rospy.internal - INFO - core : 138 - topic[/rosout] adding connection to [/rosout], count 0
+2021-08-16 14:31:41,036 - rosout - DEBUG - action_server : 258 - The action server has received a new goal request
+2021-08-16 14:31:41,039 - rosout - DEBUG - simple_action_server : 211 - A new goal /fibonacci_client_py-1-1629117101.034has been received by the single goal action server
+2021-08-16 14:31:41,044 - rosout - DEBUG - simple_action_server : 122 - Accepting a new goal
+2021-08-16 14:31:41,046 - rosout - DEBUG - server_goal_handle : 68 - Accepting goal, id: /fibonacci_client_py-1-1629117101.034, stamp: 1629117101.03
+2021-08-16 14:31:41,049 - rosout - INFO - fibonacci_action_server : 29 - /fibonacci: Executing, creating fibonacci sequence of order 5 with seeds 0, 1
+2021-08-16 14:31:41,051 - rosout - DEBUG - server_goal_handle : 210 - Publishing feedback for goal, id: /fibonacci_client_py-1-1629117101.034, stamp: 1629117101.03
+2021-08-16 14:31:41,065 - rosout - DEBUG - action_client : 374 - Transitioning to ACTIVE (from WAITING_FOR_GOAL_ACK, goal: /fibonacci_client_py-1-1629117101.034)
+2021-08-16 14:31:42,050 - rosout - DEBUG - server_goal_handle : 210 - Publishing feedback for goal, id: /fibonacci_client_py-1-1629117101.034, stamp: 1629117101.03
+2021-08-16 14:31:43,049 - rosout - DEBUG - server_goal_handle : 210 - Publishing feedback for goal, id: /fibonacci_client_py-1-1629117101.034, stamp: 1629117101.03
+2021-08-16 14:31:44,050 - rosout - DEBUG - server_goal_handle : 210 - Publishing feedback for goal, id: /fibonacci_client_py-1-1629117101.034, stamp: 1629117101.03
+2021-08-16 14:31:45,050 - rosout - INFO - fibonacci_action_server : 47 - /fibonacci: Succeeded
+2021-08-16 14:31:45,053 - rosout - DEBUG - server_goal_handle : 186 - Setting status to succeeded on goal, id: /fibonacci_client_py-1-1629117101.034, stamp: 1629117101.03
+2021-08-16 14:31:45,057 - rosout - DEBUG - action_client : 374 - Transitioning to WAITING_FOR_RESULT (from ACTIVE, goal: /fibonacci_client_py-1-1629117101.034)
+2021-08-16 14:31:45,061 - rosout - DEBUG - action_client : 374 - Transitioning to DONE (from WAITING_FOR_RESULT, goal: /fibonacci_client_py-1-1629117101.034)
+2021-08-16 14:31:45,071 - rospy.core - INFO - core : 455 - signal_shutdown [atexit]
+2021-08-16 14:31:45,073 - rospy.registration - DEBUG - registration : 333 - registration cleanup starting
+2021-08-16 14:31:45,074 - rospy.registration - DEBUG - registration : 362 - unregisterSubscriber [/fibonacci/feedback]
+2021-08-16 14:31:45,075 - rospy.registration - DEBUG - registration : 362 - unregisterSubscriber [/fibonacci/status]
+2021-08-16 14:31:45,076 - rospy.registration - DEBUG - registration : 362 - unregisterSubscriber [/fibonacci/result]
+2021-08-16 14:31:45,077 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/fibonacci/goal]
+2021-08-16 14:31:45,078 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/fibonacci/cancel]
+2021-08-16 14:31:45,078 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/rosout]
+2021-08-16 14:31:45,079 - rospy.registration - DEBUG - registration : 370 - unregisterService [/fibonacci_client_py/set_logger_level]
+2021-08-16 14:31:45,080 - rospy.registration - DEBUG - registration : 370 - unregisterService [/fibonacci_client_py/get_loggers]
+2021-08-16 14:31:45,116 - rospy.registration - DEBUG - registration : 382 - registration cleanup: master calls complete
+2021-08-16 14:31:45,118 - rospy.internal - INFO - core : 138 - topic[/fibonacci/goal] removing connection to /fibonacci
+2021-08-16 14:31:45,119 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 37363
+2021-08-16 14:31:45,122 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 37363
+2021-08-16 14:31:45,121 - rospy.internal - INFO - core : 138 - topic[/fibonacci/cancel] removing connection to /fibonacci
+2021-08-16 14:31:45,129 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/goal]: writing header
+2021-08-16 14:31:45,128 - rospy.internal - INFO - core : 138 - topic[/rosout] removing connection to /rosout
+2021-08-16 14:31:45,131 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/cancel]: writing header
+2021-08-16 14:31:45,135 - rospy.internal - INFO - core : 138 - topic[/fibonacci/feedback] removing connection to http://qbo:46601/
+2021-08-16 14:31:45,139 - rospy.internal - DEBUG - core : 135 - receive_loop[/fibonacci/feedback]: done condition met, exited loop
+2021-08-16 14:31:45,144 - rospy.internal - ERROR - core : 141 - Unable to initiate TCP/IP socket to qbo:37363 (http://qbo:37105/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 632, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 593, in _validate_header
+    raise TransportInitError("remote error reported: %s"%header['error'])
+TransportInitError: remote error reported: node shutting down
+
+2021-08-16 14:31:45,145 - rospy.internal - ERROR - core : 141 - Unable to initiate TCP/IP socket to qbo:37363 (http://qbo:37105/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 632, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 593, in _validate_header
+    raise TransportInitError("remote error reported: %s"%header['error'])
+TransportInitError: remote error reported: node shutting down
+
+2021-08-16 14:31:45,150 - rospy.internal - INFO - core : 138 - topic[/fibonacci/status] removing connection to http://qbo:46601/
+2021-08-16 14:31:45,158 - rospy.rosout - ERROR - rosout : 98 - Unable to report rosout: publish() to a closed topic
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/rosout.py", line 91, in _rosout
+    _rosout_pub.publish(l)
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 852, in publish
+    self.impl.publish(data)
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 1011, in publish
+    raise ROSException("publish() to a closed topic")
+ROSException: publish() to a closed topic
+
+2021-08-16 14:31:45,160 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/goal', [])
+2021-08-16 14:31:45,161 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/goal', []) returns (1, '', 0)
+2021-08-16 14:31:45,161 - rospy.rosout - ERROR - rosout : 98 - Unable to report rosout: publish() to a closed topic
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/rosout.py", line 91, in _rosout
+    _rosout_pub.publish(l)
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 852, in publish
+    self.impl.publish(data)
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 1011, in publish
+    raise ROSException("publish() to a closed topic")
+ROSException: publish() to a closed topic
+
+2021-08-16 14:31:45,153 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:31:45,146 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:31:45,165 - rospy.internal - INFO - core : 138 - topic[/fibonacci/result] removing connection to http://qbo:46601/
+2021-08-16 14:31:45,172 - rosout - WARNING - tcpros_base : 351 - Inbound TCP/IP connection failed: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+2021-08-16 14:31:45,171 - rospy.impl.masterslave - INFO - masterslave : 341 - atexit
+2021-08-16 14:31:45,169 - rospy.internal - WARNING - core : 144 - Unknown error initiating TCP/IP socket to qbo:46783 (http://qbo:46601/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 555, in connect
+    self.socket.connect((dest_addr, dest_port))
+AttributeError: 'NoneType' object has no attribute 'connect'
+
+2021-08-16 14:31:45,180 - rospy.internal - WARNING - core : 144 - Unknown error initiating TCP/IP socket to qbo:46783 (http://qbo:46601/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 558, in connect
+    self.local_endpoint = self.socket.getsockname()
+AttributeError: 'NoneType' object has no attribute 'getsockname'
+
+2021-08-16 14:31:45,186 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/cancel', [])
+2021-08-16 14:31:45,190 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/cancel', []) returns (1, '', 0)
+2021-08-16 14:31:45,196 - rospy.internal - ERROR - core : 141 - Inbound TCP/IP connection failed:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 321, in _tcp_server_callback
+    header = read_ros_handshake_header(sock, StringIO(), buff_size)
+  File "/usr/lib/python2.7/dist-packages/rosgraph/network.py", line 364, in read_ros_handshake_header
+    raise ROSHandshakeException("connection from sender terminated before handshake header received. %s bytes were received. Please check sender for additional details."%b.tell())
+ROSHandshakeException: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+
+2021-08-16 14:31:45,374 - rosout - DEBUG - tcpros_base : 670 - ERROR: Broken Pipe
+2021-08-16 14:31:45,376 - rospy.internal - INFO - core : 138 - topic[/fibonacci/status] removing connection to /fibonacci_client_py
+2021-08-16 14:31:46,149 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 37363
+2021-08-16 14:31:46,152 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 37363
+2021-08-16 14:31:46,164 - rospy.internal - WARNING - core : 144 - Unknown error initiating TCP/IP socket to qbo:37363 (http://qbo:37105/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 555, in connect
+    self.socket.connect((dest_addr, dest_port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+
+2021-08-16 14:31:46,166 - rospy.internal - INFO - core : 138 - topic[/fibonacci/cancel] removing connection to http://qbo:37105/
+2021-08-16 14:31:46,170 - rospy.internal - WARNING - core : 144 - Unknown error initiating TCP/IP socket to qbo:37363 (http://qbo:37105/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 555, in connect
+    self.socket.connect((dest_addr, dest_port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+
+2021-08-16 14:31:46,173 - rospy.internal - INFO - core : 138 - topic[/fibonacci/goal] removing connection to http://qbo:37105/
+2021-08-16 14:31:48,171 - rospy.internal - DEBUG - core : 135 - receive_loop[/fibonacci/cancel]: done condition met, exited loop
+2021-08-16 14:31:48,180 - rospy.internal - DEBUG - core : 135 - receive_loop[/fibonacci/goal]: done condition met, exited loop
+2021-08-16 14:31:50,173 - rosout - DEBUG - action_server : 317 - Item stamp: 
+  secs: 1629117101
+  nsecs:  33916950
+id: /fibonacci_client_py-1-1629117101.034 with destruction time of 1629117105.055 being removed from list.  Now = 1629117110.173
+2021-08-16 14:32:23,165 - rospy.client - INFO - client : 314 - init_node, name[/fibonacci_client_py], pid[4912]
+2021-08-16 14:32:23,168 - xmlrpc - INFO - xmlrpc : 232 - XML-RPC server binding to 0.0.0.0:0
+2021-08-16 14:32:23,170 - xmlrpc - INFO - xmlrpc : 260 - Started XML-RPC server [http://qbo:44949/]
+2021-08-16 14:32:23,172 - rospy.init - INFO - init : 102 - ROS Slave URI: [http://qbo:44949/]
+2021-08-16 14:32:23,173 - rospy.impl.masterslave - INFO - masterslave : 217 - _ready: http://qbo:44949/
+2021-08-16 14:32:23,180 - rospy.registration - INFO - registration : 224 - Registering with master node http://192.168.48.41:11311/
+2021-08-16 14:32:23,184 - rosout - DEBUG - registration : 266 - No topics to register with master node http://192.168.48.41:11311/
+2021-08-16 14:32:23,181 - xmlrpc - INFO - xmlrpc : 276 - xml rpc node: starting XML-RPC server
+2021-08-16 14:32:23,275 - rospy.init - INFO - init : 106 - registered with master
+2021-08-16 14:32:23,276 - rospy.rosout - INFO - rosout : 69 - initializing /rosout core topic
+2021-08-16 14:32:23,276 - rospy.topics - DEBUG - topics : 1151 - tm._add: /rosout, rosgraph_msgs/Log, pub
+2021-08-16 14:32:23,277 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci_client_py, /rosout, rosgraph_msgs/Log, http://qbo:44949/)
+2021-08-16 14:32:23,294 - rospy.rosout - INFO - rosout : 71 - connected to core topic /rosout
+2021-08-16 14:32:23,316 - rospy.simtime - INFO - simtime : 80 - /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-08-16 14:32:23,317 - rosout - DEBUG - client : 340 - init_node, name[/fibonacci_client_py], pid[4912]
+2021-08-16 14:32:23,319 - rosout - DEBUG - tcpros_base : 192 - binding to 0.0.0.0 0
+2021-08-16 14:32:23,319 - rosout - DEBUG - tcpros_base : 195 - bound to 0.0.0.0 46535
+2021-08-16 14:32:23,321 - rosout - DEBUG - tcpros_service : 565 - ... service URL is rosrpc://qbo:46535
+2021-08-16 14:32:23,322 - rosout - DEBUG - tcpros_service : 569 - [/fibonacci_client_py/get_loggers]: new Service instance
+2021-08-16 14:32:23,323 - rospy.registration - DEBUG - registration : 456 - master.registerService(/fibonacci_client_py, /fibonacci_client_py/get_loggers, rosrpc://qbo:46535, http://qbo:44949/)
+2021-08-16 14:32:23,333 - rosout - DEBUG - tcpros_service : 565 - ... service URL is rosrpc://qbo:46535
+2021-08-16 14:32:23,334 - rosout - DEBUG - tcpros_service : 569 - [/fibonacci_client_py/set_logger_level]: new Service instance
+2021-08-16 14:32:23,335 - rospy.registration - DEBUG - registration : 456 - master.registerService(/fibonacci_client_py, /fibonacci_client_py/set_logger_level, rosrpc://qbo:46535, http://qbo:44949/)
+2021-08-16 14:32:23,359 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/goal, robogenqbo/FibonacciActionGoal, pub
+2021-08-16 14:32:23,360 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci_client_py, /fibonacci/goal, robogenqbo/FibonacciActionGoal, http://qbo:44949/)
+2021-08-16 14:32:23,375 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/cancel, actionlib_msgs/GoalID, pub
+2021-08-16 14:32:23,375 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci_client_py, /fibonacci/cancel, actionlib_msgs/GoalID, http://qbo:44949/)
+2021-08-16 14:32:23,381 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/goal', ['http://qbo:44949/'])
+2021-08-16 14:32:23,382 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/goal', ['http://qbo:44949/']) returns (1, '', 0)
+2021-08-16 14:32:23,407 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/cancel', ['http://qbo:44949/'])
+2021-08-16 14:32:23,408 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/cancel', ['http://qbo:44949/']) returns (1, '', 0)
+2021-08-16 14:32:23,420 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/status, actionlib_msgs/GoalStatusArray, sub
+2021-08-16 14:32:23,422 - rospy.registration - DEBUG - registration : 447 - master.registerSubscriber(/fibonacci_client_py, /fibonacci/status, actionlib_msgs/GoalStatusArray, http://qbo:44949/)
+2021-08-16 14:32:23,425 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/cancel]: calling requestTopic(/fibonacci, /fibonacci/cancel, [['TCPROS']])
+2021-08-16 14:32:23,427 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/goal]: calling requestTopic(/fibonacci, /fibonacci/goal, [['TCPROS']])
+2021-08-16 14:32:23,438 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci', '/fibonacci/goal', [['TCPROS']])
+2021-08-16 14:32:23,439 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci', '/fibonacci/cancel', [['TCPROS']])
+2021-08-16 14:32:23,439 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/goal]: choosing protocol TCPROS
+2021-08-16 14:32:23,440 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/cancel]: choosing protocol TCPROS
+2021-08-16 14:32:23,440 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci', '/fibonacci/goal', [['TCPROS']]) returns (1, 'ready on qbo:46535', ['TCPROS', 'qbo', 46535])
+2021-08-16 14:32:23,441 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci', '/fibonacci/cancel', [['TCPROS']]) returns (1, 'ready on qbo:46535', ['TCPROS', 'qbo', 46535])
+2021-08-16 14:32:23,444 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/result, robogenqbo/FibonacciActionResult, sub
+2021-08-16 14:32:23,444 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/cancel]: requestTopic returned protocol list ['TCPROS', 'qbo', 46535]
+2021-08-16 14:32:23,446 - rospy.registration - DEBUG - registration : 447 - master.registerSubscriber(/fibonacci_client_py, /fibonacci/result, robogenqbo/FibonacciActionResult, http://qbo:44949/)
+2021-08-16 14:32:23,446 - rospy.internal - INFO - core : 138 - topic[/fibonacci/cancel] adding connection to [http://qbo:44949/], count 0
+2021-08-16 14:32:23,448 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46535
+2021-08-16 14:32:23,450 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/goal]: requestTopic returned protocol list ['TCPROS', 'qbo', 46535]
+2021-08-16 14:32:23,451 - rospy.internal - INFO - core : 138 - topic[/fibonacci/goal] adding connection to [http://qbo:44949/], count 0
+2021-08-16 14:32:23,452 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/status]: calling requestTopic(/fibonacci_client_py, /fibonacci/status, [['TCPROS']])
+2021-08-16 14:32:23,455 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/cancel]: writing header
+2021-08-16 14:32:23,453 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46535
+2021-08-16 14:32:23,459 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/goal]: writing header
+2021-08-16 14:32:23,464 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/cancel]: writing header
+2021-08-16 14:32:23,465 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/cancel]
+2021-08-16 14:32:23,466 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/rosout', '/rosout', [['TCPROS']])
+2021-08-16 14:32:23,468 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/rosout]: choosing protocol TCPROS
+2021-08-16 14:32:23,469 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/result]: calling requestTopic(/fibonacci_client_py, /fibonacci/result, [['TCPROS']])
+2021-08-16 14:32:23,471 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/rosout', '/rosout', [['TCPROS']]) returns (1, 'ready on qbo:46535', ['TCPROS', 'qbo', 46535])
+2021-08-16 14:32:23,479 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/feedback, robogenqbo/FibonacciActionFeedback, sub
+2021-08-16 14:32:23,475 - rospy.internal - INFO - core : 138 - topic[/fibonacci/cancel] adding connection to [/fibonacci], count 0
+2021-08-16 14:32:23,484 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/goal]: writing header
+2021-08-16 14:32:23,485 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci_client_py', '/fibonacci/status', [['TCPROS']])
+2021-08-16 14:32:23,488 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/goal]
+2021-08-16 14:32:23,488 - rospy.internal - INFO - core : 138 - topic[/fibonacci/goal] adding connection to [/fibonacci], count 0
+2021-08-16 14:32:23,489 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/status]: choosing protocol TCPROS
+2021-08-16 14:32:23,481 - rospy.registration - DEBUG - registration : 447 - master.registerSubscriber(/fibonacci_client_py, /fibonacci/feedback, robogenqbo/FibonacciActionFeedback, http://qbo:44949/)
+2021-08-16 14:32:23,490 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci_client_py', '/fibonacci/status', [['TCPROS']]) returns (1, 'ready on qbo:46783', ['TCPROS', 'qbo', 46783])
+2021-08-16 14:32:23,494 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci_client_py', '/fibonacci/result', [['TCPROS']])
+2021-08-16 14:32:23,495 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/result]: choosing protocol TCPROS
+2021-08-16 14:32:23,495 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/status]: requestTopic returned protocol list ['TCPROS', 'qbo', 46783]
+2021-08-16 14:32:23,496 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci_client_py', '/fibonacci/result', [['TCPROS']]) returns (1, 'ready on qbo:46783', ['TCPROS', 'qbo', 46783])
+2021-08-16 14:32:23,496 - rospy.internal - INFO - core : 138 - topic[/fibonacci/status] adding connection to [http://qbo:46601/], count 0
+2021-08-16 14:32:23,499 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/result]: requestTopic returned protocol list ['TCPROS', 'qbo', 46783]
+2021-08-16 14:32:23,500 - rospy.internal - INFO - core : 138 - topic[/fibonacci/result] adding connection to [http://qbo:46601/], count 0
+2021-08-16 14:32:23,521 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:32:23,521 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:32:23,524 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/feedback]: calling requestTopic(/fibonacci_client_py, /fibonacci/feedback, [['TCPROS']])
+2021-08-16 14:32:23,526 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/result]: writing header
+2021-08-16 14:32:23,527 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/status]: writing header
+2021-08-16 14:32:23,528 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/result]: writing header
+2021-08-16 14:32:23,530 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/result]
+2021-08-16 14:32:23,531 - rospy.internal - INFO - core : 138 - topic[/fibonacci/result] adding connection to [/fibonacci_client_py], count 1
+2021-08-16 14:32:23,533 - rospy.internal - INFO - core : 138 - topic[/fibonacci/result] removing connection to /fibonacci_client_py
+2021-08-16 14:32:23,535 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/status]: writing header
+2021-08-16 14:32:23,537 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/status]
+2021-08-16 14:32:23,539 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci_client_py', '/fibonacci/feedback', [['TCPROS']])
+2021-08-16 14:32:23,542 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/feedback]: choosing protocol TCPROS
+2021-08-16 14:32:23,543 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci_client_py', '/fibonacci/feedback', [['TCPROS']]) returns (1, 'ready on qbo:46783', ['TCPROS', 'qbo', 46783])
+2021-08-16 14:32:23,548 - rospy.internal - INFO - core : 138 - topic[/fibonacci/status] adding connection to [/fibonacci_client_py], count 0
+2021-08-16 14:32:23,548 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/feedback]: requestTopic returned protocol list ['TCPROS', 'qbo', 46783]
+2021-08-16 14:32:23,553 - rospy.internal - INFO - core : 138 - topic[/fibonacci/feedback] adding connection to [http://qbo:46601/], count 0
+2021-08-16 14:32:23,555 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:32:23,558 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/feedback]: writing header
+2021-08-16 14:32:23,561 - rosout - DEBUG - action_server : 258 - The action server has received a new goal request
+2021-08-16 14:32:23,563 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/feedback]: writing header
+2021-08-16 14:32:23,563 - rosout - DEBUG - simple_action_server : 211 - A new goal /fibonacci_client_py-1-1629117143.559has been received by the single goal action server
+2021-08-16 14:32:23,566 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/feedback]
+2021-08-16 14:32:23,566 - rospy.internal - INFO - core : 138 - topic[/fibonacci/feedback] adding connection to [/fibonacci_client_py], count 1
+2021-08-16 14:32:23,569 - rospy.internal - INFO - core : 138 - topic[/fibonacci/feedback] removing connection to /fibonacci_client_py
+2021-08-16 14:32:23,576 - rosout - DEBUG - action_client : 374 - Transitioning to PENDING (from WAITING_FOR_GOAL_ACK, goal: /fibonacci_client_py-1-1629117143.559)
+2021-08-16 14:32:23,588 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/rosout]: writing header
+2021-08-16 14:32:23,591 - rospy.internal - INFO - core : 138 - topic[/rosout] adding connection to [/rosout], count 0
+2021-08-16 14:32:23,592 - rosout - DEBUG - simple_action_server : 122 - Accepting a new goal
+2021-08-16 14:32:23,596 - rosout - DEBUG - server_goal_handle : 68 - Accepting goal, id: /fibonacci_client_py-1-1629117143.559, stamp: 1629117143.56
+2021-08-16 14:32:23,601 - rosout - DEBUG - action_client : 374 - Transitioning to ACTIVE (from PENDING, goal: /fibonacci_client_py-1-1629117143.559)
+2021-08-16 14:32:23,599 - rosout - INFO - fibonacci_action_server : 29 - /fibonacci: Executing, creating fibonacci sequence of order 5 with seeds 0, 1
+2021-08-16 14:32:23,605 - rosout - DEBUG - server_goal_handle : 210 - Publishing feedback for goal, id: /fibonacci_client_py-1-1629117143.559, stamp: 1629117143.56
+2021-08-16 14:32:24,601 - rosout - DEBUG - server_goal_handle : 210 - Publishing feedback for goal, id: /fibonacci_client_py-1-1629117143.559, stamp: 1629117143.56
+2021-08-16 14:32:25,601 - rosout - DEBUG - server_goal_handle : 210 - Publishing feedback for goal, id: /fibonacci_client_py-1-1629117143.559, stamp: 1629117143.56
+2021-08-16 14:32:26,601 - rosout - DEBUG - server_goal_handle : 210 - Publishing feedback for goal, id: /fibonacci_client_py-1-1629117143.559, stamp: 1629117143.56
+2021-08-16 14:32:27,601 - rosout - INFO - fibonacci_action_server : 47 - /fibonacci: Succeeded
+2021-08-16 14:32:27,604 - rosout - DEBUG - server_goal_handle : 186 - Setting status to succeeded on goal, id: /fibonacci_client_py-1-1629117143.559, stamp: 1629117143.56
+2021-08-16 14:32:27,608 - rosout - DEBUG - action_client : 374 - Transitioning to WAITING_FOR_RESULT (from ACTIVE, goal: /fibonacci_client_py-1-1629117143.559)
+2021-08-16 14:32:27,611 - rosout - DEBUG - action_client : 374 - Transitioning to DONE (from WAITING_FOR_RESULT, goal: /fibonacci_client_py-1-1629117143.559)
+2021-08-16 14:32:27,622 - rospy.core - INFO - core : 455 - signal_shutdown [atexit]
+2021-08-16 14:32:27,625 - rospy.registration - DEBUG - registration : 333 - registration cleanup starting
+2021-08-16 14:32:27,626 - rospy.registration - DEBUG - registration : 362 - unregisterSubscriber [/fibonacci/feedback]
+2021-08-16 14:32:27,626 - rospy.registration - DEBUG - registration : 362 - unregisterSubscriber [/fibonacci/status]
+2021-08-16 14:32:27,627 - rospy.registration - DEBUG - registration : 362 - unregisterSubscriber [/fibonacci/result]
+2021-08-16 14:32:27,628 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/fibonacci/goal]
+2021-08-16 14:32:27,629 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/fibonacci/cancel]
+2021-08-16 14:32:27,629 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/rosout]
+2021-08-16 14:32:27,630 - rospy.registration - DEBUG - registration : 370 - unregisterService [/fibonacci_client_py/set_logger_level]
+2021-08-16 14:32:27,631 - rospy.registration - DEBUG - registration : 370 - unregisterService [/fibonacci_client_py/get_loggers]
+2021-08-16 14:32:27,665 - rospy.registration - DEBUG - registration : 382 - registration cleanup: master calls complete
+2021-08-16 14:32:27,669 - rospy.internal - INFO - core : 138 - topic[/fibonacci/goal] removing connection to /fibonacci
+2021-08-16 14:32:27,669 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46535
+2021-08-16 14:32:27,674 - rospy.internal - INFO - core : 138 - topic[/fibonacci/cancel] removing connection to /fibonacci
+2021-08-16 14:32:27,675 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/goal]: writing header
+2021-08-16 14:32:27,677 - rospy.internal - INFO - core : 138 - topic[/rosout] removing connection to /rosout
+2021-08-16 14:32:27,672 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46535
+2021-08-16 14:32:27,684 - rospy.internal - ERROR - core : 141 - Unable to initiate TCP/IP socket to qbo:46535 (http://qbo:44949/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 632, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 593, in _validate_header
+    raise TransportInitError("remote error reported: %s"%header['error'])
+TransportInitError: remote error reported: node shutting down
+
+2021-08-16 14:32:27,687 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/cancel]: writing header
+2021-08-16 14:32:27,691 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/goal', [])
+2021-08-16 14:32:27,693 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/goal', []) returns (1, '', 0)
+2021-08-16 14:32:27,696 - rospy.rosout - ERROR - rosout : 98 - Unable to report rosout: publish() to a closed topic
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/rosout.py", line 91, in _rosout
+    _rosout_pub.publish(l)
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 852, in publish
+    self.impl.publish(data)
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 1011, in publish
+    raise ROSException("publish() to a closed topic")
+ROSException: publish() to a closed topic
+
+2021-08-16 14:32:27,697 - rospy.internal - ERROR - core : 141 - Unable to initiate TCP/IP socket to qbo:46535 (http://qbo:44949/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 632, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 593, in _validate_header
+    raise TransportInitError("remote error reported: %s"%header['error'])
+TransportInitError: remote error reported: node shutting down
+
+2021-08-16 14:32:27,681 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:32:27,699 - rospy.internal - INFO - core : 138 - topic[/fibonacci/feedback] removing connection to http://qbo:46601/
+2021-08-16 14:32:27,703 - rospy.rosout - ERROR - rosout : 98 - Unable to report rosout: publish() to a closed topic
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/rosout.py", line 91, in _rosout
+    _rosout_pub.publish(l)
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 852, in publish
+    self.impl.publish(data)
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 1011, in publish
+    raise ROSException("publish() to a closed topic")
+ROSException: publish() to a closed topic
+
+2021-08-16 14:32:27,701 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:32:27,702 - rospy.internal - INFO - core : 138 - topic[/fibonacci/status] removing connection to http://qbo:46601/
+2021-08-16 14:32:27,708 - rospy.internal - DEBUG - core : 135 - receive_loop[/fibonacci/result]: done condition met, exited loop
+2021-08-16 14:32:27,712 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/cancel', [])
+2021-08-16 14:32:27,713 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/cancel', []) returns (1, '', 0)
+2021-08-16 14:32:27,706 - rospy.internal - INFO - core : 138 - topic[/fibonacci/result] removing connection to http://qbo:46601/
+2021-08-16 14:32:27,708 - rospy.internal - WARNING - core : 144 - Unknown error initiating TCP/IP socket to qbo:46783 (http://qbo:46601/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 632, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+AttributeError: 'NoneType' object has no attribute 'buff_size'
+
+2021-08-16 14:32:27,709 - rospy.internal - WARNING - core : 144 - Unknown error initiating TCP/IP socket to qbo:46783 (http://qbo:46601/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 632, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+AttributeError: 'NoneType' object has no attribute 'buff_size'
+
+2021-08-16 14:32:27,716 - rospy.impl.masterslave - INFO - masterslave : 341 - atexit
+2021-08-16 14:32:27,973 - rosout - DEBUG - tcpros_base : 670 - ERROR: Broken Pipe
+2021-08-16 14:32:27,974 - rospy.internal - INFO - core : 138 - topic[/fibonacci/status] removing connection to /fibonacci_client_py
+2021-08-16 14:32:28,371 - rosout - WARNING - tcpros_base : 351 - Inbound TCP/IP connection failed: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+2021-08-16 14:32:28,374 - rospy.internal - ERROR - core : 141 - Inbound TCP/IP connection failed:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 321, in _tcp_server_callback
+    header = read_ros_handshake_header(sock, StringIO(), buff_size)
+  File "/usr/lib/python2.7/dist-packages/rosgraph/network.py", line 364, in read_ros_handshake_header
+    raise ROSHandshakeException("connection from sender terminated before handshake header received. %s bytes were received. Please check sender for additional details."%b.tell())
+ROSHandshakeException: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+
+2021-08-16 14:32:28,381 - rosout - WARNING - tcpros_base : 351 - Inbound TCP/IP connection failed: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+2021-08-16 14:32:28,384 - rospy.internal - ERROR - core : 141 - Inbound TCP/IP connection failed:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 321, in _tcp_server_callback
+    header = read_ros_handshake_header(sock, StringIO(), buff_size)
+  File "/usr/lib/python2.7/dist-packages/rosgraph/network.py", line 364, in read_ros_handshake_header
+    raise ROSHandshakeException("connection from sender terminated before handshake header received. %s bytes were received. Please check sender for additional details."%b.tell())
+ROSHandshakeException: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+
+2021-08-16 14:32:28,688 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46535
+2021-08-16 14:32:28,694 - rospy.internal - WARNING - core : 144 - Unknown error initiating TCP/IP socket to qbo:46535 (http://qbo:44949/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 555, in connect
+    self.socket.connect((dest_addr, dest_port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+
+2021-08-16 14:32:28,696 - rospy.internal - INFO - core : 138 - topic[/fibonacci/goal] removing connection to http://qbo:44949/
+2021-08-16 14:32:28,700 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46535
+2021-08-16 14:32:28,705 - rospy.internal - WARNING - core : 144 - Unknown error initiating TCP/IP socket to qbo:46535 (http://qbo:44949/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 555, in connect
+    self.socket.connect((dest_addr, dest_port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+
+2021-08-16 14:32:28,707 - rospy.internal - INFO - core : 138 - topic[/fibonacci/cancel] removing connection to http://qbo:44949/
+2021-08-16 14:32:30,700 - rospy.internal - DEBUG - core : 135 - receive_loop[/fibonacci/goal]: done condition met, exited loop
+2021-08-16 14:32:30,712 - rospy.internal - DEBUG - core : 135 - receive_loop[/fibonacci/cancel]: done condition met, exited loop
+2021-08-16 14:32:32,773 - rosout - DEBUG - action_server : 317 - Item stamp: 
+  secs: 1629117143
+  nsecs: 559149026
+id: /fibonacci_client_py-1-1629117143.559 with destruction time of 1629117147.606 being removed from list.  Now = 1629117152.773
+2021-08-16 14:32:45,179 - rospy.client - INFO - client : 314 - init_node, name[/fibonacci_client_py], pid[4955]
+2021-08-16 14:32:45,188 - xmlrpc - INFO - xmlrpc : 232 - XML-RPC server binding to 0.0.0.0:0
+2021-08-16 14:32:45,196 - rospy.init - INFO - init : 102 - ROS Slave URI: [http://qbo:39623/]
+2021-08-16 14:32:45,195 - xmlrpc - INFO - xmlrpc : 260 - Started XML-RPC server [http://qbo:39623/]
+2021-08-16 14:32:45,202 - rospy.impl.masterslave - INFO - masterslave : 217 - _ready: http://qbo:39623/
+2021-08-16 14:32:45,205 - rospy.registration - INFO - registration : 224 - Registering with master node http://192.168.48.41:11311/
+2021-08-16 14:32:45,208 - rosout - DEBUG - registration : 266 - No topics to register with master node http://192.168.48.41:11311/
+2021-08-16 14:32:45,206 - xmlrpc - INFO - xmlrpc : 276 - xml rpc node: starting XML-RPC server
+2021-08-16 14:32:45,301 - rospy.init - INFO - init : 106 - registered with master
+2021-08-16 14:32:45,302 - rospy.rosout - INFO - rosout : 69 - initializing /rosout core topic
+2021-08-16 14:32:45,303 - rospy.topics - DEBUG - topics : 1151 - tm._add: /rosout, rosgraph_msgs/Log, pub
+2021-08-16 14:32:45,304 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci_client_py, /rosout, rosgraph_msgs/Log, http://qbo:39623/)
+2021-08-16 14:32:45,321 - rospy.rosout - INFO - rosout : 71 - connected to core topic /rosout
+2021-08-16 14:32:45,334 - rospy.simtime - INFO - simtime : 80 - /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+2021-08-16 14:32:45,336 - rosout - DEBUG - client : 340 - init_node, name[/fibonacci_client_py], pid[4955]
+2021-08-16 14:32:45,338 - rosout - DEBUG - tcpros_base : 192 - binding to 0.0.0.0 0
+2021-08-16 14:32:45,340 - rosout - DEBUG - tcpros_base : 195 - bound to 0.0.0.0 42349
+2021-08-16 14:32:45,342 - rosout - DEBUG - tcpros_service : 565 - ... service URL is rosrpc://qbo:42349
+2021-08-16 14:32:45,343 - rosout - DEBUG - tcpros_service : 569 - [/fibonacci_client_py/get_loggers]: new Service instance
+2021-08-16 14:32:45,344 - rospy.registration - DEBUG - registration : 456 - master.registerService(/fibonacci_client_py, /fibonacci_client_py/get_loggers, rosrpc://qbo:42349, http://qbo:39623/)
+2021-08-16 14:32:45,354 - rosout - DEBUG - tcpros_service : 565 - ... service URL is rosrpc://qbo:42349
+2021-08-16 14:32:45,355 - rosout - DEBUG - tcpros_service : 569 - [/fibonacci_client_py/set_logger_level]: new Service instance
+2021-08-16 14:32:45,361 - rospy.registration - DEBUG - registration : 456 - master.registerService(/fibonacci_client_py, /fibonacci_client_py/set_logger_level, rosrpc://qbo:42349, http://qbo:39623/)
+2021-08-16 14:32:45,380 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/goal, robogenqbo/FibonacciActionGoal, pub
+2021-08-16 14:32:45,382 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci_client_py, /fibonacci/goal, robogenqbo/FibonacciActionGoal, http://qbo:39623/)
+2021-08-16 14:32:45,394 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/cancel, actionlib_msgs/GoalID, pub
+2021-08-16 14:32:45,395 - rospy.registration - DEBUG - registration : 442 - master.registerPublisher(/fibonacci_client_py, /fibonacci/cancel, actionlib_msgs/GoalID, http://qbo:39623/)
+2021-08-16 14:32:45,422 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/goal', ['http://qbo:39623/'])
+2021-08-16 14:32:45,423 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/goal', ['http://qbo:39623/']) returns (1, '', 0)
+2021-08-16 14:32:45,426 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/status, actionlib_msgs/GoalStatusArray, sub
+2021-08-16 14:32:45,427 - rospy.registration - DEBUG - registration : 447 - master.registerSubscriber(/fibonacci_client_py, /fibonacci/status, actionlib_msgs/GoalStatusArray, http://qbo:39623/)
+2021-08-16 14:32:45,434 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/cancel', ['http://qbo:39623/'])
+2021-08-16 14:32:45,434 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/cancel', ['http://qbo:39623/']) returns (1, '', 0)
+2021-08-16 14:32:45,440 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/cancel]: calling requestTopic(/fibonacci, /fibonacci/cancel, [['TCPROS']])
+2021-08-16 14:32:45,442 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/goal]: calling requestTopic(/fibonacci, /fibonacci/goal, [['TCPROS']])
+2021-08-16 14:32:45,447 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci', '/fibonacci/cancel', [['TCPROS']])
+2021-08-16 14:32:45,449 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/cancel]: choosing protocol TCPROS
+2021-08-16 14:32:45,450 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci', '/fibonacci/cancel', [['TCPROS']]) returns (1, 'ready on qbo:42349', ['TCPROS', 'qbo', 42349])
+2021-08-16 14:32:45,452 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/result, robogenqbo/FibonacciActionResult, sub
+2021-08-16 14:32:45,454 - rospy.registration - DEBUG - registration : 447 - master.registerSubscriber(/fibonacci_client_py, /fibonacci/result, robogenqbo/FibonacciActionResult, http://qbo:39623/)
+2021-08-16 14:32:45,457 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/cancel]: requestTopic returned protocol list ['TCPROS', 'qbo', 42349]
+2021-08-16 14:32:45,456 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci', '/fibonacci/goal', [['TCPROS']])
+2021-08-16 14:32:45,458 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/rosout', '/rosout', [['TCPROS']])
+2021-08-16 14:32:45,459 - rospy.internal - INFO - core : 138 - topic[/fibonacci/cancel] adding connection to [http://qbo:39623/], count 0
+2021-08-16 14:32:45,459 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/goal]: choosing protocol TCPROS
+2021-08-16 14:32:45,460 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/rosout]: choosing protocol TCPROS
+2021-08-16 14:32:45,461 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci', '/fibonacci/goal', [['TCPROS']]) returns (1, 'ready on qbo:42349', ['TCPROS', 'qbo', 42349])
+2021-08-16 14:32:45,462 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 42349
+2021-08-16 14:32:45,462 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/rosout', '/rosout', [['TCPROS']]) returns (1, 'ready on qbo:42349', ['TCPROS', 'qbo', 42349])
+2021-08-16 14:32:45,467 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/goal]: requestTopic returned protocol list ['TCPROS', 'qbo', 42349]
+2021-08-16 14:32:45,468 - rospy.internal - INFO - core : 138 - topic[/fibonacci/goal] adding connection to [http://qbo:39623/], count 0
+2021-08-16 14:32:45,469 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/cancel]: writing header
+2021-08-16 14:32:45,474 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/cancel]: writing header
+2021-08-16 14:32:45,474 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 42349
+2021-08-16 14:32:45,477 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/cancel]
+2021-08-16 14:32:45,477 - rospy.internal - INFO - core : 138 - topic[/fibonacci/cancel] adding connection to [/fibonacci], count 0
+2021-08-16 14:32:45,480 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/goal]: writing header
+2021-08-16 14:32:45,482 - rospy.topics - DEBUG - topics : 1151 - tm._add: /fibonacci/feedback, robogenqbo/FibonacciActionFeedback, sub
+2021-08-16 14:32:45,484 - rospy.registration - DEBUG - registration : 447 - master.registerSubscriber(/fibonacci_client_py, /fibonacci/feedback, robogenqbo/FibonacciActionFeedback, http://qbo:39623/)
+2021-08-16 14:32:45,484 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/goal]: writing header
+2021-08-16 14:32:45,486 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/goal]
+2021-08-16 14:32:45,487 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/result]: calling requestTopic(/fibonacci_client_py, /fibonacci/result, [['TCPROS']])
+2021-08-16 14:32:45,488 - rospy.internal - INFO - core : 138 - topic[/fibonacci/goal] adding connection to [/fibonacci], count 0
+2021-08-16 14:32:45,506 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci_client_py', '/fibonacci/result', [['TCPROS']])
+2021-08-16 14:32:45,507 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/result]: choosing protocol TCPROS
+2021-08-16 14:32:45,493 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/status]: calling requestTopic(/fibonacci_client_py, /fibonacci/status, [['TCPROS']])
+2021-08-16 14:32:45,508 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci_client_py', '/fibonacci/result', [['TCPROS']]) returns (1, 'ready on qbo:46783', ['TCPROS', 'qbo', 46783])
+2021-08-16 14:32:45,503 - rospy.impl.masterslave - DEBUG - masterslave : 430 - connect[/fibonacci/feedback]: calling requestTopic(/fibonacci_client_py, /fibonacci/feedback, [['TCPROS']])
+2021-08-16 14:32:45,514 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/result]: requestTopic returned protocol list ['TCPROS', 'qbo', 46783]
+2021-08-16 14:32:45,517 - rospy.internal - INFO - core : 138 - topic[/fibonacci/result] adding connection to [http://qbo:46601/], count 0
+2021-08-16 14:32:45,521 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci_client_py', '/fibonacci/status', [['TCPROS']])
+2021-08-16 14:32:45,522 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/status]: choosing protocol TCPROS
+2021-08-16 14:32:45,523 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci_client_py', '/fibonacci/status', [['TCPROS']]) returns (1, 'ready on qbo:46783', ['TCPROS', 'qbo', 46783])
+2021-08-16 14:32:45,526 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/status]: requestTopic returned protocol list ['TCPROS', 'qbo', 46783]
+2021-08-16 14:32:45,527 - rospy.impl.masterslave - DEBUG - masterslave : 114 - requestTopic('/fibonacci_client_py', '/fibonacci/feedback', [['TCPROS']])
+2021-08-16 14:32:45,528 - rospy.internal - INFO - core : 138 - topic[/fibonacci/status] adding connection to [http://qbo:46601/], count 0
+2021-08-16 14:32:45,528 - rospy.impl.masterslave - DEBUG - masterslave : 538 - requestTopic[/fibonacci/feedback]: choosing protocol TCPROS
+2021-08-16 14:32:45,529 - rospy.impl.masterslave - DEBUG - masterslave : 146 - requestTopic('/fibonacci_client_py', '/fibonacci/feedback', [['TCPROS']]) returns (1, 'ready on qbo:46783', ['TCPROS', 'qbo', 46783])
+2021-08-16 14:32:45,533 - rospy.impl.masterslave - DEBUG - masterslave : 463 - connect[/fibonacci/feedback]: requestTopic returned protocol list ['TCPROS', 'qbo', 46783]
+2021-08-16 14:32:45,536 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:32:45,539 - rospy.internal - INFO - core : 138 - topic[/fibonacci/feedback] adding connection to [http://qbo:46601/], count 0
+2021-08-16 14:32:45,540 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:32:45,543 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:32:45,544 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/result]: writing header
+2021-08-16 14:32:45,549 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/feedback]: writing header
+2021-08-16 14:32:45,550 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/result]: writing header
+2021-08-16 14:32:45,551 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/result]
+2021-08-16 14:32:45,551 - rospy.internal - INFO - core : 138 - topic[/fibonacci/result] adding connection to [/fibonacci_client_py], count 1
+2021-08-16 14:32:45,553 - rospy.internal - INFO - core : 138 - topic[/fibonacci/result] removing connection to /fibonacci_client_py
+2021-08-16 14:32:45,554 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/status]: writing header
+2021-08-16 14:32:45,556 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/feedback]: writing header
+2021-08-16 14:32:45,557 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/feedback]
+2021-08-16 14:32:45,563 - rospy.internal - INFO - core : 138 - topic[/fibonacci/feedback] adding connection to [/fibonacci_client_py], count 1
+2021-08-16 14:32:45,565 - rospy.internal - INFO - core : 138 - topic[/fibonacci/feedback] removing connection to /fibonacci_client_py
+2021-08-16 14:32:45,570 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/status]: writing header
+2021-08-16 14:32:45,572 - rospy.tcpros - DEBUG - tcpros_base : 766 - receive_loop for [/fibonacci/status]
+2021-08-16 14:32:45,574 - rospy.internal - INFO - core : 138 - topic[/fibonacci/status] adding connection to [/fibonacci_client_py], count 0
+2021-08-16 14:32:45,574 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/rosout]: writing header
+2021-08-16 14:32:45,578 - rospy.internal - INFO - core : 138 - topic[/rosout] adding connection to [/rosout], count 0
+2021-08-16 14:32:45,601 - rosout - DEBUG - action_server : 258 - The action server has received a new goal request
+2021-08-16 14:32:45,605 - rosout - DEBUG - simple_action_server : 211 - A new goal /fibonacci_client_py-1-1629117165.598has been received by the single goal action server
+2021-08-16 14:32:45,611 - rosout - DEBUG - simple_action_server : 122 - Accepting a new goal
+2021-08-16 14:32:45,614 - rosout - DEBUG - server_goal_handle : 68 - Accepting goal, id: /fibonacci_client_py-1-1629117165.598, stamp: 1629117165.60
+2021-08-16 14:32:45,616 - rosout - INFO - fibonacci_action_server : 29 - /fibonacci: Executing, creating fibonacci sequence of order 5 with seeds 0, 1
+2021-08-16 14:32:45,619 - rosout - DEBUG - server_goal_handle : 210 - Publishing feedback for goal, id: /fibonacci_client_py-1-1629117165.598, stamp: 1629117165.60
+2021-08-16 14:32:45,622 - rosout - DEBUG - action_client : 374 - Transitioning to ACTIVE (from WAITING_FOR_GOAL_ACK, goal: /fibonacci_client_py-1-1629117165.598)
+2021-08-16 14:32:46,618 - rosout - DEBUG - server_goal_handle : 210 - Publishing feedback for goal, id: /fibonacci_client_py-1-1629117165.598, stamp: 1629117165.60
+2021-08-16 14:32:47,618 - rosout - DEBUG - server_goal_handle : 210 - Publishing feedback for goal, id: /fibonacci_client_py-1-1629117165.598, stamp: 1629117165.60
+2021-08-16 14:32:48,618 - rosout - DEBUG - server_goal_handle : 210 - Publishing feedback for goal, id: /fibonacci_client_py-1-1629117165.598, stamp: 1629117165.60
+2021-08-16 14:32:49,618 - rosout - INFO - fibonacci_action_server : 47 - /fibonacci: Succeeded
+2021-08-16 14:32:49,621 - rosout - DEBUG - server_goal_handle : 186 - Setting status to succeeded on goal, id: /fibonacci_client_py-1-1629117165.598, stamp: 1629117165.60
+2021-08-16 14:32:49,626 - rosout - DEBUG - action_client : 374 - Transitioning to WAITING_FOR_RESULT (from ACTIVE, goal: /fibonacci_client_py-1-1629117165.598)
+2021-08-16 14:32:49,629 - rosout - DEBUG - action_client : 374 - Transitioning to DONE (from WAITING_FOR_RESULT, goal: /fibonacci_client_py-1-1629117165.598)
+2021-08-16 14:32:49,635 - rospy.core - INFO - core : 455 - signal_shutdown [atexit]
+2021-08-16 14:32:49,638 - rospy.registration - DEBUG - registration : 333 - registration cleanup starting
+2021-08-16 14:32:49,639 - rospy.registration - DEBUG - registration : 362 - unregisterSubscriber [/fibonacci/feedback]
+2021-08-16 14:32:49,640 - rospy.registration - DEBUG - registration : 362 - unregisterSubscriber [/fibonacci/status]
+2021-08-16 14:32:49,644 - rospy.registration - DEBUG - registration : 362 - unregisterSubscriber [/fibonacci/result]
+2021-08-16 14:32:49,644 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/fibonacci/goal]
+2021-08-16 14:32:49,645 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/fibonacci/cancel]
+2021-08-16 14:32:49,646 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/rosout]
+2021-08-16 14:32:49,646 - rospy.registration - DEBUG - registration : 370 - unregisterService [/fibonacci_client_py/set_logger_level]
+2021-08-16 14:32:49,647 - rospy.registration - DEBUG - registration : 370 - unregisterService [/fibonacci_client_py/get_loggers]
+2021-08-16 14:32:49,691 - rospy.registration - DEBUG - registration : 382 - registration cleanup: master calls complete
+2021-08-16 14:32:49,693 - rospy.internal - INFO - core : 138 - topic[/fibonacci/goal] removing connection to /fibonacci
+2021-08-16 14:32:49,694 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 42349
+2021-08-16 14:32:49,695 - rospy.internal - INFO - core : 138 - topic[/fibonacci/cancel] removing connection to /fibonacci
+2021-08-16 14:32:49,697 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 42349
+2021-08-16 14:32:49,699 - rospy.internal - INFO - core : 138 - topic[/rosout] removing connection to /rosout
+2021-08-16 14:32:49,703 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/goal]: writing header
+2021-08-16 14:32:49,705 - rospy.tcpros - DEBUG - tcpros_base : 618 - [/fibonacci/cancel]: writing header
+2021-08-16 14:32:49,708 - rospy.internal - ERROR - core : 141 - Unable to initiate TCP/IP socket to qbo:42349 (http://qbo:39623/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 632, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 593, in _validate_header
+    raise TransportInitError("remote error reported: %s"%header['error'])
+TransportInitError: remote error reported: node shutting down
+
+2021-08-16 14:32:49,704 - rospy.internal - INFO - core : 138 - topic[/fibonacci/feedback] removing connection to http://qbo:46601/
+2021-08-16 14:32:49,711 - rospy.internal - ERROR - core : 141 - Unable to initiate TCP/IP socket to qbo:42349 (http://qbo:39623/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 632, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 593, in _validate_header
+    raise TransportInitError("remote error reported: %s"%header['error'])
+TransportInitError: remote error reported: node shutting down
+
+2021-08-16 14:32:49,713 - rospy.internal - DEBUG - core : 135 - receive_loop[/fibonacci/status]: done condition met, exited loop
+2021-08-16 14:32:49,711 - rospy.internal - INFO - core : 138 - topic[/fibonacci/status] removing connection to http://qbo:46601/
+2021-08-16 14:32:49,716 - rospy.internal - INFO - core : 138 - topic[/fibonacci/result] removing connection to http://qbo:46601/
+2021-08-16 14:32:49,720 - rospy.rosout - ERROR - rosout : 98 - Unable to report rosout: publish() to a closed topic
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/rosout.py", line 91, in _rosout
+    _rosout_pub.publish(l)
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 852, in publish
+    self.impl.publish(data)
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 1011, in publish
+    raise ROSException("publish() to a closed topic")
+ROSException: publish() to a closed topic
+
+2021-08-16 14:32:49,725 - rospy.topics - ERROR - topics : 310 - Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 307, in close
+    c.close()
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 820, in close
+    self.socket.close()
+AttributeError: 'NoneType' object has no attribute 'close'
+
+2021-08-16 14:32:49,705 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:32:49,731 - rospy.impl.masterslave - INFO - masterslave : 341 - atexit
+2021-08-16 14:32:49,735 - rospy.rosout - ERROR - rosout : 98 - Unable to report rosout: publish() to a closed topic
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/rosout.py", line 91, in _rosout
+    _rosout_pub.publish(l)
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 852, in publish
+    self.impl.publish(data)
+  File "/usr/lib/python2.7/dist-packages/rospy/topics.py", line 1011, in publish
+    raise ROSException("publish() to a closed topic")
+ROSException: publish() to a closed topic
+
+2021-08-16 14:32:49,718 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 46783
+2021-08-16 14:32:49,737 - rospy.internal - WARNING - core : 144 - Unknown error initiating TCP/IP socket to qbo:46783 (http://qbo:46601/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 632, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+AttributeError: 'NoneType' object has no attribute 'buff_size'
+
+2021-08-16 14:32:49,742 - rospy.internal - WARNING - core : 144 - Unknown error initiating TCP/IP socket to qbo:46783 (http://qbo:46601/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 557, in connect
+    self.read_header()
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 632, in read_header
+    self._validate_header(read_ros_handshake_header(sock, self.read_buff, self.protocol.buff_size))
+AttributeError: 'NoneType' object has no attribute 'buff_size'
+
+2021-08-16 14:32:49,756 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/goal', [])
+2021-08-16 14:32:49,757 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/goal', []) returns (1, '', 0)
+2021-08-16 14:32:49,780 - rospy.impl.masterslave - DEBUG - masterslave : 114 - publisherUpdate('/master', '/fibonacci/cancel', [])
+2021-08-16 14:32:49,782 - rospy.impl.masterslave - DEBUG - masterslave : 146 - publisherUpdate('/master', '/fibonacci/cancel', []) returns (1, '', 0)
+2021-08-16 14:32:49,973 - rosout - DEBUG - tcpros_base : 670 - ERROR: Broken Pipe
+2021-08-16 14:32:49,975 - rospy.internal - INFO - core : 138 - topic[/fibonacci/status] removing connection to /fibonacci_client_py
+2021-08-16 14:32:50,388 - rosout - WARNING - tcpros_base : 351 - Inbound TCP/IP connection failed: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+2021-08-16 14:32:50,390 - rospy.internal - ERROR - core : 141 - Inbound TCP/IP connection failed:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 321, in _tcp_server_callback
+    header = read_ros_handshake_header(sock, StringIO(), buff_size)
+  File "/usr/lib/python2.7/dist-packages/rosgraph/network.py", line 364, in read_ros_handshake_header
+    raise ROSHandshakeException("connection from sender terminated before handshake header received. %s bytes were received. Please check sender for additional details."%b.tell())
+ROSHandshakeException: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+
+2021-08-16 14:32:50,397 - rosout - WARNING - tcpros_base : 351 - Inbound TCP/IP connection failed: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+2021-08-16 14:32:50,400 - rospy.internal - ERROR - core : 141 - Inbound TCP/IP connection failed:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 321, in _tcp_server_callback
+    header = read_ros_handshake_header(sock, StringIO(), buff_size)
+  File "/usr/lib/python2.7/dist-packages/rosgraph/network.py", line 364, in read_ros_handshake_header
+    raise ROSHandshakeException("connection from sender terminated before handshake header received. %s bytes were received. Please check sender for additional details."%b.tell())
+ROSHandshakeException: connection from sender terminated before handshake header received. 0 bytes were received. Please check sender for additional details.
+
+2021-08-16 14:32:50,712 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 42349
+2021-08-16 14:32:50,715 - rosout - DEBUG - tcpros_base : 554 - connecting to qbo 42349
+2021-08-16 14:32:50,718 - rospy.internal - WARNING - core : 144 - Unknown error initiating TCP/IP socket to qbo:42349 (http://qbo:39623/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 555, in connect
+    self.socket.connect((dest_addr, dest_port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+
+2021-08-16 14:32:50,722 - rospy.internal - INFO - core : 138 - topic[/fibonacci/goal] removing connection to http://qbo:39623/
+2021-08-16 14:32:50,725 - rospy.internal - WARNING - core : 144 - Unknown error initiating TCP/IP socket to qbo:42349 (http://qbo:39623/): Traceback (most recent call last):
+  File "/usr/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 555, in connect
+    self.socket.connect((dest_addr, dest_port))
+  File "/usr/lib/python2.7/socket.py", line 228, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 111] Connection refused
+
+2021-08-16 14:32:50,728 - rospy.internal - INFO - core : 138 - topic[/fibonacci/cancel] removing connection to http://qbo:39623/
+2021-08-16 14:32:52,726 - rospy.internal - DEBUG - core : 135 - receive_loop[/fibonacci/goal]: done condition met, exited loop
+2021-08-16 14:32:52,732 - rospy.internal - DEBUG - core : 135 - receive_loop[/fibonacci/cancel]: done condition met, exited loop
+2021-08-16 14:32:54,774 - rosout - DEBUG - action_server : 317 - Item stamp: 
+  secs: 1629117165
+  nsecs: 597750902
+id: /fibonacci_client_py-1-1629117165.598 with destruction time of 1629117169.624 being removed from list.  Now = 1629117174.774
+2021-08-16 14:32:54,878 - rospy.core - INFO - core : 455 - signal_shutdown [signal-2]
+2021-08-16 14:32:54,879 - rospy.registration - DEBUG - registration : 333 - registration cleanup starting
+2021-08-16 14:32:54,880 - rospy.registration - DEBUG - registration : 362 - unregisterSubscriber [/fibonacci/goal]
+2021-08-16 14:32:54,881 - rospy.registration - DEBUG - registration : 362 - unregisterSubscriber [/fibonacci/cancel]
+2021-08-16 14:32:54,882 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/fibonacci/feedback]
+2021-08-16 14:32:54,882 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/fibonacci/status]
+2021-08-16 14:32:54,883 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/rosout]
+2021-08-16 14:32:54,884 - rospy.registration - DEBUG - registration : 365 - unregisterPublisher [/fibonacci/result]
+2021-08-16 14:32:54,884 - rospy.registration - DEBUG - registration : 370 - unregisterService [/fibonacci/get_loggers]
+2021-08-16 14:32:54,885 - rospy.registration - DEBUG - registration : 370 - unregisterService [/fibonacci/set_logger_level]
+2021-08-16 14:32:54,919 - rospy.registration - DEBUG - registration : 382 - registration cleanup: master calls complete
+2021-08-16 14:32:54,921 - rospy.internal - INFO - core : 138 - topic[/fibonacci/feedback] removing connection to /fibonacci_client_py
+2021-08-16 14:32:54,924 - rospy.internal - INFO - core : 138 - topic[/rosout] removing connection to /rosout
+2021-08-16 14:32:54,927 - rospy.internal - INFO - core : 138 - topic[/fibonacci/result] removing connection to /fibonacci_client_py
+2021-08-16 14:32:54,930 - rospy.impl.masterslave - INFO - masterslave : 341 - signal-2
+2021-08-16 14:32:55,551 - rospy.core - INFO - core : 455 - signal_shutdown [atexit]
