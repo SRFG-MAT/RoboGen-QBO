@@ -46,7 +46,7 @@ In addition to this repository: hardware-specific changes to Q.Bo and OS changes
 Q.BO One Robot:
 - package_name: "robogenqbo"
 - Hostname: "qbo"
-- IP-Address: "192.168.48.177"
+- IP-Address: "192.168.48.117"
 - to check for connectivity try steps: http://wiki.ros.org/ROS/NetworkSetup
 - to check environment variable setup try: http://wiki.ros.org/ROS/EnvironmentVariables
 
