@@ -1,4 +1,7 @@
 *.pyc
+*.log
+
+/logging
 
 /Python_Projects/EmotionAudio/mp3/tmp.mp3
 /Python_Projects/MyQBOSettings/settings.json
