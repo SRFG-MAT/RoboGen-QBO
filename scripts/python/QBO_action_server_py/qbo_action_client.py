@@ -24,7 +24,6 @@ def qbo_request_VoiceOutput():
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
-    time.sleep (5000)
     return client.get_result() # Prints out the result (VoiceOutputResult) of executing the action
 
 
@@ -38,7 +37,6 @@ def qbo_request_WaitForUserInput():
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
-    time.sleep (5000)
     return client.get_result() # Prints out the result (WaitForUserInputResult) of executing the action
 
 def qbo_request_GetData():
@@ -51,7 +49,6 @@ def qbo_request_GetData():
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
-    time.sleep (5000)
     return client.get_result() # Prints out the result (GetDataResult) of executing the action
 
 def qbo_request_SetData():
@@ -64,7 +61,6 @@ def qbo_request_SetData():
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
-    time.sleep (5000)
     return client.get_result() # Prints out the result (SetDataResult) of executing the action
 	
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -81,18 +77,18 @@ if __name__ == '__main__':
         #    print ('----------------------------------')
         
         # request WaitForUserInput
-        result = qbo_request_WaitForUserInput()
-        if result:
-            print ('----------------------------------')
-            print("Result:", ', '.join([str(n) for n in result.returnMessage]))
-            print ('----------------------------------')
-        
-        # request GetData
-        #result = qbo_request_GetData()
+        #result = qbo_request_WaitForUserInput()
         #if result:
         #    print ('----------------------------------')
-        #    print("Result:", ', '.join([str(n) for n in result.data]))
+        #    print("Result:", ', '.join([str(n) for n in result.returnMessage]))
         #    print ('----------------------------------')
+        
+        # request GetData
+        result = qbo_request_GetData()
+        if result:
+            print ('----------------------------------')
+            print("Result:", ', '.join([str(n) for n in result.data]))
+            print ('----------------------------------')
         
         # request SetData
         #result = qbo_request_SetData()
