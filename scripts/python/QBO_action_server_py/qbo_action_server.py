@@ -4,6 +4,15 @@ import rospy
 import actionlib
 import robogenqbo.msg
 
+import os, sys, time
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/EmotionAudio/')
+import Processing_Audio
+import Various_Functions
+
+# saved settings
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/MyQBOSettings')
+import SettingsReader
+
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 # helper function: fibonacci_example
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -27,6 +36,56 @@ def fibonacci_example(self):
     return success
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
+# helper function: qbo functions
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+def qbo_speak(sentence):
+    Various_Functions.qboSpeak(sentence)
+    return True
+    
+def qbo_listen():
+    print ('Jetzt sprechen!')
+    sentence = Processing_Audio.getAudioToText()
+    sentence = Various_Functions.normalize(sentence).strip()
+    print ('Du hast gesagt: ' + sentence)
+    return True
+    
+def qbo_write_setting(setting, value):
+    
+    if (setting == 'robotName'):
+        SettingsReader.setRobotNameFromSettings()
+        return True
+
+    elif (setting == 'userName'):
+        SettingsReader.setUserName(value)
+        return True
+    
+    elif (setting == 'emergencyMail'):
+        SettingsReader.setEmergencyEmail(value)
+        return True
+    
+    else:
+        return 'Error: Unknown setting'
+        return False
+    
+def qbo_read_setting(setting):
+    
+    if (setting == 'robotName'): 
+        print (SettingsReader.getRobotNameFromSettings().lower().strip())
+        return True
+
+    elif (setting == 'userName'):
+        print (SettingsReader.getUserName())
+        return True
+    
+    elif (setting == 'emergencyMail'):
+        print (SettingsReader.getEmergencyEmail().lower().strip())
+        return True
+    
+    else:
+        return 'Error: Unknown setting'
+        return False
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
 # VoiceOutput
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 class VoiceOutput(object):
@@ -46,10 +105,11 @@ class VoiceOutput(object):
         self._feedback.sequence.append(0)
         self._feedback.sequence.append(1)
         
-        rospy.loginfo('%s: Executing, creating VoiceOutput sequence of order %i with seeds %i, %i' % (self._action_name, goal.order, self._feedback.sequence[0], self._feedback.sequence[1]))
+        rospy.loginfo('%s: Executing, creating VoiceOutput with sentence %s with seeds %i, %i' % (self._action_name, goal.voice_output, self._feedback.sequence[0], self._feedback.sequence[1]))
         
         # start executing the action
-        success = fibonacci_example(self, success)
+        #success = fibonacci_example(self, success)
+        success = qbo_speak(goal.voice_output)
           
         if success:
             self._result.sequence = self._feedback.sequence
@@ -79,7 +139,8 @@ class WaitForUserInput(object):
         rospy.loginfo('%s: Executing, creating WaitForUserInput sequence of order %i with seeds %i, %i' % (self._action_name, goal.order, self._feedback.sequence[0], self._feedback.sequence[1]))
         
         # start executing the action
-        success = fibonacci_example(self, success)
+        #success = fibonacci_example(self, success)
+        success = qbo_listen()
           
         if success:
             self._result.sequence = self._feedback.sequence
@@ -109,7 +170,8 @@ class GetData(object):
         rospy.loginfo('%s: Executing, creating GetData sequence of order %i with seeds %i, %i' % (self._action_name, goal.order, self._feedback.sequence[0], self._feedback.sequence[1]))
         
         # start executing the action
-        success = fibonacci_example(self, success)
+        #success = fibonacci_example(self, success)
+        success = qbo_read_setting('robotName');
           
         if success:
             self._result.sequence = self._feedback.sequence
@@ -139,7 +201,8 @@ class SetData(object):
         rospy.loginfo('%s: Executing, creating SetData sequence of order %i with seeds %i, %i' % (self._action_name, goal.order, self._feedback.sequence[0], self._feedback.sequence[1]))
         
         # start executing the action
-        success = fibonacci_example(self, success)
+        #success = fibonacci_example(self, success)
+        success = qbo_write_setting('robotName', 'Maria')
           
         if success:
             self._result.sequence = self._feedback.sequence
@@ -152,9 +215,9 @@ class SetData(object):
 if __name__ == '__main__':
     rospy.init_node('qbo')
     server1 = VoiceOutput(rospy.get_name())
-    #server2 = WaitForUserInput(rospy.get_name())
-    #server3 = GetData(rospy.get_name())
-    #server4 = SetData(rospy.get_name())
+    server2 = WaitForUserInput(rospy.get_name())
+    server3 = GetData(rospy.get_name())
+    server4 = SetData(rospy.get_name())
     rospy.spin()
 	
 	

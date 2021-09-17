@@ -1,5 +1,5 @@
 #goal definition
-int32 order
+char[] voice_output
 ---
 #result definition
 int32[] sequence
