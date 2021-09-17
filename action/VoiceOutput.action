@@ -1,8 +1,8 @@
 #goal definition
-char[] voice_output
+char[] outputMessage
 ---
 #result definition
-int32[] sequence
+bool isOK
 ---
 #feedback
 int32[] sequence

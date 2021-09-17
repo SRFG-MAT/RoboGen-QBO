@@ -1,8 +1,8 @@
 #goal definition
-int32 order
+char[] inputContent
 ---
 #result definition
-int32[] sequence
+char[] returnMessage
 ---
 #feedback
 int32[] sequence

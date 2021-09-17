@@ -47,20 +47,16 @@ def qbo_listen():
     sentence = Processing_Audio.getAudioToText()
     sentence = Various_Functions.normalize(sentence).strip()
     print ('Du hast gesagt: ' + sentence)
-    return True
+    return sentence
     
 def qbo_write_setting(setting, value):
     
     if (setting == 'robotName'):
-        SettingsReader.setRobotNameFromSettings()
+        SettingsReader.renameRobot(value)
         return True
 
     elif (setting == 'userName'):
-        SettingsReader.setUserName(value)
-        return True
-    
-    elif (setting == 'emergencyMail'):
-        SettingsReader.setEmergencyEmail(value)
+        SettingsReader.renameUser(value)
         return True
     
     else:
@@ -70,20 +66,13 @@ def qbo_write_setting(setting, value):
 def qbo_read_setting(setting):
     
     if (setting == 'robotName'): 
-        print (SettingsReader.getRobotNameFromSettings().lower().strip())
-        return True
+        return (SettingsReader.getRobotNameFromSettings().lower().strip())
 
     elif (setting == 'userName'):
-        print (SettingsReader.getUserName())
-        return True
-    
-    elif (setting == 'emergencyMail'):
-        print (SettingsReader.getEmergencyEmail().lower().strip())
-        return True
+        return (SettingsReader.getUserName().lower().strip())
     
     else:
         return 'Error: Unknown setting'
-        return False
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 # VoiceOutput
@@ -100,19 +89,19 @@ class VoiceOutput(object):
       
     def execute_cb(self, goal):
         
-        # append the seeds for the fibonacci sequence
+        # append the seeds to give user feedback
         self._feedback.sequence = []
         self._feedback.sequence.append(0)
         self._feedback.sequence.append(1)
         
-        rospy.loginfo('%s: Executing, creating VoiceOutput with sentence %s with seeds %i, %i' % (self._action_name, goal.voice_output, self._feedback.sequence[0], self._feedback.sequence[1]))
+        rospy.loginfo('%s: Executing, creating VoiceOutput with outputMessage %s with seeds %i, %i' % (self._action_name, goal.outputMessage, self._feedback.sequence[0], self._feedback.sequence[1]))
         
         # start executing the action
         #success = fibonacci_example(self, success)
-        success = qbo_speak(goal.voice_output)
+        success = qbo_speak(goal.outputMessage)
           
         if success:
-            self._result.sequence = self._feedback.sequence
+            self._result.isOK = success
             rospy.loginfo('%s: Succeeded' % self._action_name)
             self._as.set_succeeded(self._result)
 			
@@ -131,19 +120,20 @@ class WaitForUserInput(object):
       
     def execute_cb(self, goal):
         
-        # append the seeds for the fibonacci sequence
+        # append the seeds to give user feedback
         self._feedback.sequence = []
         self._feedback.sequence.append(0)
         self._feedback.sequence.append(1)
         
-        rospy.loginfo('%s: Executing, creating WaitForUserInput sequence of order %i with seeds %i, %i' % (self._action_name, goal.order, self._feedback.sequence[0], self._feedback.sequence[1]))
+        rospy.loginfo('%s: Executing, creating WaitForUserInput with input content %s with seeds %i, %i' % (self._action_name, goal.inputContent, self._feedback.sequence[0], self._feedback.sequence[1]))
         
         # start executing the action
         #success = fibonacci_example(self, success)
-        success = qbo_listen()
+        success = True
+        returnMsg = qbo_listen()
           
         if success:
-            self._result.sequence = self._feedback.sequence
+            self._result.returnMessage = str(returnMsg)
             rospy.loginfo('%s: Succeeded' % self._action_name)
             self._as.set_succeeded(self._result)
 
@@ -162,19 +152,20 @@ class GetData(object):
       
     def execute_cb(self, goal):
         
-        # append the seeds for the fibonacci sequence
+        # append the seeds to give user feedback
         self._feedback.sequence = []
         self._feedback.sequence.append(0)
         self._feedback.sequence.append(1)
         
-        rospy.loginfo('%s: Executing, creating GetData sequence of order %i with seeds %i, %i' % (self._action_name, goal.order, self._feedback.sequence[0], self._feedback.sequence[1]))
+        rospy.loginfo('%s: Executing, creating GetData sequence with inputData %s with seeds %i, %i' % (self._action_name, goal.inputData, self._feedback.sequence[0], self._feedback.sequence[1]))
         
         # start executing the action
         #success = fibonacci_example(self, success)
-        success = qbo_read_setting('robotName');
+        success = True
+        robotName = qbo_read_setting(goal.inputData);
           
         if success:
-            self._result.sequence = self._feedback.sequence
+            self._result.data = str(robotName)
             rospy.loginfo('%s: Succeeded' % self._action_name)
             self._as.set_succeeded(self._result)
 
@@ -193,19 +184,19 @@ class SetData(object):
       
     def execute_cb(self, goal):
         
-        # append the seeds for the fibonacci sequence
+        # append the seeds to give user feedback
         self._feedback.sequence = []
         self._feedback.sequence.append(0)
         self._feedback.sequence.append(1)
         
-        rospy.loginfo('%s: Executing, creating SetData sequence of order %i with seeds %i, %i' % (self._action_name, goal.order, self._feedback.sequence[0], self._feedback.sequence[1]))
+        rospy.loginfo('%s: Executing, creating SetData sequence with outputData %s with seeds %i, %i' % (self._action_name, goal.outputData, self._feedback.sequence[0], self._feedback.sequence[1]))
         
         # start executing the action
         #success = fibonacci_example(self, success)
-        success = qbo_write_setting('robotName', 'Maria')
+        success = qbo_write_setting('robotName', goal.outputData)
           
         if success:
-            self._result.sequence = self._feedback.sequence
+            self._result.isOK = success
             rospy.loginfo('%s: Succeeded' % self._action_name)
             self._as.set_succeeded(self._result)
      
@@ -214,10 +205,10 @@ class SetData(object):
 #------------------------------------------------------------------------------------------------------------------------------------------------------------	 
 if __name__ == '__main__':
     rospy.init_node('qbo')
-    server1 = VoiceOutput(rospy.get_name())
+    #server1 = VoiceOutput(rospy.get_name())
     server2 = WaitForUserInput(rospy.get_name())
-    server3 = GetData(rospy.get_name())
-    server4 = SetData(rospy.get_name())
+    #server3 = GetData(rospy.get_name())
+    #server4 = SetData(rospy.get_name())
     rospy.spin()
 	
 	
