@@ -20,7 +20,7 @@ def qbo_request_VoiceOutput():
 
     client = actionlib.SimpleActionClient('qbo', robogenqbo.msg.VoiceOutputAction) # Creates SimpleActionClient with VoiceOutputAction action type
     client.wait_for_server() # Waits until the action server has started up and started listening for goals
-    goal = robogenqbo.msg.VoiceOutputGoal(outputMessage='Hallo du') # Creates a goal to send to the action server
+    goal = robogenqbo.msg.VoiceOutputGoal(outputMessage='Hallo ich bin ein sozialer Roboter') # Creates a goal to send to the action server
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
@@ -70,11 +70,11 @@ if __name__ == '__main__':
     try:	
         
         # request VoiceOutput
-        #result = qbo_request_VoiceOutput()
-        #if result:
-        #    print ('----------------------------------')
-        #    print("Result: " + str(result.isOK))
-        #    print ('----------------------------------')
+        result = qbo_request_VoiceOutput()
+        if result:
+            print ('----------------------------------')
+            print("Result: " + str(result.isOK))
+            print ('----------------------------------')
         
         # request WaitForUserInput
         #result = qbo_request_WaitForUserInput()
@@ -84,11 +84,11 @@ if __name__ == '__main__':
         #    print ('----------------------------------')
         
         # request GetData
-        result = qbo_request_GetData()
-        if result:
-            print ('----------------------------------')
-            print("Result:", ', '.join([str(n) for n in result.data]))
-            print ('----------------------------------')
+        #result = qbo_request_GetData()
+        #if result:
+        #    print ('----------------------------------')
+        #    print("Result:", ', '.join([str(n) for n in result.data]))
+        #    print ('----------------------------------')
         
         # request SetData
         #result = qbo_request_SetData()
