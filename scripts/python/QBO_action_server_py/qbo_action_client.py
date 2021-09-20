@@ -20,7 +20,7 @@ def qbo_request_VoiceOutput():
 
     client = actionlib.SimpleActionClient('qbo', robogenqbo.msg.VoiceOutputAction) # Creates SimpleActionClient with VoiceOutputAction action type
     client.wait_for_server() # Waits until the action server has started up and started listening for goals
-    goal = robogenqbo.msg.VoiceOutputGoal(outputMessage='Hallo ich bin ein sozialer Roboter') # Creates a goal to send to the action server
+    goal = robogenqbo.msg.VoiceOutputGoal(outputMessage=b'Hallo ich bin ein sozialer Roboter') # Creates a goal to send to the action server
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
@@ -33,7 +33,7 @@ def qbo_request_WaitForUserInput():
 
     client = actionlib.SimpleActionClient('qbo', robogenqbo.msg.WaitForUserInputAction) # Creates SimpleActionClient with WaitForUserInputAction action type
     client.wait_for_server() # Waits until the action server has started up and started listening for goals
-    goal = robogenqbo.msg.WaitForUserInputGoal(inputContent='void') # Creates a goal to send to the action server
+    goal = robogenqbo.msg.WaitForUserInputGoal(inputContent=b'void') # Creates a goal to send to the action server
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
@@ -45,7 +45,7 @@ def qbo_request_GetData():
 
     client = actionlib.SimpleActionClient('qbo', robogenqbo.msg.GetDataAction) # Creates SimpleActionClient with GetDataAction action type
     client.wait_for_server() # Waits until the action server has started up and started listening for goals
-    goal = robogenqbo.msg.GetDataGoal(inputData='robotName') # Creates a goal to send to the action server
+    goal = robogenqbo.msg.GetDataGoal(inputData=b'robotName') # Creates a goal to send to the action server
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
@@ -57,7 +57,7 @@ def qbo_request_SetData():
 
     client = actionlib.SimpleActionClient('qbo', robogenqbo.msg.SetDataAction) # Creates SimpleActionClient with SetDataAction action type
     client.wait_for_server() # Waits until the action server has started up and started listening for goals
-    goal = robogenqbo.msg.SetDataGoal(outputData='Mario') # Creates a goal to send to the action server
+    goal = robogenqbo.msg.SetDataGoal(outputData=b'Mario') # Creates a goal to send to the action server
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
