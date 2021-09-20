@@ -205,10 +205,10 @@ class SetData(object):
 #------------------------------------------------------------------------------------------------------------------------------------------------------------	 
 if __name__ == '__main__':
     rospy.init_node('qbo')
-    server1 = VoiceOutput(rospy.get_name())
-    #server2 = WaitForUserInput(rospy.get_name())
-    #server3 = GetData(rospy.get_name())
-    #server4 = SetData(rospy.get_name())
+    server1 = VoiceOutput('VoiceOutput')
+    server2 = WaitForUserInput('WaitForUserInput')
+    server3 = GetData('GetData')
+    server4 = SetData('SetData')
     rospy.spin()
 	
 	
