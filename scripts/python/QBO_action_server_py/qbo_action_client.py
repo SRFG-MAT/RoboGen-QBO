@@ -82,7 +82,7 @@ if __name__ == '__main__':
         result = qbo_request_WaitForUserInput()
         if result:
             print ('----------------------------------')
-            print("Result:", ', '.join([str(n) for n in result.returnMessage]))
+            print("Result:", ', '.join([str(n) for n in result.returnMessage.decode("utf-8")]))
             print ('----------------------------------')
         
         time.sleep(5) # wait for 5 seconds
@@ -91,7 +91,7 @@ if __name__ == '__main__':
         result = qbo_request_GetData()
         if result:
             print ('----------------------------------')
-            print("Result:", ', '.join([str(n) for n in result.data]))
+            print("Result:", ', '.join([str(n) for n in result.data.decode("utf-8")]))
             print ('----------------------------------')
         
         time.sleep(5) # wait for 5 seconds
