@@ -39,6 +39,46 @@ def qbo_request_WaitForUserInput():
     
     return client.get_result() # Prints out the result (WaitForUserInputResult) of executing the action
 
+
+def qbo_request_MoveToLocation():
+    
+    rospy.init_node('qbo_client_py') # Initializes a rospy node so that the SimpleActionClient can publish and subscribe over ROS
+
+    client = actionlib.SimpleActionClient('MoveToLocation', robogenqbo.msg.MoveToLocationAction) # Creates SimpleActionClient with MoveToLocationAction action type
+    client.wait_for_server() # Waits until the action server has started up and started listening for goals
+    goal = robogenqbo.msg.MoveToLocationGoal(location=b'oben') # Creates a goal to send to the action server
+    client.send_goal(goal) # Sends the goal to the action server
+    client.wait_for_result() # Waits for the server to finish performing the action
+    
+    return client.get_result() # Prints out the result (MoveToLocationResult) of executing the action
+    
+    
+def qbo_request_WaitForExternalEvent():
+    
+    rospy.init_node('qbo_client_py') # Initializes a rospy node so that the SimpleActionClient can publish and subscribe over ROS
+
+    client = actionlib.SimpleActionClient('WaitForExternalEvent', robogenqbo.msg.WaitForExternalEventAction) # Creates SimpleActionClient WaitForExternalEventAction action type
+    client.wait_for_server() # Waits until the action server has started up and started listening for goals
+    goal = robogenqbo.msg.WaitForExternalEventGoal(inputText=b'smile') # Creates a goal to send to the action server
+    client.send_goal(goal) # Sends the goal to the action server
+    client.wait_for_result() # Waits for the server to finish performing the action
+    
+    return client.get_result() # Prints out the result (WaitForExternalEventResult) of executing the action
+    
+    
+def qbo_request_GraphicalUserInteraction():
+    
+    rospy.init_node('qbo_client_py') # Initializes a rospy node so that the SimpleActionClient can publish and subscribe over ROS
+
+    client = actionlib.SimpleActionClient('GraphicalUserInteraction', robogenqbo.msg.GraphicalUserInteractionAction) # Creates SimpleActionClient with GraphicalUserInteractionAction action type
+    client.wait_for_server() # Waits until the action server has started up and started listening for goals
+    goal = robogenqbo.msg.GraphicalUserInteractionGoal(outputMessage=b'smile') # Creates a goal to send to the action server
+    client.send_goal(goal) # Sends the goal to the action server
+    client.wait_for_result() # Waits for the server to finish performing the action
+    
+    return client.get_result() # Prints out the result (GraphicalUserInteractionResult) of executing the action
+    
+    
 def qbo_request_GetData():
     
     rospy.init_node('qbo_client_py') # Initializes a rospy node so that the SimpleActionClient can publish and subscribe over ROS
@@ -50,6 +90,7 @@ def qbo_request_GetData():
     client.wait_for_result() # Waits for the server to finish performing the action
     
     return client.get_result() # Prints out the result (GetDataResult) of executing the action
+
 
 def qbo_request_SetData():
     
@@ -83,6 +124,33 @@ if __name__ == '__main__':
         if result:
             print ('----------------------------------')
             print("Result:", ', '.join([str(n) for n in result.returnMessage.decode("utf-8")]))
+            print ('----------------------------------')
+        
+        time.sleep(5) # wait for 5 seconds
+        
+        # request MoveToLocation
+        result = qbo_request_MoveToLocation()
+        if result:
+            print ('----------------------------------')
+            print("Result: " + str(result.isOK))
+            print ('----------------------------------')
+        
+        time.sleep(5) # wait for 5 seconds
+        
+        # request WaitForExternalEvent
+        result = qbo_request_WaitForExternalEvent()
+        if result:
+            print ('----------------------------------')
+            print("Result: " + str(result.isOK))
+            print ('----------------------------------')
+        
+        time.sleep(5) # wait for 5 seconds
+        
+        # request GraphicalUserInteraction
+        result = qbo_request_GraphicalUserInteraction()
+        if result:
+            print ('----------------------------------')
+            print("Result: " + str(result.isOK))
             print ('----------------------------------')
         
         time.sleep(5) # wait for 5 seconds

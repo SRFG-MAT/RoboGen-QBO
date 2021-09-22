@@ -48,6 +48,15 @@ def qbo_listen():
     sentence = Various_Functions.normalize(sentence).strip()
     print ('Du hast gesagt: ' + sentence)
     return sentence
+
+def qbo_movehead(position):
+    return True # TODO
+
+def qbo_facedetection(inputFace):
+    return True # TODO
+
+def qbo_facialexpression(inputFace):
+    return True # TODO
     
 def qbo_write_setting(setting, value):
     
@@ -138,6 +147,99 @@ class WaitForUserInput(object):
             self._as.set_succeeded(self._result)
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
+# MoveToLocation
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+class MoveToLocation(object):
+       
+    _feedback = robogenqbo.msg.MoveToLocationFeedback() #create feedback message
+    _result = robogenqbo.msg.MoveToLocationResult() #create result message
+
+    def __init__(self, name):
+        self._action_name = name
+        self._as = actionlib.SimpleActionServer(self._action_name, robogenqbo.msg.MoveToLocationAction, execute_cb=self.execute_cb, auto_start = False)
+        self._as.start()
+      
+    def execute_cb(self, goal):
+        
+        # append the seeds to give user feedback
+        self._feedback.sequence = []
+        self._feedback.sequence.append(0)
+        self._feedback.sequence.append(1)
+        
+        rospy.loginfo('%s: Executing, creating MoveToLocation sequence with location %s with seeds %i, %i' % (self._action_name, goal.location, self._feedback.sequence[0], self._feedback.sequence[1]))
+        
+        # start executing the action
+        #success = fibonacci_example(self, success)
+        success = qbo_movehead(goal.location)
+          
+        if success:
+            self._result.isOK = success
+            rospy.loginfo('%s: Succeeded' % self._action_name)
+            self._as.set_succeeded(self._result)
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+# WaitForExternalEvent
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+class WaitForExternalEvent(object):
+    
+    _feedback = robogenqbo.msg.WaitForExternalEventFeedback() #create feedback message
+    _result = robogenqbo.msg.WaitForExternalEventResult() #create result message
+
+    def __init__(self, name):
+        self._action_name = name
+        self._as = actionlib.SimpleActionServer(self._action_name, robogenqbo.msg.WaitForExternalEventAction, execute_cb=self.execute_cb, auto_start = False)
+        self._as.start()
+      
+    def execute_cb(self, goal):
+        
+        # append the seeds to give user feedback
+        self._feedback.sequence = []
+        self._feedback.sequence.append(0)
+        self._feedback.sequence.append(1)
+        
+        rospy.loginfo('%s: Executing, creating WaitForExternalEvent sequence with inputText %s with seeds %i, %i' % (self._action_name, goal.inputText, self._feedback.sequence[0], self._feedback.sequence[1]))
+        
+        # start executing the action
+        #success = fibonacci_example(self, success)
+        success = qbo_facedetection(goal.inputText)
+          
+        if success:
+            self._result.isOK = success
+            rospy.loginfo('%s: Succeeded' % self._action_name)
+            self._as.set_succeeded(self._result)
+    
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+# GraphicalUserInteraction
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+class GraphicalUserInteraction(object):
+    
+    _feedback = robogenqbo.msg.GraphicalUserInteractionFeedback() #create feedback message
+    _result = robogenqbo.msg.GraphicalUserInteractionResult() #create result message
+
+    def __init__(self, name):
+        self._action_name = name
+        self._as = actionlib.SimpleActionServer(self._action_name, robogenqbo.msg.GraphicalUserInteractionAction, execute_cb=self.execute_cb, auto_start = False)
+        self._as.start()
+      
+    def execute_cb(self, goal):
+        
+        # append the seeds to give user feedback
+        self._feedback.sequence = []
+        self._feedback.sequence.append(0)
+        self._feedback.sequence.append(1)
+        
+        rospy.loginfo('%s: Executing, creating GraphicalUserInteraction sequence with outputMessage %s with seeds %i, %i' % (self._action_name, goal.outputMessage, self._feedback.sequence[0], self._feedback.sequence[1]))
+        
+        # start executing the action
+        #success = fibonacci_example(self, success)
+        success = qbo_facialexpression(goal.outputMessage)
+          
+        if success:
+            self._result.isOK = success
+            rospy.loginfo('%s: Succeeded' % self._action_name)
+            self._as.set_succeeded(self._result)
+
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
 # GetData
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 class GetData(object):
@@ -199,7 +301,7 @@ class SetData(object):
             self._result.isOK = success
             rospy.loginfo('%s: Succeeded' % self._action_name)
             self._as.set_succeeded(self._result)
-     
+
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 # main function
 #------------------------------------------------------------------------------------------------------------------------------------------------------------	 
@@ -207,8 +309,11 @@ if __name__ == '__main__':
     rospy.init_node('qbo')
     server1 = VoiceOutput('VoiceOutput')
     server2 = WaitForUserInput('WaitForUserInput')
-    server3 = GetData('GetData')
-    server4 = SetData('SetData')
+    server3 = MoveToLocation('MoveToLocation')
+    server4 = WaitForExternalEvent('WaitForExternalEvent')
+    server5 = GraphicalUserInteraction('GraphicalUserInteraction')
+    server6 = GetData('GetData')
+    server7 = SetData('SetData')
     rospy.spin()
 	
 	

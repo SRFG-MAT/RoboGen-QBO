@@ -1,0 +1,8 @@
+#goal definition
+char[] location
+---
+#result definition
+bool isOK
+---
+#feedback
+int32[] sequence

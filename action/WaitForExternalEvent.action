@@ -1,0 +1,8 @@
+#goal definition
+char[] inputText
+---
+#result definition
+bool isOK
+---
+#feedback
+int32[] sequence
