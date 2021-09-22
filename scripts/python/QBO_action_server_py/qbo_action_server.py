@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-
+import os, sys, time
 import rospy
 import actionlib
 import robogenqbo.msg
 
-import os, sys, time
+# audio capabilities
 sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/EmotionAudio/')
 import Processing_Audio
 import Various_Functions
@@ -13,35 +13,29 @@ import Various_Functions
 sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/MyQBOSettings')
 import SettingsReader
 
-#------------------------------------------------------------------------------------------------------------------------------------------------------------
-# helper function: fibonacci_example
-#------------------------------------------------------------------------------------------------------------------------------------------------------------
-def fibonacci_example(self):
-    
-    r = rospy.Rate(1)
-    success = True
-    
-    for i in range(1, goal.order):
-        # check that preempt has not been requested by the client
-        if self._as.is_preempt_requested():
-            rospy.loginfo('%s: Preempted' % self._action_name)
-            self._as.set_preempted()
-            success = False
-            break
-            
-        self._feedback.sequence.append(self._feedback.sequence[i] + self._feedback.sequence[i-1])           
-        self._as.publish_feedback(self._feedback) # publish the feedback 
-        r.sleep() # this step is not necessary, the sequence is computed at 1 Hz for demonstration purposes
-    
-    return success
+#set up ports for communicating with servos
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/EmotionVideo/')
+sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Projects/ControlQBO')
+import serial
+import QboCmd
+from ControlHeadAsync import *
+
+port = '/dev/serial0'
+ser = serial.Serial(port, baudrate=115200, bytesize = serial.EIGHTBITS, stopbits = serial.STOPBITS_ONE, parity = serial.PARITY_NONE, rtscts = False, dsrdtr =False, timeout = 0)
+QBO = QboCmd.Controller(ser)
+QBO.SetNoseColor(QboCmd.nose_color_none) # init nose
+
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
-# helper function: qbo functions
+# helper function: speak
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 def qbo_speak(sentence):
     Various_Functions.qboSpeak(sentence)
     return True
     
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+# helper function: listen
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
 def qbo_listen():
     print ('Jetzt sprechen!')
     sentence = Processing_Audio.getAudioToText()
@@ -49,15 +43,80 @@ def qbo_listen():
     print ('Du hast gesagt: ' + sentence)
     return sentence
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+# helper function: move head
+#------------------------------------------------------------------------------------------------------------------------------------------------------------ 
 def qbo_movehead(position):
-    return True # TODO
-
+ 
+    if position == "up":           
+        print("Kopf nach oben bewegen") # print message hier nach oben weil nicht spiegelverkehrt!!
+        QBO.SetServo(2, 450 - 40, 100) #Axis,Angle,Speed
+        return True
+            
+    elif position == "right":   
+        print("Kopf nach rechts bewegen")
+        QBO.SetServo(1, 511 - 80, 100)
+        return True
+            
+    elif position == "down":            
+        print("Kopf nach unten bewegen") # print message hier nach unten weil nicht spiegelverkehrt!!
+        QBO.SetServo(2, 450 + 40, 100)
+        return True
+            
+    elif position == "left":        
+        print("Kopf nach links bewegen")
+        QBO.SetServo(1, 511 + 80, 100)
+        return True
+        
+    elif position == "start":      
+        print("Kopf in Startposition ausrichten!")
+        QBO.SetServo(1, 511, 100) #Axis,Angle,Speed
+        time.sleep(0.1)
+        QBO.SetServo(2, 450, 100) #Axis,Angle,Speed
+        return True
+        
+    else:
+        return False
+    
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+# helper function: speak
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
 def qbo_facedetection(inputFace):
     return True # TODO
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+# helper function: speak
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
 def qbo_facialexpression(inputFace):
-    return True # TODO
     
+    ret = True  
+    QBO.SetNoseColor(QboCmd.nose_color_blue_dark)
+
+    if inputFace == "fear":     
+        QBO.SetMouth(0x1f1f1f1f) # all leds on
+    elif inputFace == "happy":
+        QBO.SetMouth(0x110e0000) #smile
+    elif inputFace == "neutral":
+        QBO.SetMouth(0x1f1f00) #serious
+    elif inputFace == "pain":
+        QBO.SetMouth(0x40e1f) #pyramide
+    elif inputFace == "sadness":
+        QBO.SetMouth(0x0e1100) #sad
+    elif inputFace == "surprise":
+        QBO.SetMouth(0x1f1b151f) #oval
+    else:
+        QBO.SetMouth(0x1b1f0e04) #love
+        ret = False
+    
+    time.sleep(5)
+    QBO.SetMouth(0x00000000) # all leds off
+    QBO.SetNoseColor(QboCmd.nose_color_none) 
+    
+    return ret # TODO
+    
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+# helper function: write a setting
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
 def qbo_write_setting(setting, value):
     
     if (setting == 'robotName'):
@@ -72,6 +131,9 @@ def qbo_write_setting(setting, value):
         return 'Error: Unknown setting'
         return False
     
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+# helper function: read a setting
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
 def qbo_read_setting(setting):
     
     if (setting == 'robotName'): 
@@ -82,6 +144,7 @@ def qbo_read_setting(setting):
     
     else:
         return 'Error: Unknown setting'
+
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 # VoiceOutput
@@ -306,6 +369,7 @@ class SetData(object):
 # main function
 #------------------------------------------------------------------------------------------------------------------------------------------------------------	 
 if __name__ == '__main__':
+    
     rospy.init_node('qbo')
     server1 = VoiceOutput('VoiceOutput')
     server2 = WaitForUserInput('WaitForUserInput')

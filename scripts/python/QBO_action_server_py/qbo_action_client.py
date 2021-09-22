@@ -46,7 +46,7 @@ def qbo_request_MoveToLocation():
 
     client = actionlib.SimpleActionClient('MoveToLocation', robogenqbo.msg.MoveToLocationAction) # Creates SimpleActionClient with MoveToLocationAction action type
     client.wait_for_server() # Waits until the action server has started up and started listening for goals
-    goal = robogenqbo.msg.MoveToLocationGoal(location=b'oben') # Creates a goal to send to the action server
+    goal = robogenqbo.msg.MoveToLocationGoal(location=b'right') # Creates a goal to send to the action server
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
@@ -59,7 +59,7 @@ def qbo_request_WaitForExternalEvent():
 
     client = actionlib.SimpleActionClient('WaitForExternalEvent', robogenqbo.msg.WaitForExternalEventAction) # Creates SimpleActionClient WaitForExternalEventAction action type
     client.wait_for_server() # Waits until the action server has started up and started listening for goals
-    goal = robogenqbo.msg.WaitForExternalEventGoal(inputText=b'smile') # Creates a goal to send to the action server
+    goal = robogenqbo.msg.WaitForExternalEventGoal(inputText=b'happy') # Creates a goal to send to the action server
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
@@ -72,7 +72,7 @@ def qbo_request_GraphicalUserInteraction():
 
     client = actionlib.SimpleActionClient('GraphicalUserInteraction', robogenqbo.msg.GraphicalUserInteractionAction) # Creates SimpleActionClient with GraphicalUserInteractionAction action type
     client.wait_for_server() # Waits until the action server has started up and started listening for goals
-    goal = robogenqbo.msg.GraphicalUserInteractionGoal(outputMessage=b'smile') # Creates a goal to send to the action server
+    goal = robogenqbo.msg.GraphicalUserInteractionGoal(outputMessage=b'happy') # Creates a goal to send to the action server
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
