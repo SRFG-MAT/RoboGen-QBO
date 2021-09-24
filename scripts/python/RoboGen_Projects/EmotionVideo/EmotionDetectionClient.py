@@ -143,7 +143,8 @@ def analyzeFramesForEmotion(terminationEmotion):
                 if emotion == terminationEmotion :
                     print("--------------------------")
                     print("Terminal Emotion Reached: \nYou may safely close the camera now by pressing Q in the CV2 view") 
-                    print("--------------------------") 
+                    print("--------------------------")
+                    worker_thread.join() # wait for q-button pressed here before leaving to avoid daemon process of cv2-application
                     break
             
             else:
