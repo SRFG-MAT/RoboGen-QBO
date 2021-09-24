@@ -9,6 +9,7 @@ import requests
 import base64
 import pickle
 import json
+import os
 
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -112,46 +113,63 @@ def setQBOHeadPos(camCode, serverDown):
 # -------------------------------------------------------------------------------------------
 # keep looping until worker dies and send camera frames to python backend service
 # -------------------------------------------------------------------------------------------
-worker_thread = threading.Thread(target=controlQBOHead, args=("Thread-AsyncControl", vs, ser, QBO))
-worker_thread.start()
-
-emotion = ""
-camCode = [0, 0]
-
-while worker_thread.is_alive():  
+def analyzeFramesForEmotion(terminationEmotion):
     
-    ret, frame = vs.read()
+    worker_thread = threading.Thread(target=controlQBOHead, args=("Thread-AsyncControl", vs, ser, QBO))
+    worker_thread.start()
 
-    # send request to python backend server 
-    try:     
-        r = requests.post('https://power2dm.salzburgresearch.at/robogen/FaceDetection/AnalyzeFrameForEmotion', timeout=5, verify=False, json=im2json(frame))
-        headers = {'Content-type': 'application/json'}      
+    emotion = ""
+    camCode = [0, 0]
+
+    while worker_thread.is_alive():  
+    
+        ret, frame = vs.read()
+
+        # send request to python backend server 
+        try:     
+            r = requests.post('https://power2dm.salzburgresearch.at/robogen/FaceDetection/AnalyzeFrameForEmotion', timeout=5, verify=False, json=im2json(frame))
+            headers = {'Content-type': 'application/json'}      
             
-        if r.ok:
-            emotion, strPos = r.content.split("-")
-            camCode = ast.literal_eval(strPos)
+            if r.ok:
+                emotion, strPos = r.content.split("-")
+                camCode = ast.literal_eval(strPos)
             
-            ##print("--------------------------")         
-            ##print("Erkannte Emotion: " + emotion)
-            ##print("Position des Gesichtes ist: " + strPos)
-            ##print("--------------------------")                          
+                print("--------------------------")         
+                print("Detected Emotion: " + emotion)
+                print("Position of face is: " + strPos)
+                print("--------------------------")
+                
+                # termination condition for loop
+                if emotion == terminationEmotion :
+                    print("--------------------------")
+                    print("Terminal Emotion Reached: \nYou may safely close the camera now by pressing Q in the CV2 view") 
+                    print("--------------------------") 
+                    break
             
-        else:
-            print("--------------------------")
-            print("Fehler bei Server-Antwort: " + str(r.status_code))
-            print("--------------------------")
+            else:
+                print("--------------------------")
+                print("Fehler bei Server-Antwort: " + str(r.status_code))
+                print("--------------------------")
             
-        # set mouth, nose and headPos
-        setQBOMouth(emotion, not r.ok) # set mouth
-        time.sleep(0.1) # wait for queue
+            # set mouth, nose and headPos
+            setQBOMouth(emotion, not r.ok) # set mouth
+            time.sleep(0.1) # wait for queue
         
-        setQBONose(camCode, not r.ok) # set nose
-        time.sleep(0.1) # wait for queue
+            setQBONose(camCode, not r.ok) # set nose
+            time.sleep(0.1) # wait for queue
         
-	setQBOHeadPos(camCode, not r.ok) # set head position, dont sleep, will take long enough..
+            setQBOHeadPos(camCode, not r.ok) # set head position, dont sleep, will take long enough..
 	
                     
-    except requests.exceptions.RequestException as e:
-        print e
+        except requests.exceptions.RequestException as e:
+            print e
+        
+#------------------------------------------------------------------------------------------------------------------------------------------------------------
+# main function
+#------------------------------------------------------------------------------------------------------------------------------------------------------------	 
+if __name__ == '__main__':
+    
+    analyzeFramesForEmotion("") # no terminal emotion -> never stop
+    
     
     

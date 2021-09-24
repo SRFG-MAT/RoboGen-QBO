@@ -19,6 +19,7 @@ sys.path.append('/opt/QBO/catkin_ws/src/RoboGen-QBO/scripts/python/RoboGen_Proje
 import serial
 import QboCmd
 from ControlHeadAsync import *
+from EmotionDetectionClient import *
 
 port = '/dev/serial0'
 ser = serial.Serial(port, baudrate=115200, bytesize = serial.EIGHTBITS, stopbits = serial.STOPBITS_ONE, parity = serial.PARITY_NONE, rtscts = False, dsrdtr =False, timeout = 0)
@@ -82,6 +83,8 @@ def qbo_movehead(position):
 # helper function: speak
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
 def qbo_facedetection(inputFace):
+    
+    analyzeFramesForEmotion(inputFace) # stop on seeing input face
     return True # TODO
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -59,7 +59,7 @@ def qbo_request_WaitForExternalEvent():
 
     client = actionlib.SimpleActionClient('WaitForExternalEvent', robogenqbo.msg.WaitForExternalEventAction) # Creates SimpleActionClient WaitForExternalEventAction action type
     client.wait_for_server() # Waits until the action server has started up and started listening for goals
-    goal = robogenqbo.msg.WaitForExternalEventGoal(inputText=b'happy') # Creates a goal to send to the action server
+    goal = robogenqbo.msg.WaitForExternalEventGoal(inputText=b'fear') # Creates a goal to send to the action server
     client.send_goal(goal) # Sends the goal to the action server
     client.wait_for_result() # Waits for the server to finish performing the action
     
