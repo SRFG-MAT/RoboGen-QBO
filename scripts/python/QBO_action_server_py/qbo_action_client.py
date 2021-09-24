@@ -170,6 +170,13 @@ if __name__ == '__main__':
             print ('----------------------------------')
             print("Result: " + str(result.isOK))
             print ('----------------------------------')
+          
+        # shutdown node
+        #print ('----------------------------------')
+        #print ('All requests done: Now trying to shutdown everything...')
+        #print ('----------------------------------')
+        #rospy.signal_shutdown("Finished with success!")
+        #rospy.spin()
              
     except rospy.ROSInterruptException:
         print("program interrupted before completion")
