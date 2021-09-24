@@ -10,7 +10,6 @@ d = generate_distutils_setup(
     packages=['robogenqbo'], #same as name in package.xml!!
     #install_requires=['rospy', 'actionlib'], #external packages as dependencies are already defined in package.xml
     scripts=[
-        'scripts/python/actionlib_tutorials_py',
         'scripts/python/QBO_action_server_py',
         'scripts/python/RoboGen_Projects'
     ] 
