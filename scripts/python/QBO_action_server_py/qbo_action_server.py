@@ -111,10 +111,6 @@ def qbo_facialexpression(inputFace):
         QBO.SetMouth(0x1b1f0e04) #love
         ret = False
     
-    time.sleep(5)
-    QBO.SetMouth(0x00000000) # all leds off
-    QBO.SetNoseColor(QboCmd.nose_color_none) 
-    
     return ret # TODO
     
 #------------------------------------------------------------------------------------------------------------------------------------------------------------
