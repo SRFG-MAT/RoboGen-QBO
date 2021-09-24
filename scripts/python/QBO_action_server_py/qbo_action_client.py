@@ -114,61 +114,56 @@ if __name__ == '__main__':
         result = qbo_request_VoiceOutput()
         if result:
             print ('----------------------------------')
-            print("Result: " + str(result.isOK))
+            print("Action was: VoiceOutput")
+            print("Result was: " + str(result.isOK))
             print ('----------------------------------')
-        
-        time.sleep(5) # wait for 5 seconds
         
         # request WaitForUserInput
         result = qbo_request_WaitForUserInput()
         if result:
             print ('----------------------------------')
-            print("Result:", ', '.join([str(n) for n in result.returnMessage.decode("utf-8")]))
+            print("Action was: WaitForUserInput")
+            print("Result was:", ', '.join([str(n) for n in result.returnMessage.decode("utf-8")]))
             print ('----------------------------------')
-        
-        time.sleep(5) # wait for 5 seconds
         
         # request MoveToLocation
         result = qbo_request_MoveToLocation()
         if result:
             print ('----------------------------------')
-            print("Result: " + str(result.isOK))
+            print("Action was: MoveToLocation")
+            print("Result was: " + str(result.isOK))
             print ('----------------------------------')
-        
-        time.sleep(5) # wait for 5 seconds
         
         # request WaitForExternalEvent
         result = qbo_request_WaitForExternalEvent()
         if result:
             print ('----------------------------------')
-            print("Result: " + str(result.isOK))
+            print("Action was: WaitForExternalEvent")
+            print("Result was: " + str(result.isOK))
             print ('----------------------------------')
-        
-        time.sleep(5) # wait for 5 seconds
         
         # request GraphicalUserInteraction
         result = qbo_request_GraphicalUserInteraction()
         if result:
             print ('----------------------------------')
-            print("Result: " + str(result.isOK))
+            print("Action was: GraphicalUserInteraction")
+            print("Result was: " + str(result.isOK))
             print ('----------------------------------')
-        
-        time.sleep(5) # wait for 5 seconds
         
         # request GetData
         result = qbo_request_GetData()
         if result:
             print ('----------------------------------')
-            print("Result:", ', '.join([str(n) for n in result.data.decode("utf-8")]))
+            print("Action was: GetData")
+            print("Result was:", ', '.join([str(n) for n in result.data.decode("utf-8")]))
             print ('----------------------------------')
-        
-        time.sleep(5) # wait for 5 seconds
         
         # request SetData
         result = qbo_request_SetData()
         if result:
             print ('----------------------------------')
-            print("Result: " + str(result.isOK))
+            print("Action was: SetData")
+            print("Result was: " + str(result.isOK))
             print ('----------------------------------')
           
         # shutdown node
