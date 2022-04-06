@@ -4,7 +4,7 @@ import requests
 import json
 import base64
 
-calendar_endpoint = 'https://api.jsonstorage.net/v1/json/547520b2-1b42-4451-86df-dcff1e6d3d8c'
+calendar_endpoint = 'https://api.jsonstorage.net/v1/json/00000000-0000-0000-0000-000000000000/547520b2-1b42-4451-86df-dcff1e6d3d8c'
 add_entries = True
 
 # -------------------------------------------------------------------------------------------

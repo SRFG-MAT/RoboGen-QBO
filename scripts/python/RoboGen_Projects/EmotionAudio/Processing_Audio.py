@@ -8,7 +8,7 @@ from ctypes import *
 import pyaudio
 
 # speech-to-text source, can be "Google" or "IBM"
-stt_src = "Google"
+stt_src = "IBM"
 # IBM keys v1
 ibm_api_key = "qHTNcaz_aCi4vf-uqnCSMwc1Gn7Yl3PB-bWQ-lM47TAj"
 ibm_url = "https://api.eu-de.speech-to-text.watson.cloud.ibm.com/instances/2c390da0-ee03-4b16-af63-f6a9547335ce/v1/recognize?model=de-DE_BroadbandModel"
@@ -58,11 +58,10 @@ def getAudioToText():
             if (stt_src == "Google"):
                 sentence = recognizer.recognize_google(audio, language="de-AT")
             elif (stt_src == "IBM"):
-                ibm_headers = {"Content-Type": "application/json"}
+                ibm_headers = {"Content-Type": "application/octet_-stream"}
                 ibm_auth = ("apikey", ibm_api_key)
-                # Request not yet working - need to figure out how to correctly pass audio data to the IBM endpoint
-                resp = requests.post(ibm_url, headers=ibm_headers, auth=ibm_auth, data=audio)
-                sentence = resp.results[0].alternatives[0].transcript
+                resp = requests.post(ibm_url, headers=ibm_headers, auth=ibm_auth, data=audio.get_wav_data())
+                sentence = resp.json()["results"][0]["alternatives"][0]["transcript"]
             special_char_map = {ord(u'ä'):u'ae', ord(u'Ä'):u'Ae', ord(u'ü'):u'ue', ord(u'Ü'):u'Ue', ord(u'ö'):u'oe', ord(u'Ö'):u'Oe', ord(u'ß'):u'ss'}
             sentence_norm = sentence.translate(special_char_map)
             print("Die Sprachaufzeichnung glaubt du sagst: " + sentence_norm)            

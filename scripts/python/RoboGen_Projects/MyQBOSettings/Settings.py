@@ -9,7 +9,7 @@ import json
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-settings_endpoint = 'https://api.jsonstorage.net/v1/json/f8d89bf8-6826-4434-9ca1-edd60405bf6d'
+settings_endpoint = 'https://api.jsonstorage.net/v1/json/00000000-0000-0000-0000-000000000000/f8d89bf8-6826-4434-9ca1-edd60405bf6d'
 
 # -------------------------------------------------------------------------------------------
 # Settings Class holds internal json representation

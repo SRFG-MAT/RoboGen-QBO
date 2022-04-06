@@ -4,7 +4,7 @@ import requests
 import json
 import base64
 
-food_endpoint = 'https://api.jsonstorage.net/v1/json/324bf60d-07e0-4098-9f4c-5fc40486e1c3'
+food_endpoint = 'https://api.jsonstorage.net/v1/json/00000000-0000-0000-0000-000000000000/324bf60d-07e0-4098-9f4c-5fc40486e1c3'
 add_entries = True
 
 # -------------------------------------------------------------------------------------------
