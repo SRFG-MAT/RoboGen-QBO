@@ -58,7 +58,7 @@ def getAudioToText():
             if (stt_src == "Google"):
                 sentence = recognizer.recognize_google(audio, language="de-AT")
             elif (stt_src == "IBM"):
-                ibm_headers = {"Content-Type": "application/octet_-stream"}
+                ibm_headers = {"Content-Type": "application/octet-stream"}
                 ibm_auth = ("apikey", ibm_api_key)
                 resp = requests.post(ibm_url, headers=ibm_headers, auth=ibm_auth, data=audio.get_wav_data())
                 sentence = resp.json()["results"][0]["alternatives"][0]["transcript"]
